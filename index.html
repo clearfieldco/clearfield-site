@@ -94,7 +94,7 @@
       "name": "What are Clearfield Comps?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Comps are the real profit and loss statements (P&Ls) of two or three businesses like yours, matched on niche, business model and monthly revenue. We line them up side by side, with every line shown as a share of revenue, and review your website and strategy against them."
+        "text": "Comps are the real profit and loss statements (P&Ls) of two or three businesses like yours, matched on niche, business model and monthly revenue. We line them up side by side, with every line shown in dollars and as a share of sales, and review your website and strategy against them."
       }
     },
     {
@@ -197,6 +197,7 @@ a{color:#011543}a:hover{color:#18345C}
 .thead{flex-direction:column;gap:4px;align-items:flex-start !important}
 .tsplit{flex-direction:column}
 .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.os{display:none}
 .t th,.t td{padding:7px 6px !important}
 .t td:first-child{white-space:normal !important;min-width:96px}
 .pin{flex-direction:column;align-items:stretch;gap:16px;padding-top:22px !important;padding-bottom:22px !important}
@@ -349,23 +350,24 @@ section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus
 
 <div style="display: flex; flex-wrap: wrap; gap: 56px 72px; align-items: center">
 <div style="flex: 1 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE4EF; border-radius: 6px; box-shadow: 0 24px 60px rgba(1, 21, 67, 0.08); overflow: hidden">
-<div style="background: #011543; height: 30px; display: flex; align-items: center; padding: 0 14px" class="lb"><span style="color: #FFFFFF; font-size: 10px">Comp sheet · % of revenue</span></div>
+<div style="background: #011543; height: 30px; display: flex; align-items: center; padding: 0 14px" class="lb"><span style="color: #FFFFFF; font-size: 10px">Comp sheet · A typical month</span></div>
 <div class="tscroll" style="padding: 8px 10px 14px">
 <table class="t n">
-<thead><tr><th>Line</th><th>Comp A</th><th>Comp B</th><th>Comp C</th></tr></thead>
+<thead><tr><th></th><th>Business A</th><th>Business B</th><th>Business C</th></tr></thead>
 <tbody>
-<tr><td>Product and shipping</td><td>38.8</td><td>46.0</td><td>41.2</td></tr>
-<tr><td>Advertising</td><td>16.4</td><td>27.5</td><td>21.0</td></tr>
-<tr><td>Payroll, excluding owner</td><td>11.0</td><td>6.2</td><td>9.4</td></tr>
-<tr><td>Software and fees</td><td>4.1</td><td>5.9</td><td>4.6</td></tr>
-<tr><td style="font-weight: 700; color: #011543">Net profit</td><td style="font-weight: 700; color: #276749">22.3</td><td style="font-weight: 700; color: #9B3B32">9.1</td><td style="font-weight: 700">17.6</td></tr>
+<tr><td>Sales</td><td style="color: #17243A">$60,000<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">100.0%<span class="os"> of sales</span></span></td><td style="color: #17243A">$75,000<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">100.0%<span class="os"> of sales</span></span></td><td style="color: #17243A">$90,000<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">100.0%<span class="os"> of sales</span></span></td></tr>
+<tr><td>Cost of goods sold</td><td style="color: #276749">$23,280<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">38.8%<span class="os"> of sales</span></span></td><td style="color: #9B3B32">$34,500<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">46.0%<span class="os"> of sales</span></span></td><td style="color: #17243A">$37,080<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">41.2%<span class="os"> of sales</span></span></td></tr>
+<tr><td>Advertising</td><td style="color: #276749">$9,840<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">16.4%<span class="os"> of sales</span></span></td><td style="color: #9B3B32">$20,630<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">27.5%<span class="os"> of sales</span></span></td><td style="color: #17243A">$18,900<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">21.0%<span class="os"> of sales</span></span></td></tr>
+<tr><td>Payroll</td><td style="color: #17243A">$6,600<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">11.0%<span class="os"> of sales</span></span></td><td style="color: #17243A">$4,650<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">6.2%<span class="os"> of sales</span></span></td><td style="color: #17243A">$8,460<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">9.4%<span class="os"> of sales</span></span></td></tr>
+<tr><td>Fees and software</td><td style="color: #276749">$2,460<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">4.1%<span class="os"> of sales</span></span></td><td style="color: #9B3B32">$4,430<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">5.9%<span class="os"> of sales</span></span></td><td style="color: #17243A">$4,140<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">4.6%<span class="os"> of sales</span></span></td></tr>
+<tr style="background: #F5F7FA"><td style="font-weight: 700; color: #011543">Net profit</td><td style="color: #276749; font-weight: 700">$13,380<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">22.3%<span class="os"> of sales</span></span></td><td style="color: #9B3B32; font-weight: 700">$6,830<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">9.1%<span class="os"> of sales</span></span></td><td style="color: #17243A; font-weight: 700">$15,840<span style="display: block; font-size: 11px; color: #536985; font-weight: 400">17.6%<span class="os"> of sales</span></span></td></tr>
 </tbody>
 </table>
 </div>
 </div>
 <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
 <h3 class="s" style="margin: 0; font-size: 34px; line-height: 40px; color: #011543">Real P&amp;Ls, side by side</h3>
-<p style="margin: 0; font-size: 17px; line-height: 28px">Revenue, product cost, advertising, payroll, fees and profit for each comp, all as a share of revenue. Line them up against your own books in minutes.</p>
+<p style="margin: 0; font-size: 17px; line-height: 28px">Sales, product costs, advertising, payroll and profit for each business, in dollars a month with the share of sales underneath. Laid out like the P&amp;L in your QuickBooks, so you can hold it up against your own books.</p>
 </div>
 </div>
 
@@ -379,7 +381,7 @@ section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus
 <div style="padding: 6px 18px">
 <div style="display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #F5F7FA"><span class="n" style="color: #536985; font-size: 13px">01</span><div style="display: flex; flex-direction: column; gap: 3px"><div style="font-size: 14px; font-weight: 700; color: #011543">The most profitable comp spends the least on ads</div><div style="font-size: 13px; line-height: 19px; color: #536985">Nearly half its revenue is subscription. Repeat customers cost far less to reach.</div></div></div>
 <div style="display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #F5F7FA"><span class="n" style="color: #536985; font-size: 13px">02</span><div style="display: flex; flex-direction: column; gap: 3px"><div style="font-size: 14px; font-weight: 700; color: #011543">Growth on paid social left 9 cents on the dollar</div><div style="font-size: 13px; line-height: 19px; color: #536985">The highest ad spend and the highest product cost, together.</div></div></div>
-<div style="display: flex; gap: 14px; padding: 14px 0"><span class="n" style="color: #536985; font-size: 13px">03</span><div style="display: flex; flex-direction: column; gap: 3px"><div style="font-size: 14px; font-weight: 700; color: #011543">Wholesale steadied cash flow</div><div style="font-size: 13px; line-height: 19px; color: #536985">A third of volume sold wholesale. Lower margin per order, steadier months.</div></div></div>
+<div style="display: flex; gap: 14px; padding: 14px 0"><span class="n" style="color: #536985; font-size: 13px">03</span><div style="display: flex; flex-direction: column; gap: 3px"><div style="font-size: 14px; font-weight: 700; color: #011543">Wholesale steadied cash flow</div><div style="font-size: 13px; line-height: 19px; color: #536985">A third of volume sold wholesale. Less profit per order, but steadier months.</div></div></div>
 </div>
 </div>
 </div>
@@ -396,6 +398,18 @@ section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus
 <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
 <h3 class="s" style="margin: 0; font-size: 34px; line-height: 40px; color: #011543">Your site and strategy, reviewed</h3>
 <p style="margin: 0; font-size: 17px; line-height: 28px">We go through your website the way a buyer or investor would, and compare it to how your comps operate. You get a ranked list of concerns and bottlenecks, with the reason each one matters.</p>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap-reverse; gap: 56px 72px; align-items: center">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<h3 class="s" style="margin: 0; font-size: 34px; line-height: 40px; color: #011543">Try your own numbers</h3>
+<p style="margin: 0; font-size: 17px; line-height: 28px">Type in five numbers from your P&amp;L. You'll see right away where you spend more than businesses like yours, and how much more you could keep each month. Nothing you type is saved.</p>
+<a class="lk-n" href="/demo.html" data-demo="calculator" style="align-self: flex-start">See a Clearfield Comps demo</a>
+</div>
+<div style="flex: 1 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #DCE4EF; border-radius: 6px; box-shadow: 0 24px 60px rgba(1, 21, 67, 0.08); overflow: hidden">
+<div style="background: #011543; height: 30px; display: flex; align-items: center; padding: 0 14px" class="lb"><span style="color: #FFFFFF; font-size: 10px">Clearfield Comps · Try your numbers</span></div>
+<img src="/assets/calculator-demo.gif" width="960" height="580" loading="lazy" alt="Someone types their monthly sales, costs, advertising and payroll into the Clearfield Comps calculator. Dots show where they sit next to three similar businesses. Lowering advertising from $15,700 to $9,800 raises their monthly profit from $6,900 to $12,800." style="display: block; width: 100%; height: auto">
 </div>
 </div>
 </div>
@@ -495,7 +509,7 @@ section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus
 <div style="display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid #DCE4EF; flex-wrap: wrap"><dt class="dt" style="flex: 0 0 160px; font-weight: 700; color: #011543">Real</dt><dd style="margin: 0; flex: 1 1 260px">Every comp is an actual business with actual books. Nothing is modeled or averaged.</dd></div>
 <div style="display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid #DCE4EF; flex-wrap: wrap"><dt class="dt" style="flex: 0 0 160px; font-weight: 700; color: #011543">Current</dt><dd style="margin: 0; flex: 1 1 260px">P&amp;Ls cover the last 12 months.</dd></div>
 <div style="display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid #DCE4EF; flex-wrap: wrap"><dt class="dt" style="flex: 0 0 160px; font-weight: 700; color: #011543">Matched</dt><dd style="margin: 0; flex: 1 1 260px">Same niche, same business model, close to your revenue.</dd></div>
-<div style="display: flex; gap: 24px; padding: 20px 0; flex-wrap: wrap"><dt class="dt" style="flex: 0 0 160px; font-weight: 700; color: #011543">Anonymous</dt><dd style="margin: 0; flex: 1 1 260px">No names, locations or dates. Revenue shown as a range, every line as a share of revenue.</dd></div>
+<div style="display: flex; gap: 24px; padding: 20px 0; flex-wrap: wrap"><dt class="dt" style="flex: 0 0 160px; font-weight: 700; color: #011543">Anonymous</dt><dd style="margin: 0; flex: 1 1 260px">No names, locations or dates. Sales shown as a range, and every cost as a share of sales.</dd></div>
 </dl>
 </div>
 </section>
@@ -504,7 +518,7 @@ section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus
 <div class="px" style="max-width: 1240px; margin: 0 auto; padding: 120px 40px; display: flex; flex-wrap: wrap; gap: 40px 96px">
 <h2 class="s h2" style="margin: 0; flex: 1 1 360px; font-size: 44px; line-height: 50px; color: #011543">Questions</h2>
 <div style="flex: 1.4 1 520px; min-width: 0; border-bottom: 1px solid #DCE4EF">
-<details class="faq"><summary>What are Clearfield Comps?</summary><p>Comps are the real profit and loss statements (P&amp;Ls) of two or three businesses like yours, matched on niche, business model and monthly revenue. We line them up side by side, with every line shown as a share of revenue, and review your website and strategy against them.</p></details>
+<details class="faq"><summary>What are Clearfield Comps?</summary><p>Comps are the real profit and loss statements (P&amp;Ls) of two or three businesses like yours, matched on niche, business model and monthly revenue. We line them up side by side, with every line shown in dollars and as a share of sales, and review your website and strategy against them.</p></details>
 <details class="faq"><summary>What do you need from me?</summary><p>Only your website. No financials, no calls. If you choose Comps + Your Numbers, you also send us your P&amp;L so we can place it next to your comps.</p></details>
 <details class="faq"><summary>Where do the comps come from?</summary><p>From the actual financials of businesses that have sold or are listed for sale, sourced from licensed data and partners who share with permission. Every comp is anonymized: no names, locations or dates, and revenue is shown as a range.</p></details>
 <details class="faq"><summary>Who is it for?</summary><p>Owners and operators doing $10K to $100K a month in revenue who&#x27;ve been heads-down in their own business, not swapping P&amp;Ls with a network. We&#x27;re your network: we show you what&#x27;s working outside your circle.</p></details>
@@ -519,7 +533,7 @@ section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus
 <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
 <div class="lb" style="color: #DCE4EF">Not ready to order?</div>
 <h2 class="s h2" style="margin: 0; font-size: 40px; line-height: 46px; color: #FFFFFF">Try Clearfield Comps first.</h2>
-<p style="margin: 0; font-size: 17px; line-height: 28px; color: #DCE4EF; max-width: 640px">Open three example comps, line them up side by side, and put your own numbers next to them to see where your margin goes. Tell us a little about your business and we'll email you a private link.</p>
+<p style="margin: 0; font-size: 17px; line-height: 28px; color: #DCE4EF; max-width: 640px">Open three example comps, line them up side by side, and put your own numbers next to them to see where your money goes. Tell us a little about your business and we'll email you a private link.</p>
 </div>
 <a class="btn btn-w" href="/demo.html" data-demo="band">Get the free demo</a>
 </div>
@@ -620,7 +634,7 @@ section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus
 <div class="fld"><label for="d-niche">What you sell</label><select id="d-niche" name="niche" required><option value="">Choose one</option><option>E-commerce brand (DTC)</option><option>Subscription product</option><option>Amazon or marketplace seller</option><option>Home or local services</option><option>Agency or B2B services</option><option>Software or SaaS</option><option>Food and beverage</option><option>Other</option></select></div>
 <div class="fld"><label for="d-rev">Monthly revenue</label><select id="d-rev" name="monthly_revenue" required><option value="">Choose one</option><option>Under $10K</option><option>$10K to $25K</option><option>$25K to $50K</option><option>$50K to $100K</option><option>Over $100K</option><option>Prefer not to say</option></select></div>
 <div class="fld"><label for="d-role">Your role</label><select id="d-role" name="role" required><option value="">Choose one</option><option>Owner or founder</option><option>Operator or GM</option><option>Planning to buy a business</option><option>Other</option></select></div>
-<div class="fld"><label for="d-goal">What do you most want to compare? (optional)</label><select id="d-goal" name="goal"><option>Just exploring</option><option>Margins and profit</option><option>Ad spend and marketing</option><option>Product and shipping costs</option><option>Team and payroll</option><option>What my business could be worth</option></select></div>
+<div class="fld"><label for="d-goal">What do you most want to compare? (optional)</label><select id="d-goal" name="goal"><option>Just exploring</option><option>Profit</option><option>Ad spend and marketing</option><option>Product and shipping costs</option><option>Team and payroll</option><option>What my business could be worth</option></select></div>
 <div class="dfoot">
 <p>We'll email you a private link to the demo. You'll also get occasional Clearfield notes on what profitable businesses do differently. Unsubscribe anytime. <a href="/privacy.html">Privacy notice</a></p>
 <button type="submit" class="btn btn-n">Email me the demo</button>
