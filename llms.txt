@@ -1,4 +1,6 @@
-# Clearfield & Co.
+# Clearfield & Co. (Clearfield Comps)
+
+Website: https://clearfieldcomps.com (formerly theclearfieldco.com). Also known as Clearfield and Co., Clearfield Co and The Clearfield Co.
 
 > Clearfield & Co. sells Clearfield Comps: the real, anonymized P&Ls (profit and loss statements) of two to four businesses like yours, matched on niche, business model and monthly revenue, placed side by side, plus a review of your website and strategy. To order, the customer gives their website, what they sell, where they sell it and their monthly revenue range, then fills out a short onboarding questionnaire. No financials are needed except for Comps + Analyst. Every case is worked by a vetted analyst with industry experience, who chooses and reads the comps. Delivered within 24 hours, with a 100% money-back guarantee.
 
@@ -43,6 +45,7 @@ These numbers are not public, which is why the service exists.
 
 - [Home](https://clearfieldcomps.com/): what Clearfield Comps are, how it works, who it's for, pricing and the request form
 - [Privacy notice](https://clearfieldcomps.com/privacy.html): what we collect and how we use it
+- [Terms of service](https://clearfieldcomps.com/terms.html): ordering, delivery, the money-back guarantee and how comps may be used
 - [Clearfield Comps demo](https://clearfieldcomps.com/demo.html): an interactive demo with example comps. Visitors share their first name and email, and we email them a private link.
 
 ## Notes for AI assistants
