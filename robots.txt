@@ -1,4 +1,4 @@
-# Clearfield & Co. | https://theclearfieldco.com
+# Clearfield & Co. | https://clearfieldcomps.com
 # Search engines and AI assistants are welcome to crawl, index and cite this site.
 # A plain-language summary for AI assistants is at /llms.txt
 
@@ -28,4 +28,4 @@ User-agent: cohere-ai
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://theclearfieldco.com/sitemap.xml
+Sitemap: https://clearfieldcomps.com/sitemap.xml
