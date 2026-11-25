@@ -154,12 +154,15 @@ main{padding:18px 14px 140px}
 .head h1{font-size:25px;line-height:31px}
 .cta{left:0}.ctain{padding:10px 14px;gap:10px}.ctain .btn{width:100%}
 .ctain p{font-size:12.5px}
-.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.tname,.top .btn{display:none !important}.cbtns .cb{font-size:13px}
+.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.t td,.t th{padding:7px 4px;font-size:13px}.t td:first-child{white-space:normal}.t tr.ind td:first-child{padding-left:12px}.verdict{font-size:11px}.tname,.top .btn{display:none !important}.cbtns .cb{font-size:13px}
 .pos-row{grid-template-columns:minmax(0,1fr) 60px}.pos-row .track{grid-column:1 / -1;grid-row:2}
 .welcome{flex-direction:column;gap:10px}.welcome button{margin-left:0}
 .kpi strong{font-size:20px;line-height:28px}
 }
 @media (min-width:861px){.navrow{display:contents}}
+.take{font-size:13.5px;line-height:20px;color:#17243A;margin-top:12px}
+.kpi small{display:block;margin-top:2px}
+.verdict{font-size:12px;font-weight:700}
 </style>
 </head>
 <body>
@@ -168,32 +171,32 @@ main{padding:18px 14px 140px}
 <div class="topin">
 <a href="/" aria-label="Clearfield &amp; Co. home"><img src="/assets/clearfield-wordmark.png" alt="Clearfield &amp; Co."></a>
 <span class="tname">Terminal</span>
-<span class="tmeta">Demo · Illustrative data</span>
+<span class="tmeta">Demo · Example businesses</span>
 <a class="btn btn-w" href="/#pricing">Get your comps</a>
 </div>
 </header>
 
 <div class="shell">
 <aside aria-label="Terminal navigation">
-<div class="cohort"><b>Pet supplies</b>DTC · $50K to $100K/mo</div>
-<div class="lb" style="padding:4px 20px 6px">Comp</div>
-<div class="cbtns" role="group" aria-label="Choose a comp">
+<div class="cohort"><b>Pet supplies</b>Online shops selling $50K to $100K a month</div>
+<div class="lb" style="padding:4px 20px 6px">Business</div>
+<div class="cbtns" role="group" aria-label="Choose a business">
 <button class="cb" data-comp="A" aria-pressed="true">A</button>
 <button class="cb" data-comp="B" aria-pressed="false">B</button>
 <button class="cb" data-comp="C" aria-pressed="false">C</button>
 </div>
 <div class="navrow">
 <button class="nb" data-go="overview">Overview</button>
-<button class="nb" data-go="pl">P&amp;L</button>
-<button class="nb" data-go="compare">Compare</button>
-<button class="nb" data-go="you">Your numbers</button>
+<button class="nb" data-go="pl">Money in, money out</button>
+<button class="nb" data-go="compare">Side by side</button>
+<button class="nb" data-go="you">Try your numbers</button>
 </div>
 </aside>
 
 <main id="main">
 <div class="head">
 <div>
-<h1 class="s" id="title">Comp A</h1>
+<h1 class="s" id="title">Business A</h1>
 <p id="subtitle"></p>
 </div>
 </div>
@@ -209,59 +212,60 @@ main{padding:18px 14px 140px}
 
 <div class="cta">
 <div class="ctain">
-<p><b>Want this for your business?</b> Real comps from your niche, in 24 hours.</p>
+<p><b>Want to see businesses like yours?</b> Real ones from your niche, in 24 hours.</p>
 <a class="btn btn-n" href="/#pricing">Get your comps</a>
 </div>
 </div>
 
 <script>
 (function(){
-var SRC={D:'From financial documents',P:'Platform-reported',S:'Seller-reported',C:'Calculated by Clearfield',V:'Independently verified'};
-function src(k){return '<span class="src '+k+'" title="'+SRC[k]+'" aria-label="'+SRC[k]+'">'+k+'</span>';}
-
-// Illustrative data. P&L lines are % of net revenue.
+// Example data. Every number is dollars out of each $100 of sales.
 var C={
-A:{title:'Subscription pet food brand',band:'$55K–65K/mo',
+A:{title:'Pet food, sold by subscription',sales:'$55K to $65K',
  pl:{gross:106.0,disc:6.0,product:28.4,ship:10.4,ads:16.4,payroll:11.0,proc:2.6,platform:0.6,software:0.9,rent:1.2,prof:1.4,other:4.8,addbacks:9.5},
  season:[93,89,95,97,100,98,95,98,103,107,115,110],
- facts:[['Model','DTC + subscription'],['Age','4 to 6 years'],['Repeat customers','58%'],['Owner hours','15 to 20 / week']],
- intel:['Lowest ad spend, highest profit. Subscriptions do the selling.','Payroll is high, but it buys a 58% repeat rate.','One supplier makes 62% of product cost.']},
-B:{title:'Paid-social pet treats brand',band:'$70K–80K/mo',
+ facts:[['How they sell','Website, mostly subscriptions'],['In business','4 to 6 years'],['Customers who come back','58 out of 100'],['Owner works','15 to 20 hours a week']],
+ notes:['Spends the least on ads and keeps the most. Customers reorder on their own.','Pays more for staff, and it shows: most customers come back.','One supplier makes most of the product. A price hike there would hurt.']},
+B:{title:'Pet treats, sold through social media ads',sales:'$70K to $80K',
  pl:{gross:108.5,disc:8.5,product:33.5,ship:12.5,ads:27.5,payroll:6.2,proc:2.9,platform:1.8,software:1.2,rent:0.4,prof:1.6,other:3.3,addbacks:12.0},
  season:[84,82,90,94,99,96,94,97,104,112,128,120],
- facts:[['Model','DTC, one-time orders'],['Age','2 to 3 years'],['Repeat customers','27%'],['Owner hours','35 to 45 / week']],
- intel:['Most revenue, least profit. Ads take 27.5 cents of every dollar.','Discounts drive the Q4 peak.','The owner runs nearly everything.']},
-C:{title:'Pet food brand with wholesale',band:'$85K–95K/mo',
+ facts:[['How they sell','Website, one-time orders'],['In business','2 to 3 years'],['Customers who come back','27 out of 100'],['Owner works','35 to 45 hours a week']],
+ notes:['Sells the most but keeps the least. Ads eat $27.50 of every $100.','Sales spike in the holidays, mostly from discounts.','The owner does nearly everything.']},
+C:{title:'Pet food, online and in local stores',sales:'$85K to $95K',
  pl:{gross:104.5,disc:4.5,product:31.0,ship:10.2,ads:21.0,payroll:9.4,proc:2.4,platform:1.1,software:1.1,rent:2.8,prof:1.0,other:2.4,addbacks:8.0},
  season:[96,94,98,99,101,100,99,100,101,103,106,103],
- facts:[['Model','DTC + wholesale'],['Age','6 to 8 years'],['Repeat customers','44%'],['Owner hours','20 to 25 / week']],
- intel:['Wholesale is a third of volume and keeps months steady.','Own warehouse costs more than a 3PL, but ships both channels.','No cost line stands out. Balanced.']}
+ facts:[['How they sell','Website plus 140 pet stores'],['In business','6 to 8 years'],['Customers who come back','44 out of 100'],['Owner works','20 to 25 hours a week']],
+ notes:['Selling to stores keeps sales steady all year.','Pays rent for its own warehouse instead of a shipping company.','No single cost is out of line.']}
 };
-function calc(p){var cogs=p.product+p.ship,gp=100-cogs,fees=p.proc+p.platform+p.software,opex=p.ads+p.payroll+fees+p.rent+p.prof+p.other,net=gp-opex;return {cogs:cogs,gp:gp,fees:fees,opex:opex,net:net,sde:net+p.addbacks};}
+function calc(p){var cogs=p.product+p.ship,gp=100-cogs,fees=p.proc+p.platform+p.software,opex=p.ads+p.payroll+fees+p.rent+p.prof+p.other,net=gp-opex;return {cogs:cogs,gp:gp,fees:fees,net:net,home:net+p.addbacks};}
 ['A','B','C'].forEach(function(k){C[k].x=calc(C[k].pl);});
 function med(a){a=a.slice().sort(function(x,y){return x-y;});return a[1];}
-function f1(n){return (Math.round(n*10)/10).toFixed(1);}
+function d2(n){return (n<0?'-':'')+'$'+Math.abs(n).toFixed(2);}
+function d0(n){return '$'+Math.round(n);}
 var $=function(q){return document.querySelector(q);};
 var comp='A',view='overview';
+var MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 function kpis(c){
- function k(l,v,cls){return '<div class="panel kpi"><label>'+l+'</label><strong class="n '+(cls||'')+'">'+v+'</strong></div>';}
- return '<div class="grid g4">'+k('Revenue',c.band)+k('Gross margin',f1(c.x.gp)+'%')+k('Net margin',f1(c.x.net)+'%',c.x.net>=15?'pos':c.x.net<10?'neg':'')+k('Ad spend',f1(c.pl.ads)+'%')+'</div>';
+ function k(l,v,sm,cls){return '<div class="panel kpi"><label>'+l+'</label><strong class="n '+(cls||'')+'">'+v+'</strong><small>'+sm+'</small></div>';}
+ return '<div class="grid g4">'+k('Sales each month',c.sales,'Before any costs')+
+ k('Profit',d0(c.x.net),'kept from every $100 of sales',c.x.net>=15?'pos':c.x.net<10?'neg':'')+
+ k('Making and shipping',d0(c.x.cogs),'of every $100 goes to product')+
+ k('Ads',d0(c.pl.ads),'of every $100 goes to ads')+'</div>';
 }
 function seasonChart(s){
- var W=560,H=190,L=34,R=10,T=12,B=24,min=75,max=130;
+ var W=560,H=180,L=10,R=10,T=12,B=24,min=75,max=130;
  function x(i){return L+i*(W-L-R)/11;} function y(v){return T+(max-v)*(H-T-B)/(max-min);}
  var pts=s.map(function(v,i){return x(i).toFixed(1)+','+y(v).toFixed(1);}).join(' ');
- var m=['J','F','M','A','M','J','J','A','S','O','N','D'];
- var g='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(100)+'" y2="'+y(100)+'" stroke="#DCE4EF" stroke-dasharray="3 3"/><text x="'+(L-6)+'" y="'+(y(100)+4)+'" text-anchor="end" font-size="11" fill="#536985">avg</text>';
- var lab=m.map(function(t,i){return '<text x="'+x(i)+'" y="'+(H-4)+'" text-anchor="middle" font-size="11" fill="#536985">'+t+'</text>';}).join('');
- return '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;display:block" role="img" aria-label="Revenue by month compared with the average month">'+g+lab+
+ var lab=MON.map(function(t,i){return '<text x="'+x(i)+'" y="'+(H-4)+'" text-anchor="middle" font-size="11" fill="#536985">'+t[0]+'</text>';}).join('');
+ return '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;display:block" role="img" aria-label="Sales by month">'+lab+
+ '<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(100)+'" y2="'+y(100)+'" stroke="#DCE4EF" stroke-dasharray="3 3"/>'+
  '<polygon points="'+x(0)+','+y(min)+' '+pts+' '+x(11)+','+y(min)+'" fill="#011543" fill-opacity="0.06"/><polyline points="'+pts+'" fill="none" stroke="#011543" stroke-width="2" stroke-linejoin="round"/></svg>';
 }
 function dollar(c){
- var p=c.pl,x=c.x,parts=[['Product and shipping',x.cogs,'#536985'],['Advertising',p.ads,'#18345C'],['Payroll',p.payroll,'#7E91AA'],['Fees and software',x.fees,'#A7B6CA'],['Everything else',p.rent+p.prof+p.other,'#DCE4EF'],['Profit',x.net,'#276749']];
- return '<div class="stack" role="img" aria-label="Where every 100 dollars of revenue goes">'+parts.map(function(q){return '<div style="width:'+q[1]+'%;background:'+q[2]+'"></div>';}).join('')+'</div>'+
- parts.map(function(q){return '<div class="legend-row"><span><i style="background:'+q[2]+'"></i>'+q[0]+'</span><span class="n'+(q[0]==='Profit'?' pos':'')+'" style="font-weight:600">$'+q[1].toFixed(2)+'</span></div>';}).join('');
+ var p=c.pl,x=c.x,parts=[['Making and shipping the product',x.cogs,'#536985'],['Ads',p.ads,'#18345C'],['Staff and helpers',p.payroll,'#7E91AA'],['Card fees and software',x.fees,'#A7B6CA'],['Rent and other bills',p.rent+p.prof+p.other,'#DCE4EF'],['Profit',x.net,'#276749']];
+ return '<div class="stack" role="img" aria-label="Where every 100 dollars of sales goes">'+parts.map(function(q){return '<div style="width:'+q[1]+'%;background:'+q[2]+'"></div>';}).join('')+'</div>'+
+ parts.map(function(q){return '<div class="legend-row"><span><i style="background:'+q[2]+'"></i>'+q[0]+'</span><span class="n'+(q[0]==='Profit'?' pos':'')+'" style="font-weight:600">'+d2(q[1])+'</span></div>';}).join('');
 }
 
 function R(){
@@ -269,58 +273,61 @@ function R(){
  document.querySelectorAll('.cb').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.comp===comp?'true':'false');b.disabled=!profile;b.style.opacity=profile?1:0.45;});
  document.querySelectorAll('.nb').forEach(function(b){b.setAttribute('aria-current',b.dataset.go===view?'true':'false');});
  document.querySelectorAll('[data-view]').forEach(function(s){s.classList.toggle('on',s.dataset.view===view);});
- if(profile){$('#title').textContent='Comp '+comp+': '+c.title;$('#subtitle').textContent='Last 12 months';}
+ if(profile){$('#title').textContent='Business '+comp+': '+c.title;$('#subtitle').textContent='Sells '+c.sales+' a month · Numbers from the past year';}
  var html='';
  if(view==='overview'){
-  html=kpis(c)+'<div class="grid g2 gap"><div class="panel"><div class="ptop"><h2 class="s">Revenue by month</h2></div>'+seasonChart(c.season)+'</div>'+
-  '<div class="panel"><div class="ptop"><h2 class="s">Where every $100 goes</h2></div>'+dollar(c)+'</div></div>'+
+  var pk=c.season.indexOf(Math.max.apply(null,c.season)),lo=c.season.indexOf(Math.min.apply(null,c.season));
+  html=kpis(c)+'<div class="grid g2 gap"><div class="panel"><div class="ptop"><h2 class="s">Busy and slow months</h2></div>'+seasonChart(c.season)+
+  '<div class="take">Busiest in '+MON[pk]+'. Slowest in '+MON[lo]+'.</div></div>'+
+  '<div class="panel"><div class="ptop"><h2 class="s">Where every $100 of sales goes</h2></div>'+dollar(c)+'</div></div>'+
   '<div class="grid g2e gap"><div class="panel"><div class="facts">'+c.facts.map(function(f){return '<div><label>'+f[0]+'</label><b>'+f[1]+'</b></div>';}).join('')+'</div></div>'+
-  '<div class="panel"><div class="ptop"><h2 class="s">What stands out</h2></div>'+c.intel.map(function(i){return '<div class="ins"><p style="color:#17243A;margin:0">'+i+'</p></div>';}).join('')+'</div></div>';
+  '<div class="panel"><div class="ptop"><h2 class="s">What we noticed</h2></div>'+c.notes.map(function(i){return '<div class="ins"><p style="color:#17243A;margin:0">'+i+'</p></div>';}).join('')+'</div></div>';
  }
  if(view==='pl'){
   var p=c.pl,x=c.x;
   function m(fn){return med(['A','B','C'].map(function(k){return fn(C[k]);}));}
+  // [label, value, row class, getter, higher is better? (1 yes, 0 no, null no verdict)]
   var rows=[
-   ['Gross sales',p.gross,'D','',function(q){return q.pl.gross;},null],
-   ['Discounts and refunds',-p.disc,'D','ind',function(q){return -q.pl.disc;},1],
-   ['Net revenue',100,'C','sub',function(){return 100;},null],
-   ['Product costs',p.product,'D','ind',function(q){return q.pl.product;},0],
-   ['Shipping and fulfillment',p.ship,'D','ind',function(q){return q.pl.ship;},0],
-   ['Gross profit',x.gp,'C','sub',function(q){return q.x.gp;},1],
-   ['Advertising',p.ads,'D','ind',function(q){return q.pl.ads;},0],
-   ['Payroll and contractors',p.payroll,'D','ind',function(q){return q.pl.payroll;},null],
-   ['Processing and platform fees',p.proc+p.platform,'D','ind',function(q){return q.pl.proc+q.pl.platform;},0],
-   ['Software',p.software,'D','ind',function(q){return q.pl.software;},0],
-   ['Rent and utilities',p.rent,'D','ind',function(q){return q.pl.rent;},null],
-   ['Professional services',p.prof,'D','ind',function(q){return q.pl.prof;},0],
-   ['Other expenses',p.other,'D','ind',function(q){return q.pl.other;},0],
-   ['Net profit',x.net,'C','sub',function(q){return q.x.net;},1],
-   ['Owner pay and add-backs',p.addbacks,'S','ind',function(q){return q.pl.addbacks;},null],
-   ['SDE',x.sde,'C','sub',function(q){return q.x.sde;},1]
+   ['Sales before discounts',p.gross,'',function(q){return q.pl.gross;},null],
+   ['Discounts and refunds',-p.disc,'ind',function(q){return -q.pl.disc;},1],
+   ['Sales',100,'sub',function(){return 100;},null],
+   ['Making the product',-p.product,'ind',function(q){return -q.pl.product;},1],
+   ['Shipping it to customers',-p.ship,'ind',function(q){return -q.pl.ship;},1],
+   ['Left after product costs',x.gp,'sub',function(q){return q.x.gp;},1],
+   ['Ads',-p.ads,'ind',function(q){return -q.pl.ads;},1],
+   ['Staff and helpers',-p.payroll,'ind',function(q){return -q.pl.payroll;},null],
+   ['Card and marketplace fees',-(p.proc+p.platform),'ind',function(q){return -(q.pl.proc+q.pl.platform);},1],
+   ['Software and apps',-p.software,'ind',function(q){return -q.pl.software;},1],
+   ['Rent',-p.rent,'ind',function(q){return -q.pl.rent;},null],
+   ['Accountant and lawyer',-p.prof,'ind',function(q){return -q.pl.prof;},1],
+   ['Other bills',-p.other,'ind',function(q){return -q.pl.other;},1],
+   ['Profit',x.net,'sub',function(q){return q.x.net;},1],
+   ['Plus the owner’s own pay',p.addbacks,'ind',function(q){return q.pl.addbacks;},null],
+   ['What the owner really takes home',x.home,'sub',function(q){return q.x.home;},1]
   ];
-  html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th>Line</th><th>% of revenue</th><th>Median</th><th>vs. median</th></tr></thead><tbody>'+
-  rows.map(function(r){var md=m(r[4]),d=r[1]-md,cls='';
-   if(r[5]!==null&&Math.abs(d)>=0.05){cls=(r[5]?d>0:d<0)?'pos':'neg';}
-   return '<tr class="'+r[3]+'"><td>'+r[0]+src(r[2])+'</td><td>'+f1(r[1])+'</td><td style="color:#536985">'+f1(md)+'</td><td class="'+cls+'">'+(Math.abs(d)>=0.05?(d>0?'+':'')+f1(d):'')+'</td></tr>';}).join('')+
-  '</tbody></table></div></div>';
+  html='<div class="panel"><div class="ptop"><h2 class="s">Out of every $100 in sales</h2><span>Compared with the typical business of the three</span></div><div class="scroll"><table class="t n"><thead><tr><th></th><th>Business '+comp+'</th><th>Typical</th><th></th></tr></thead><tbody>'+
+  rows.map(function(r){var md=m(r[3]),d=r[1]-md,v='';
+   if(r[4]!==null&&Math.abs(d)>=0.5){v=d>0?'<span class="verdict pos">Better</span>':'<span class="verdict neg">Worse</span>';}
+   return '<tr class="'+r[2]+'"><td>'+r[0]+'</td><td>'+d2(r[1])+'</td><td style="color:#536985">'+d2(md)+'</td><td>'+v+'</td></tr>';}).join('')+
+  '</tbody></table></div><div class="take">“The owner really takes home” adds back the owner’s own pay, so you can compare businesses where owners pay themselves differently.</div></div>';
  }
  if(view==='compare'){
-  $('#title').textContent='Side by side';$('#subtitle').textContent='% of revenue, last 12 months';
-  var lines=[['Revenue',function(q){return q.band;},null],['Gross margin',function(q){return q.x.gp;},1],['Product and shipping',function(q){return q.x.cogs;},0],['Advertising',function(q){return q.pl.ads;},0],['Payroll',function(q){return q.pl.payroll;},null],['Fees and software',function(q){return q.x.fees;},0],['Net profit',function(q){return q.x.net;},1],['SDE',function(q){return q.x.sde;},1],['Repeat customers',function(q){return q.facts[2][1];},null],['Owner hours',function(q){return q.facts[3][1];},null]];
-  html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th></th><th>Comp A</th><th>Comp B</th><th>Comp C</th></tr></thead><tbody>'+
+  $('#title').textContent='The three businesses, side by side';$('#subtitle').textContent='Out of every $100 in sales';
+  var lines=[['Sales each month',function(q){return q.sales;},null],['Making and shipping',function(q){return q.x.cogs;},0],['Ads',function(q){return q.pl.ads;},0],['Staff and helpers',function(q){return q.pl.payroll;},null],['Fees and software',function(q){return q.x.fees;},0],['Profit',function(q){return q.x.net;},1],['Owner really takes home',function(q){return q.x.home;},1],['Customers who come back',function(q){return q.facts[2][1];},null],['Owner works',function(q){return q.facts[3][1];},null]];
+  html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead><tbody>'+
   lines.map(function(l){var v=['A','B','C'].map(function(k){return l[1](C[k]);}),num=typeof v[0]==='number',best=null,worst=null;
    if(num&&l[2]!==null){var s=v.slice().sort(function(a,b){return a-b;});best=l[2]?s[2]:s[0];worst=l[2]?s[0]:s[2];}
-   return '<tr'+(l[0]==='Net profit'?' class="sub"':'')+'><td>'+l[0]+'</td>'+v.map(function(x){return '<td class="'+(x===best?'pos':x===worst?'neg':'')+'">'+(num?f1(x):x)+'</td>';}).join('')+'</tr>';}).join('')+
-  '</tbody></table></div></div>'+
-  '<div class="panel gap"><div class="ptop"><h2 class="s">What stands out</h2></div>'+
-  '<div class="ins"><p style="color:#17243A;margin:0">Same niche, net margins from 9% to 22%.</p></div>'+
-  '<div class="ins"><p style="color:#17243A;margin:0">Comp A spends 11 points less on ads than B and keeps 13 more cents per dollar.</p></div>'+
-  '<div class="ins"><p style="color:#17243A;margin:0">B pays 46 cents per dollar for product and shipping. A pays 39.</p></div></div>';
+   return '<tr'+(l[0]==='Profit'?' class="sub"':'')+'><td>'+l[0]+'</td>'+v.map(function(x){return '<td class="'+(x===best?'pos':x===worst?'neg':'')+'">'+(num?d2(x):x)+'</td>';}).join('')+'</tr>';}).join('')+
+  '</tbody></table></div><div class="take"><span class="pos" style="font-weight:700">Green</span> is the best of the three. <span class="neg" style="font-weight:700">Red</span> is the worst.</div></div>'+
+  '<div class="panel gap"><div class="ptop"><h2 class="s">What we noticed</h2></div>'+
+  '<div class="ins"><p style="color:#17243A;margin:0">Same kind of business, but A keeps $22 of every $100 and B keeps $9.</p></div>'+
+  '<div class="ins"><p style="color:#17243A;margin:0">The difference is mostly ads. A’s customers reorder on their own, so it spends $11 less on ads.</p></div>'+
+  '<div class="ins"><p style="color:#17243A;margin:0">B also pays $7 more to make and ship each $100 of product.</p></div></div>';
  }
  if(view==='you'){
-  $('#title').textContent='Your numbers';$('#subtitle').textContent='Monthly figures. Stays in your browser.';
+  $('#title').textContent='Try your own numbers';$('#subtitle').textContent='Use a typical month. Nothing you type is saved or sent.';
   html='<div class="panel"><div class="inp">'+
-  [['rev','Revenue',70000],['cogs','Product and shipping',30800],['ads','Advertising',16800],['pay','Payroll',5600],['oth','Everything else',9100]].map(function(f){return '<label>'+f[1]+'<span class="wrap"><span>$</span><input inputmode="numeric" id="y-'+f[0]+'" value="'+f[2].toLocaleString('en-US')+'" aria-label="'+f[1]+' in dollars"></span></label>';}).join('')+
+  [['rev','Sales',70000],['cogs','Making and shipping',30800],['ads','Ads',16800],['pay','Staff and helpers',5600],['oth','All other bills',9100]].map(function(f){return '<label>'+f[1]+'<span class="wrap"><span>$</span><input inputmode="numeric" id="y-'+f[0]+'" value="'+f[2].toLocaleString('en-US')+'" aria-label="'+f[1]+' in dollars"></span></label>';}).join('')+
   '</div></div><div id="yout"></div>';
  }
  $('[data-view="'+view+'"]').innerHTML=html;
@@ -331,18 +338,18 @@ function you(){
  function g(id){var v=parseFloat(String($('#y-'+id).value).replace(/[^0-9.]/g,''));return isFinite(v)?v:0;}
  var rev=g('rev'),out=$('#yout');
  if(rev<=0){out.innerHTML='';return;}
- var y={cogs:g('cogs')/rev*100,ads:g('ads')/rev*100,pay:g('pay')/rev*100};y.gm=100-y.cogs;y.net=100-y.cogs-y.ads-y.pay-g('oth')/rev*100;
- var lines=[['Gross margin','gm',function(q){return q.x.gp;},1],['Product and shipping','cogs',function(q){return q.x.cogs;},0],['Advertising','ads',function(q){return q.pl.ads;},0],['Payroll','pay',function(q){return q.pl.payroll;},null],['Net margin','net',function(q){return q.x.net;},1]];
+ var y={cogs:g('cogs')/rev*100,ads:g('ads')/rev*100,pay:g('pay')/rev*100};y.net=100-y.cogs-y.ads-y.pay-g('oth')/rev*100;
+ var lines=[['Making and shipping','cogs',function(q){return q.x.cogs;},0],['Ads','ads',function(q){return q.pl.ads;},0],['Staff and helpers','pay',function(q){return q.pl.payroll;},null],['Profit','net',function(q){return q.x.net;},1]];
  var rows=lines.map(function(l){var cs=['A','B','C'].map(function(k){return l[2](C[k]);}),mn=Math.min.apply(null,cs),mx=Math.max.apply(null,cs),yv=y[l[1]];
   var lo=Math.min(mn,yv)-6,hi=Math.max(mx,yv)+6;function px(v){return Math.max(0,Math.min(100,(v-lo)/(hi-lo)*100)).toFixed(1);}
   var tone=l[3]===null?'':(l[3]?(yv>=mx?'pos':yv<mn?'neg':''):(yv<=mn?'pos':yv>mx?'neg':''));
-  return '<div class="pos-row"><span class="lbl">'+l[0]+'</span><div class="track" role="img" aria-label="'+l[0]+': you '+f1(yv)+'%, comps '+f1(mn)+'% to '+f1(mx)+'%"><div class="ax"></div><div class="rg" style="left:'+px(mn)+'%;width:'+(px(mx)-px(mn))+'%"></div>'+
-  ['A','B','C'].map(function(k,i){return '<div class="cm" style="left:'+px(cs[i])+'%"><em>'+k+'</em></div>';}).join('')+'<div class="you" style="left:'+px(yv)+'%" title="You"></div></div><span class="val n '+tone+'">'+f1(yv)+'%</span></div>';}).join('');
+  return '<div class="pos-row"><span class="lbl">'+l[0]+'</span><div class="track" role="img" aria-label="'+l[0]+': you '+d2(yv)+' of every 100 dollars, the three businesses '+d2(mn)+' to '+d2(mx)+'"><div class="ax"></div><div class="rg" style="left:'+px(mn)+'%;width:'+(px(mx)-px(mn))+'%"></div>'+
+  ['A','B','C'].map(function(k,i){return '<div class="cm" style="left:'+px(cs[i])+'%"><em>'+k+'</em></div>';}).join('')+'<div class="you" style="left:'+px(yv)+'%" title="You"></div></div><span class="val n '+tone+'">'+d2(yv)+'</span></div>';}).join('');
  var adsMed=med(['A','B','C'].map(function(k){return C[k].pl.ads;})),cogsMed=med(['A','B','C'].map(function(k){return C[k].x.cogs;}));
  var tot=Math.max(0,(y.ads-adsMed)/100*rev)+Math.max(0,(y.cogs-cogsMed)/100*rev);
  function usd(n){return '$'+Math.round(n).toLocaleString('en-US');}
- var msg=tot>50?'Match the median on ads and product costs and you keep <b>'+usd(tot)+' more a month</b>.':'Your ad and product costs already beat the median.';
- out.innerHTML='<div class="panel gap">'+rows+'</div><div class="callout gap">'+msg+'</div>';
+ var msg='You keep <b>'+d2(y.net)+' of every $100</b> in sales. '+(tot>50?'If you spent like the typical business on ads and product, you’d keep about <b>'+usd(tot)+' more each month</b>.':'You already spend less than the typical business on ads and product.');
+ out.innerHTML='<div class="panel gap"><div class="ptop"><h2 class="s">Out of every $100 in sales</h2><span>Dot = you · Lines = the three businesses</span></div>'+rows+'</div><div class="callout gap">'+msg+'</div>';
 }
 
 document.querySelectorAll('.cb').forEach(function(b){b.addEventListener('click',function(){comp=b.dataset.comp;R();});});
