@@ -255,7 +255,7 @@ main{padding:0}
 .yf input{border:0;min-height:22px;padding-right:0}
 .powered{margin-top:16px}
 }
-</style>
+h1,h2,h3,h4,summary,.s{text-wrap:balance}p,li,dd{text-wrap:pretty}</style>
 </head>
 <body>
 
@@ -554,8 +554,8 @@ function R(){
   html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead><tbody>'+
   lines.map(function(l){var v=K.map(function(k){return l[1](C[k]);}),best=null,worst=null;
    if(l[3]&&l[2]!==null){var s=v.slice().sort(function(a,b){return a-b;});best=l[2]?s[s.length-1]:s[0];worst=l[2]?s[0]:s[s.length-1];}
-   return '<tr'+(l[0]==='Net profit'||l[0]==='Gross profit'?' class="sub"':'')+'><td>'+l[0]+'</td>'+v.map(function(x,i){var q=C[K[i]];return '<td class="'+(x===best?'pos':x===worst?'neg':'')+'">'+(l[3]?cell(q.mo,x):x)+'</td>';}).join('')+'</tr>';}).join('')+
-  '</tbody></table></div><div class="take">Each business is shown at its own size, so compare the <b>% of sales</b> to see who runs leaner. <span class="pos" style="font-weight:700">Green</span> is the best of the four, <span class="neg" style="font-weight:700">red</span> the worst.</div></div>'+
+   return '<tr'+(l[0]==='Net profit'||l[0]==='Gross profit'?' class="sub"':'')+'><td>'+l[0]+'</td>'+v.map(function(x,i){var q=C[K[i]];return '<td class="'+(l[2]===1&&x===best?'pos':l[2]===0&&x===worst?'neg':'')+'">'+(l[3]?cell(q.mo,x):x)+'</td>';}).join('')+'</tr>';}).join('')+
+  '</tbody></table></div><div class="take">Each business is shown at its own size, so compare the <b>% of sales</b> to see who runs leaner. <span class="neg" style="font-weight:700">Red</span> marks the biggest cost as a share of sales, <span class="pos" style="font-weight:700">green</span> the highest profit.</div></div>'+
   '<div class="panel gap"><div class="ptop"><h2 class="s">What we noticed</h2></div>'+
   '<div class="ins"><p style="color:#17243A;margin:0">Same kind of business, but A keeps '+Math.round(C.A.x.net)+'% of sales as profit and B keeps '+Math.round(C.B.x.net)+'%.</p></div>'+
   '<div class="ins"><p style="color:#17243A;margin:0">The gap is mostly advertising. A’s customers reorder on their own, so it spends 16% of sales on ads instead of 27%.</p></div>'+
