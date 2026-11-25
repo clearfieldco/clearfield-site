@@ -1,0 +1,13 @@
+{
+  "name": "Clearfield & Co.",
+  "short_name": "Clearfield",
+  "description": "Clearfield Comps: real, anonymized P&Ls from businesses like yours, plus a review of your website and strategy.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#011543",
+  "theme_color": "#011543",
+  "icons": [
+    { "src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
