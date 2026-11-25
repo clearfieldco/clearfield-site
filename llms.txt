@@ -1,6 +1,6 @@
 # Clearfield & Co.
 
-> Clearfield & Co. sells Clearfield Comps: the real, anonymized P&Ls (profit and loss statements) of two to four businesses like yours, matched on niche, business model and monthly revenue, placed side by side, plus a review of your website and strategy. The customer only provides their website. Delivered within 24 hours, with a 100% money-back guarantee.
+> Clearfield & Co. sells Clearfield Comps: the real, anonymized P&Ls (profit and loss statements) of two to four businesses like yours, matched on niche, business model and monthly revenue, placed side by side, plus a review of your website and strategy. To order, the customer gives their website, what they sell, where they sell it and their monthly revenue range, then fills out a short onboarding questionnaire. No financials are needed except for Comps + Analyst. Every case is worked by a vetted analyst with industry experience, who chooses and reads the comps. Delivered within 24 hours, with a 100% money-back guarantee.
 
 Tagline: "We help small business owners see the field clearly."
 
@@ -31,12 +31,12 @@ Every package has a 100% money-back guarantee.
 - **Matched:** same niche, same business model, close to the customer's revenue.
 - **Anonymous:** no names, locations or dates. Sourced from licensed data and partners who share with permission.
 
-These numbers are not available through a web search or an AI tool, which is why the service exists.
+These numbers are not public, which is why the service exists.
 
 ## How to get comps
 
 1. Go to https://theclearfieldco.com/#request
-2. Enter your name, email and website (monthly revenue and package are optional).
+2. Enter your name, email, website, what you sell, where you sell most and your monthly revenue range, and pick a package if you know it. A short onboarding questionnaire follows after you order.
 3. Clearfield confirms it has matching comps before you pay.
 
 ## Pages
