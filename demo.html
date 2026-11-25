@@ -34,11 +34,11 @@ header{background:#011543;border-bottom:1px solid #18345C}
 .w{max-width:1160px;margin:0 auto;padding:0 32px}
 header .w{padding-top:20px;padding-bottom:20px}
 header img{height:24px;width:auto;display:block}
-.dform{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+.dform{display:flex;flex-direction:column;gap:16px}
 .dform .fld{flex:none}
 .dform .fld select{appearance:auto}
 .dfoot{grid-column:1 / -1;display:flex;flex-direction:column;gap:14px;padding-top:6px}
-.dfoot p{margin:0;font-size:12.5px;line-height:19px;color:#536985}
+.dfoot p{margin:0;font-size:12.5px;line-height:19px;color:#536985;text-align:center}
 .dfoot .btn{width:100%;border:0;cursor:pointer;font-family:'Libre Franklin',Arial,sans-serif}
 @media (max-width:560px){.dform{grid-template-columns:minmax(0,1fr)}}
 
@@ -76,22 +76,16 @@ h1,h2,h3,h4,summary,.s{text-wrap:balance}p,li,dd{text-wrap:pretty}</style>
 <p style="font-size:14px;line-height:21px">Your numbers stay in your browser. We never share your information.</p>
 </div>
 <div class="card">
-<h2 class="s">Get your private demo link</h2>
-<p>Tell us about your business. We'll email you the link right away.</p>
+<h2 class="s">Take it for a spin.</h2>
+<p>Two fields. Then a demo lands in your inbox faster than you can say &#8220;gross margin.&#8221;</p>
 <form name="demo-request" method="POST" action="/demo-sent.html" data-netlify="true" netlify-honeypot="company-url" class="dform">
 <input type="hidden" name="form-name" value="demo-request"><input type="hidden" name="source" value="demo-page">
 <p hidden><label>Leave blank <input name="company-url"></label></p>
 <div class="fld"><label for="d-name">First name</label><input id="d-name" name="first_name" required type="text" autocomplete="given-name"></div>
 <div class="fld"><label for="d-email">Email</label><input id="d-email" name="email" required type="email" autocomplete="email"></div>
-<div class="fld"><label for="d-co">Business name</label><input id="d-co" name="company" required type="text" autocomplete="organization"></div>
-<div class="fld"><label for="d-site">Website</label><input id="d-site" name="website" required type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com"></div>
-<div class="fld"><label for="d-niche">What you sell</label><select id="d-niche" name="niche" required><option value="">Choose one</option><option>E-commerce brand (DTC)</option><option>Subscription product</option><option>Amazon or marketplace seller</option><option>Home or local services</option><option>Agency or B2B services</option><option>Software or SaaS</option><option>Food and beverage</option><option>Other</option></select></div>
-<div class="fld"><label for="d-rev">Monthly revenue</label><select id="d-rev" name="monthly_revenue" required><option value="">Choose one</option><option>Under $10K</option><option>$10K to $25K</option><option>$25K to $50K</option><option>$50K to $100K</option><option>Over $100K</option><option>Prefer not to say</option></select></div>
-<div class="fld"><label for="d-role">Your role</label><select id="d-role" name="role" required><option value="">Choose one</option><option>Owner or founder</option><option>Operator or GM</option><option>Planning to buy a business</option><option>Other</option></select></div>
-<div class="fld"><label for="d-goal">What do you most want to compare? (optional)</label><select id="d-goal" name="goal"><option>Just exploring</option><option>Margins and profit</option><option>Ad spend and marketing</option><option>Product and shipping costs</option><option>Team and payroll</option><option>What my business could be worth</option></select></div>
 <div class="dfoot">
-<p>We'll email you a private link to the demo. You'll also get occasional Clearfield notes on what profitable businesses do differently. Unsubscribe anytime. <a href="/privacy.html">Privacy notice</a></p>
-<button type="submit" class="btn btn-n">Email me the demo</button>
+<button type="submit" class="btn btn-n">Send me the demo</button>
+<p>Plus the occasional short note on what profitable businesses do differently. Unsubscribe in one click. <a href="/privacy.html">Privacy</a></p>
 </div>
 </form>
 </div>
