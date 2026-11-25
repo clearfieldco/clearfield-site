@@ -260,7 +260,7 @@ section[id]{scroll-margin-top:56px}button:focus-visible,a:focus-visible,input:fo
 <p style="margin: 0; font-size: 16px; line-height: 24px; color: #FFFFFF; font-weight: 700">All we need is your website. Built for businesses doing $10K to $100K a month.</p>
 <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap; padding-top: 4px">
 <a class="btn btn-w" href="#request">Get your comps</a>
-<a class="lk-w" href="/demo.html" data-demo="hero">See the free Clearfield Comps demo</a>
+<a class="lk-w" href="/demo.html" data-demo="hero">See a Clearfield Comps demo</a>
 </div>
 <p style="margin: 0; font-size: 14px; color: #DCE4EF">Delivered within 24 hours · 100% money-back guarantee</p>
 </div>
@@ -615,6 +615,24 @@ section[id]{scroll-margin-top:56px}button:focus-visible,a:focus-visible,input:fo
     var f=d.querySelector('#d-name');if(f&&window.matchMedia('(min-width: 761px)').matches)f.focus();
   });
   d.querySelector('.dlg-x').addEventListener('click',function(){d.close();});
+  // Submit in place: the lead is saved to Netlify Forms (and passed to Kit by the
+  // submission-created function once Kit is connected), then the popup shows the demo link.
+  var form=d.querySelector('form[name="demo-request"]');
+  form.addEventListener('submit',function(e){
+    if(!window.fetch||!window.URLSearchParams)return;
+    e.preventDefault();
+    var btn=form.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending\u2026';
+    var fd=new FormData(form),first=(fd.get('first_name')||'').toString().trim(),email=(fd.get('email')||'').toString().trim();
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);
+      var b=d.querySelector('.dlg-body');b.innerHTML='';
+      var h=document.createElement('h3');h.className='s';h.style.cssText='margin:0 0 8px;font-size:24px;line-height:30px;color:#011543';h.textContent='You\u2019re in'+(first?', '+first:'')+'.';
+      var t=document.createElement('p');t.style.cssText='margin:0 0 20px;font-size:15px;line-height:23px;color:#17243A';t.textContent='We\u2019re emailing your private demo link to '+email+'. You can also open it now.';
+      var a=document.createElement('a');a.className='btn btn-n';a.href='/demo/9f3k2q/';a.textContent='Open the Clearfield Comps demo';a.style.width='100%';
+      b.appendChild(h);b.appendChild(t);b.appendChild(a);
+    })
+    .catch(function(){form.submit();});
+  });
   d.addEventListener('click',function(e){if(e.target===d)d.close();});
 })();
 </script>
