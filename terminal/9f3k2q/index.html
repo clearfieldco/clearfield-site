@@ -33,7 +33,7 @@ button{font-family:inherit;cursor:pointer}
 .tmeta{margin-left:auto;font-size:12px;color:#DCE4EF}
 
 /* Layout */
-.shell{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:calc(100vh - 60px)}
+.shell{display:grid;grid-template-columns:220px minmax(0,1fr);min-height:calc(100vh - 60px)}
 aside{background:#FFFFFF;border-right:1px solid #DCE4EF;padding:20px 0 32px;display:flex;flex-direction:column;gap:4px}
 aside .lb{padding:14px 20px 6px}
 .cohort{margin:0 20px 6px;padding:12px;border:1px solid #DCE4EF;border-radius:4px;background:#F5F7FA;font-size:12px;line-height:18px}
@@ -124,7 +124,7 @@ table.t{width:100%;border-collapse:collapse}
 .callout b{color:#011543}
 
 /* Bottom CTA + footer */
-.cta{position:fixed;left:248px;right:0;bottom:0;z-index:25;background:#FFFFFF;border-top:1px solid #DCE4EF;box-shadow:0 -8px 24px rgba(1,21,67,0.06)}
+.cta{position:fixed;left:220px;right:0;bottom:0;z-index:25;background:#FFFFFF;border-top:1px solid #DCE4EF;box-shadow:0 -8px 24px rgba(1,21,67,0.06)}
 .ctain{display:flex;align-items:center;gap:20px;padding:12px 32px;flex-wrap:wrap}
 .ctain p{margin:0;font-size:13.5px;color:#17243A;flex:1 1 320px}
 .ctain p b{color:#011543}
@@ -154,10 +154,10 @@ main{padding:18px 14px 140px}
 .head h1{font-size:25px;line-height:31px}
 .cta{left:0}.ctain{padding:10px 14px;gap:10px}.ctain .btn{width:100%}
 .ctain p{font-size:12.5px}
-.facts{grid-template-columns:minmax(0,1fr)}
+.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.tname,.top .btn{display:none !important}.cbtns .cb{font-size:13px}
 .pos-row{grid-template-columns:minmax(0,1fr) 60px}.pos-row .track{grid-column:1 / -1;grid-row:2}
 .welcome{flex-direction:column;gap:10px}.welcome button{margin-left:0}
-.kpi strong{font-size:23px;line-height:30px}
+.kpi strong{font-size:20px;line-height:28px}
 }
 @media (min-width:861px){.navrow{display:contents}}
 </style>
@@ -168,288 +168,185 @@ main{padding:18px 14px 140px}
 <div class="topin">
 <a href="/" aria-label="Clearfield &amp; Co. home"><img src="/assets/clearfield-wordmark.png" alt="Clearfield &amp; Co."></a>
 <span class="tname">Terminal</span>
-<span class="tmeta">Demo workspace · Illustrative data</span>
+<span class="tmeta">Demo · Illustrative data</span>
 <a class="btn btn-w" href="/#pricing">Get your comps</a>
 </div>
 </header>
 
 <div class="shell">
 <aside aria-label="Terminal navigation">
-<div class="lb">Your search</div>
-<div class="cohort"><b>Pet supplies › Consumables</b>Direct to consumer · $50K to $100K a month · Last 12 months · 3 comps matched</div>
-<div class="lb">Comp profile</div>
+<div class="cohort"><b>Pet supplies</b>DTC · $50K to $100K/mo</div>
+<div class="lb" style="padding:4px 20px 6px">Comp</div>
 <div class="cbtns" role="group" aria-label="Choose a comp">
-<button class="cb" data-comp="A" aria-pressed="true">Comp A</button>
-<button class="cb" data-comp="B" aria-pressed="false">Comp B</button>
-<button class="cb" data-comp="C" aria-pressed="false">Comp C</button>
+<button class="cb" data-comp="A" aria-pressed="true">A</button>
+<button class="cb" data-comp="B" aria-pressed="false">B</button>
+<button class="cb" data-comp="C" aria-pressed="false">C</button>
 </div>
 <div class="navrow">
-<button class="nb" data-go="overview"><span class="k">01</span>Overview</button>
-<button class="nb" data-go="financials"><span class="k">02</span>Financials</button>
-<button class="nb" data-go="marketing"><span class="k">03</span>Traffic &amp; marketing</button>
-<button class="nb" data-go="commerce"><span class="k">04</span>Customers &amp; commerce</button>
-<button class="nb" data-go="operations"><span class="k">05</span>Operations</button>
-<button class="nb" data-go="intel"><span class="k">06</span>Clearfield Intelligence</button>
-<div class="lb hide-m">Tools</div>
-<button class="nb" data-go="compare"><span class="k">⇄</span>Compare side by side</button>
-<button class="nb" data-go="you"><span class="k">＋</span>Compare my numbers</button>
-<button class="nb" data-go="valuation"><span class="k">×</span>Niche multiples</button>
+<button class="nb" data-go="overview">Overview</button>
+<button class="nb" data-go="pl">P&amp;L</button>
+<button class="nb" data-go="compare">Compare</button>
+<button class="nb" data-go="you">Your numbers</button>
 </div>
-<div class="aside-note">Illustrative data. Every comp you order is a real business in your niche, anonymized and shared with permission.</div>
 </aside>
 
 <main id="main">
-<div class="welcome" id="welcome">
-<div>
-<h2 class="s">Welcome to the Clearfield Terminal.</h2>
-<p>This is a working demo of what you get when you order comps. We matched three businesses to an example search (pet consumables, direct to consumer, $50K to $100K a month). Open any comp to see its full profile, line them up side by side, then put your own numbers next to them. The figures here are illustrative. Yours will be real businesses in your niche.</p>
-</div>
-<button type="button" id="hideWelcome">Got it</button>
-</div>
-
-<div class="crumb" id="crumb">Research › E-commerce › Pet supplies › Consumables</div>
 <div class="head">
 <div>
-<div class="lb" id="eyebrow">Comp profile · CF-A</div>
 <h1 class="s" id="title">Comp A</h1>
 <p id="subtitle"></p>
 </div>
-<span class="tag" id="badge">Illustrative · Last 12 months</span>
 </div>
 
 <section data-view="overview"></section>
-<section data-view="financials"></section>
-<section data-view="marketing"></section>
-<section data-view="commerce"></section>
-<section data-view="operations"></section>
-<section data-view="intel"></section>
+<section data-view="pl"></section>
 <section data-view="compare"></section>
 <section data-view="you"></section>
-<section data-view="valuation"></section>
 
-<div class="powered">
-<div><b>Powered by Clearfield Intelligence</b><br>Human-led research. Standardized financial data. We help small business owners see the field clearly.</div>
-<div class="srcleg" aria-label="Source labels">
-<span><span class="src D">D</span>From documents</span>
-<span><span class="src P">P</span>Platform-reported</span>
-<span><span class="src S">S</span>Seller-reported</span>
-<span><span class="src C">C</span>Clearfield-calculated</span>
-<span><span class="src V">V</span>Independently verified</span>
-</div>
-</div>
+<div class="powered"><span><b>Powered by Clearfield Intelligence</b></span></div>
 </main>
 </div>
 
 <div class="cta">
 <div class="ctain">
-<p><b>Ready to see your own field?</b> Send us your website. We match you with real businesses in your niche, model and size, delivered within 24 hours. 100% money-back guarantee.</p>
-<a class="btn btn-n" href="/#pricing">Get your comps from $199</a>
+<p><b>Want this for your business?</b> Real comps from your niche, in 24 hours.</p>
+<a class="btn btn-n" href="/#pricing">Get your comps</a>
 </div>
 </div>
 
 <script>
 (function(){
-var SRC={D:'From documents (P&L or financial statements)',P:'Platform-reported (Shopify, analytics or ad accounts)',S:'Seller-reported',C:'Clearfield-calculated from other figures',V:'Independently verified by Clearfield'};
+var SRC={D:'From financial documents',P:'Platform-reported',S:'Seller-reported',C:'Calculated by Clearfield',V:'Independently verified'};
 function src(k){return '<span class="src '+k+'" title="'+SRC[k]+'" aria-label="'+SRC[k]+'">'+k+'</span>';}
-function NA(){return '<span class="na">Not supplied</span>';}
 
-// Illustrative data. Every P&L line is a percent of net revenue.
+// Illustrative data. P&L lines are % of net revenue.
 var C={
-A:{title:'Subscription-led pet consumables brand',sub:'Direct to consumer · Subscribe and save · United States',band:'$55K to $65K a month',
+A:{title:'Subscription pet food brand',band:'$55K–65K/mo',
  pl:{gross:106.0,disc:6.0,product:28.4,ship:10.4,ads:16.4,payroll:11.0,proc:2.6,platform:0.6,software:0.9,rent:1.2,prof:1.4,other:4.8,addbacks:9.5},
  season:[93,89,95,97,100,98,95,98,103,107,115,110],
- facts:[['Business age','4 to 6 years'],['Sales model','DTC + subscription'],['Main channel','Own website (Shopify)'],['Customers','Consumers'],['Fulfillment','3PL'],['Owner involvement','15 to 20 hrs / week']],
- mkt:{sessions:['380K to 420K','P'],conv:['2.9%','P'],ad:'16.4',primary:'Subscriptions and email',cac:['$38','S'],roas:['3.1x','P'],email:['18K to 22K','P'],
-  platforms:[['Meta',55],['Google',35],['Other',10]],traffic:[['Organic search',31],['Paid social',24],['Email and SMS',21],['Direct',16],['Paid search',8]]},
- com:[['Average order value','$54','P'],['Orders per month','1,100 to 1,250','P'],['Repeat customer rate','58%','P'],['Share of revenue from subscriptions','46%','P'],['Refund rate','1.8%','D'],['Customer lifetime value','$212','C']],
- ops:[['Team','3 full-time, 2 contractors','S'],['Owner hours','15 to 20 a week','S'],['Fulfillment','3PL, two warehouses','S'],['Inventory turns','About 7 a year','C'],['Supplier concentration','Top supplier is 62% of product cost','D'],['Seasonality','Mild Q4 peak','C']],
- intel:[['The most profitable comp spends the least on ads','Nearly half of revenue renews automatically. Repeat orders cost almost nothing to win, so ad spend stays at 16.4% while the other two spend 21% to 27.5%.'],['Payroll is the highest of the three, and it pays for itself','11% of revenue goes to a small in-house team that runs retention and customer service. That spend shows up as a 58% repeat rate.'],['Watch the supplier dependence','One co-packer makes 62% of product cost. A price increase there moves net margin more than any marketing change.']],
- gaps:'Customer acquisition cost is seller-reported, not tied to ad account data.'},
-B:{title:'Paid-social pet treats brand',sub:'Direct to consumer · Growth on Meta and TikTok · United States',band:'$70K to $80K a month',
+ facts:[['Model','DTC + subscription'],['Age','4 to 6 years'],['Repeat customers','58%'],['Owner hours','15 to 20 / week']],
+ intel:['Lowest ad spend, highest profit. Subscriptions do the selling.','Payroll is high, but it buys a 58% repeat rate.','One supplier makes 62% of product cost.']},
+B:{title:'Paid-social pet treats brand',band:'$70K–80K/mo',
  pl:{gross:108.5,disc:8.5,product:33.5,ship:12.5,ads:27.5,payroll:6.2,proc:2.9,platform:1.8,software:1.2,rent:0.4,prof:1.6,other:3.3,addbacks:12.0},
  season:[84,82,90,94,99,96,94,97,104,112,128,120],
- facts:[['Business age','2 to 3 years'],['Sales model','DTC, one-time orders'],['Main channel','Own website + TikTok Shop'],['Customers','Consumers'],['Fulfillment','3PL'],['Owner involvement','35 to 45 hrs / week']],
- mkt:{sessions:['650K to 720K','P'],conv:['1.8%','P'],ad:'27.5',primary:'Paid social',cac:['$61','C'],roas:['2.2x','P'],email:['9K to 12K','P'],
-  platforms:[['Meta',70],['TikTok',20],['Google',10]],traffic:[['Paid social',52],['Direct',17],['Organic search',13],['Email and SMS',9],['Paid search',9]]},
- com:[['Average order value','$41','P'],['Orders per month','1,750 to 1,950','P'],['Repeat customer rate','27%','P'],['Share of revenue from subscriptions','None offered','S'],['Refund rate','4.6%','D'],['Customer lifetime value',null,'']],
- ops:[['Team','1 full-time, 3 contractors','S'],['Owner hours','35 to 45 a week','S'],['Fulfillment','3PL, one warehouse','S'],['Inventory turns','About 5 a year','C'],['Supplier concentration',null,''],['Seasonality','Strong Q4 peak','C']],
- intel:[['Growth on paid social left 9 cents on the dollar','The highest revenue of the three, and the thinnest profit. Ads take 27.5% of every sale and product plus shipping takes another 46%.'],['Discounting is doing the selling','8.5% of gross sales goes back out as discounts and refunds, the most of the three. Promotions drive the Q4 peak.'],['The owner is the business','35 to 45 owner hours a week, and few systems a buyer or a manager could take over.']],
- gaps:'Customer lifetime value and supplier concentration were not supplied. We do not estimate them.'},
-C:{title:'Pet consumables brand with a wholesale arm',sub:'Direct to consumer + wholesale to independent pet stores · United States',band:'$85K to $95K a month',
+ facts:[['Model','DTC, one-time orders'],['Age','2 to 3 years'],['Repeat customers','27%'],['Owner hours','35 to 45 / week']],
+ intel:['Most revenue, least profit. Ads take 27.5 cents of every dollar.','Discounts drive the Q4 peak.','The owner runs nearly everything.']},
+C:{title:'Pet food brand with wholesale',band:'$85K–95K/mo',
  pl:{gross:104.5,disc:4.5,product:31.0,ship:10.2,ads:21.0,payroll:9.4,proc:2.4,platform:1.1,software:1.1,rent:2.8,prof:1.0,other:2.4,addbacks:8.0},
  season:[96,94,98,99,101,100,99,100,101,103,106,103],
- facts:[['Business age','6 to 8 years'],['Sales model','DTC + wholesale'],['Main channel','Own website + 140 retail stores'],['Customers','Consumers and retailers'],['Fulfillment','In-house warehouse'],['Owner involvement','20 to 25 hrs / week']],
- mkt:{sessions:['420K to 470K','P'],conv:['2.4%','P'],ad:'21.0',primary:'Paid search + wholesale reps',cac:[null,''],roas:['2.7x','P'],email:['24K to 28K','P'],
-  platforms:[['Google',50],['Meta',40],['Trade shows',10]],traffic:[['Paid search',28],['Organic search',26],['Direct',20],['Paid social',15],['Email and SMS',11]]},
- com:[['Average order value','$48 DTC · $610 wholesale','P'],['Orders per month','1,300 to 1,450','P'],['Repeat customer rate','44%','P'],['Share of revenue from wholesale','33%','D'],['Refund rate','1.2%','V'],['Customer lifetime value','$168','C']],
- ops:[['Team','5 full-time','S'],['Owner hours','20 to 25 a week','S'],['Fulfillment','In-house, leased warehouse','D'],['Inventory turns','About 6 a year','C'],['Supplier concentration','Top supplier is 38% of product cost','D'],['Seasonality','Flat, wholesale smooths the year','C']],
- intel:[['Wholesale steadied cash flow','A third of volume goes to retailers. Lower margin per order, but the flattest months of the three and the lowest refund rate.'],['Rent is the price of control','2.8% of revenue goes to a leased warehouse. It costs more than a 3PL, and it lets them ship wholesale and DTC from one place.'],['The most balanced cost structure','Apart from rent, no cost line is the highest of the three. 17.6% net margin, and the least owner dependence after Comp A.']],
- gaps:'Customer acquisition cost was not supplied because wholesale and DTC marketing are not split.'}
+ facts:[['Model','DTC + wholesale'],['Age','6 to 8 years'],['Repeat customers','44%'],['Owner hours','20 to 25 / week']],
+ intel:['Wholesale is a third of volume and keeps months steady.','Own warehouse costs more than a 3PL, but ships both channels.','No cost line stands out. Balanced.']}
 };
-
-function calc(p){
- var cogs=p.product+p.ship,gp=100-cogs,fees=p.proc+p.platform+p.software,opex=p.ads+p.payroll+fees+p.rent+p.prof+p.other,net=gp-opex;
- return {cogs:cogs,gp:gp,fees:fees,opex:opex,net:net,sde:net+p.addbacks};
-}
+function calc(p){var cogs=p.product+p.ship,gp=100-cogs,fees=p.proc+p.platform+p.software,opex=p.ads+p.payroll+fees+p.rent+p.prof+p.other,net=gp-opex;return {cogs:cogs,gp:gp,fees:fees,opex:opex,net:net,sde:net+p.addbacks};}
 ['A','B','C'].forEach(function(k){C[k].x=calc(C[k].pl);});
 function med(a){a=a.slice().sort(function(x,y){return x-y;});return a[1];}
 function f1(n){return (Math.round(n*10)/10).toFixed(1);}
-function pct(n){return f1(n)+'%';}
-
+var $=function(q){return document.querySelector(q);};
 var comp='A',view='overview';
-var $=function(s){return document.querySelector(s);};
 
 function kpis(c){
- return '<div class="grid g4">'+
- '<div class="panel kpi"><label>Monthly revenue</label><strong>'+c.band.replace(' a month','')+'</strong><small>Shown as a range to protect the business</small></div>'+
- '<div class="panel kpi"><label>Gross margin</label><strong class="n">'+pct(c.x.gp)+'</strong><small>After product and shipping</small></div>'+
- '<div class="panel kpi"><label>Net profit margin</label><strong class="n '+(c.x.net>=15?'pos':c.x.net<10?'neg':'')+'">'+pct(c.x.net)+'</strong><small>'+f1(c.x.net)+' cents of every dollar kept</small></div>'+
- '<div class="panel kpi"><label>Advertising</label><strong class="n">'+pct(c.pl.ads)+'</strong><small>Share of net revenue</small></div></div>';
+ function k(l,v,cls){return '<div class="panel kpi"><label>'+l+'</label><strong class="n '+(cls||'')+'">'+v+'</strong></div>';}
+ return '<div class="grid g4">'+k('Revenue',c.band)+k('Gross margin',f1(c.x.gp)+'%')+k('Net margin',f1(c.x.net)+'%',c.x.net>=15?'pos':c.x.net<10?'neg':'')+k('Ad spend',f1(c.pl.ads)+'%')+'</div>';
 }
-
 function seasonChart(s){
- var W=560,H=210,L=40,R=10,T=14,B=26,min=75,max=130;
+ var W=560,H=190,L=34,R=10,T=12,B=24,min=75,max=130;
  function x(i){return L+i*(W-L-R)/11;} function y(v){return T+(max-v)*(H-T-B)/(max-min);}
  var pts=s.map(function(v,i){return x(i).toFixed(1)+','+y(v).toFixed(1);}).join(' ');
- var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
- var g='';[80,100,120].forEach(function(v){g+='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(v)+'" y2="'+y(v)+'" stroke="'+(v===100?'#536985':'#DCE4EF')+'" stroke-width="1"'+(v===100?' stroke-dasharray="3 3"':'')+'/><text x="'+(L-8)+'" y="'+(y(v)+4)+'" text-anchor="end" font-size="11" fill="#536985">'+v+'</text>';});
- var lab=m.map(function(t,i){return '<text x="'+x(i)+'" y="'+(H-6)+'" text-anchor="middle" font-size="11" fill="#536985">'+t+'</text>';}).join('');
- var peak=s.indexOf(Math.max.apply(null,s));
- return '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;display:block" role="img" aria-label="Monthly revenue as an index of the average month. Peak in '+m[peak]+' at '+s[peak]+'.">'+g+lab+
- '<polygon points="'+x(0)+','+y(min)+' '+pts+' '+x(11)+','+y(min)+'" fill="#011543" fill-opacity="0.06"/>'+
- '<polyline points="'+pts+'" fill="none" stroke="#011543" stroke-width="2" stroke-linejoin="round"/>'+
- '<circle cx="'+x(peak)+'" cy="'+y(s[peak])+'" r="4" fill="#011543"/><text x="'+(x(peak)-8)+'" y="'+(y(s[peak])-8)+'" text-anchor="end" font-size="11" font-weight="700" fill="#011543">'+m[peak]+' peak, '+s[peak]+'</text></svg>';
+ var m=['J','F','M','A','M','J','J','A','S','O','N','D'];
+ var g='<line x1="'+L+'" x2="'+(W-R)+'" y1="'+y(100)+'" y2="'+y(100)+'" stroke="#DCE4EF" stroke-dasharray="3 3"/><text x="'+(L-6)+'" y="'+(y(100)+4)+'" text-anchor="end" font-size="11" fill="#536985">avg</text>';
+ var lab=m.map(function(t,i){return '<text x="'+x(i)+'" y="'+(H-4)+'" text-anchor="middle" font-size="11" fill="#536985">'+t+'</text>';}).join('');
+ return '<svg viewBox="0 0 '+W+' '+H+'" style="width:100%;height:auto;display:block" role="img" aria-label="Revenue by month compared with the average month">'+g+lab+
+ '<polygon points="'+x(0)+','+y(min)+' '+pts+' '+x(11)+','+y(min)+'" fill="#011543" fill-opacity="0.06"/><polyline points="'+pts+'" fill="none" stroke="#011543" stroke-width="2" stroke-linejoin="round"/></svg>';
 }
-
 function dollar(c){
- var p=c.pl,x=c.x,parts=[['Product and shipping',x.cogs,'#536985'],['Advertising',p.ads,'#18345C'],['Payroll',p.payroll,'#7E91AA'],['Fees and software',x.fees,'#A7B6CA'],['Rent, services and other',p.rent+p.prof+p.other,'#DCE4EF'],['Net profit',x.net,'#276749']];
+ var p=c.pl,x=c.x,parts=[['Product and shipping',x.cogs,'#536985'],['Advertising',p.ads,'#18345C'],['Payroll',p.payroll,'#7E91AA'],['Fees and software',x.fees,'#A7B6CA'],['Everything else',p.rent+p.prof+p.other,'#DCE4EF'],['Profit',x.net,'#276749']];
  return '<div class="stack" role="img" aria-label="Where every 100 dollars of revenue goes">'+parts.map(function(q){return '<div style="width:'+q[1]+'%;background:'+q[2]+'"></div>';}).join('')+'</div>'+
- parts.map(function(q){return '<div class="legend-row"><span><i style="background:'+q[2]+'"></i>'+q[0]+'</span><span class="n'+(q[0]==='Net profit'?' pos':'')+'" style="font-weight:600">$'+q[1].toFixed(2)+'</span></div>';}).join('');
+ parts.map(function(q){return '<div class="legend-row"><span><i style="background:'+q[2]+'"></i>'+q[0]+'</span><span class="n'+(q[0]==='Profit'?' pos':'')+'" style="font-weight:600">$'+q[1].toFixed(2)+'</span></div>';}).join('');
 }
 
 function R(){
- var c=C[comp];
- var profile=['overview','financials','marketing','commerce','operations','intel'].indexOf(view)>-1;
+ var c=C[comp],profile=view==='overview'||view==='pl';
  document.querySelectorAll('.cb').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.comp===comp?'true':'false');b.disabled=!profile;b.style.opacity=profile?1:0.45;});
  document.querySelectorAll('.nb').forEach(function(b){b.setAttribute('aria-current',b.dataset.go===view?'true':'false');});
  document.querySelectorAll('[data-view]').forEach(function(s){s.classList.toggle('on',s.dataset.view===view);});
- var el=document.querySelector('[data-view="'+view+'"]');
- if(profile){
-  $('#eyebrow').textContent='Comp profile · CF-'+comp; $('#title').textContent='Comp '+comp+': '+c.title; $('#subtitle').textContent=c.sub+' · Revenue '+c.band; $('#badge').textContent='Illustrative · Last 12 months';
- }
+ if(profile){$('#title').textContent='Comp '+comp+': '+c.title;$('#subtitle').textContent='Last 12 months';}
  var html='';
  if(view==='overview'){
-  html=kpis(c)+'<div class="grid g2 gap"><div class="panel"><div class="ptop"><h2 class="s">Revenue by month</h2><span>Index, average month = 100</span></div>'+seasonChart(c.season)+'<div class="note">Shown as an index so the business cannot be identified. The shape is what matters: when cash comes in, and how hard the peak is.</div></div>'+
-  '<div class="panel"><div class="ptop"><h2 class="s">Where every $100 goes</h2><span>Share of net revenue</span></div>'+dollar(c)+'</div></div>'+
-  '<div class="grid g2e gap"><div class="panel"><div class="ptop"><h2 class="s">Business fundamentals</h2><span>Operating model</span></div><div class="facts">'+c.facts.map(function(f){return '<div><label>'+f[0]+'</label><b>'+f[1]+'</b></div>';}).join('')+'</div></div>'+
-  '<div class="panel"><div class="ptop"><h2 class="s">Clearfield Intelligence</h2><span>Analyst notes</span></div>'+c.intel.slice(0,2).map(function(i){return '<div class="ins"><b>'+i[0]+'</b><p>'+i[1]+'</p></div>';}).join('')+'</div></div>';
+  html=kpis(c)+'<div class="grid g2 gap"><div class="panel"><div class="ptop"><h2 class="s">Revenue by month</h2></div>'+seasonChart(c.season)+'</div>'+
+  '<div class="panel"><div class="ptop"><h2 class="s">Where every $100 goes</h2></div>'+dollar(c)+'</div></div>'+
+  '<div class="grid g2e gap"><div class="panel"><div class="facts">'+c.facts.map(function(f){return '<div><label>'+f[0]+'</label><b>'+f[1]+'</b></div>';}).join('')+'</div></div>'+
+  '<div class="panel"><div class="ptop"><h2 class="s">What stands out</h2></div>'+c.intel.map(function(i){return '<div class="ins"><p style="color:#17243A;margin:0">'+i+'</p></div>';}).join('')+'</div></div>';
  }
- if(view==='financials'){
-  var p=c.pl,x=c.x,mx={};['A','B','C'].forEach(function(k){mx[k]=C[k];});
+ if(view==='pl'){
+  var p=c.pl,x=c.x;
   function m(fn){return med(['A','B','C'].map(function(k){return fn(C[k]);}));}
   var rows=[
-   ['Gross sales',p.gross,'D','',function(q){return q.pl.gross;}],
-   ['Discounts and refunds',-p.disc,'D','ind',function(q){return -q.pl.disc;}],
-   ['Net revenue',100,'C','sub',function(){return 100;}],
-   ['Product costs',p.product,'D','ind',function(q){return q.pl.product;}],
-   ['Shipping and fulfillment',p.ship,'D','ind',function(q){return q.pl.ship;}],
-   ['Total cost of goods sold',x.cogs,'C','sub',function(q){return q.x.cogs;}],
-   ['Gross profit',x.gp,'C','sub',function(q){return q.x.gp;}],
-   ['Advertising and marketing',p.ads,'D','ind',function(q){return q.pl.ads;}],
-   ['Payroll and contractors',p.payroll,'D','ind',function(q){return q.pl.payroll;}],
-   ['Payment processing',p.proc,'D','ind',function(q){return q.pl.proc;}],
-   ['Platform fees',p.platform,'D','ind',function(q){return q.pl.platform;}],
-   ['Software and subscriptions',p.software,'D','ind',function(q){return q.pl.software;}],
-   ['Rent and utilities',p.rent,'D','ind',function(q){return q.pl.rent;}],
-   ['Professional services',p.prof,'D','ind',function(q){return q.pl.prof;}],
-   ['Other operating expenses',p.other,'D','ind',function(q){return q.pl.other;}],
-   ['Total operating expenses',x.opex,'C','sub',function(q){return q.x.opex;}],
-   ['Net profit',x.net,'C','sub',function(q){return q.x.net;}],
-   ['Owner pay and add-backs',p.addbacks,'S','ind',function(q){return q.pl.addbacks;}],
-   ['Seller’s discretionary earnings (SDE)',x.sde,'C','sub',function(q){return q.x.sde;}]
+   ['Gross sales',p.gross,'D','',function(q){return q.pl.gross;},null],
+   ['Discounts and refunds',-p.disc,'D','ind',function(q){return -q.pl.disc;},1],
+   ['Net revenue',100,'C','sub',function(){return 100;},null],
+   ['Product costs',p.product,'D','ind',function(q){return q.pl.product;},0],
+   ['Shipping and fulfillment',p.ship,'D','ind',function(q){return q.pl.ship;},0],
+   ['Gross profit',x.gp,'C','sub',function(q){return q.x.gp;},1],
+   ['Advertising',p.ads,'D','ind',function(q){return q.pl.ads;},0],
+   ['Payroll and contractors',p.payroll,'D','ind',function(q){return q.pl.payroll;},null],
+   ['Processing and platform fees',p.proc+p.platform,'D','ind',function(q){return q.pl.proc+q.pl.platform;},0],
+   ['Software',p.software,'D','ind',function(q){return q.pl.software;},0],
+   ['Rent and utilities',p.rent,'D','ind',function(q){return q.pl.rent;},null],
+   ['Professional services',p.prof,'D','ind',function(q){return q.pl.prof;},0],
+   ['Other expenses',p.other,'D','ind',function(q){return q.pl.other;},0],
+   ['Net profit',x.net,'C','sub',function(q){return q.x.net;},1],
+   ['Owner pay and add-backs',p.addbacks,'S','ind',function(q){return q.pl.addbacks;},null],
+   ['SDE',x.sde,'C','sub',function(q){return q.x.sde;},1]
   ];
-  var better={'Gross profit':1,'Net profit':1,'Seller’s discretionary earnings (SDE)':1,'Gross sales':0,'Net revenue':0,'Owner pay and add-backs':0,'Discounts and refunds':1,'Payroll and contractors':0};
-  html=kpis(c)+'<div class="panel gap"><div class="ptop"><h2 class="s">Standardized P&amp;L</h2><span>Last 12 months · Every line as a share of net revenue</span></div><div class="scroll"><table class="t n"><thead><tr><th>Line</th><th>% of revenue</th><th>Median of 3 comps</th><th>Difference</th><th></th></tr></thead><tbody>'+
-  rows.map(function(r){var md=m(r[4]),d=r[1]-md,show=r[0]!=='Net revenue';
-   var good=better[r[0]]===1?d>0.05:better[r[0]]===0?null:d<-0.05, bad=better[r[0]]===1?d<-0.05:better[r[0]]===0?null:d>0.05;
-   var cls=(Math.abs(d)<0.05||good===null)?'':good?'pos':bad?'neg':'';
-   return '<tr class="'+r[3]+'"><td>'+r[0]+src(r[2])+'</td><td>'+f1(r[1])+'</td><td style="color:#536985">'+f1(md)+'</td><td class="'+cls+'">'+(show&&Math.abs(d)>=0.05?(d>0?'+':'')+f1(d):'·')+'</td><td><span class="minibox"><span class="mini" style="width:'+Math.min(100,Math.abs(r[1]))*1.2+'px'+(r[0]==='Net profit'?';background:#276749':'')+'"></span></span></td></tr>';}).join('')+
-  '</tbody></table></div><div class="note">Every P&amp;L is mapped to the same lines, so a $600K business and a $2M business can be read side by side. Green and red show where this comp beats or trails the group. Nothing missing is estimated.</div></div>';
- }
- if(view==='marketing'){
-  var k=c.mkt;function v(a){return a[0]?a[0]+src(a[1]):NA();}
-  html='<div class="grid g4"><div class="panel kpi"><label>Website sessions, 12 months</label><strong class="n" style="font-size:22px">'+k.sessions[0]+'</strong><small>Platform-reported</small></div><div class="panel kpi"><label>Conversion rate</label><strong class="n">'+k.conv[0]+'</strong><small>Orders per session</small></div><div class="panel kpi"><label>Advertising</label><strong class="n">'+k.ad+'%</strong><small>Share of net revenue</small></div><div class="panel kpi"><label>Email list</label><strong class="n" style="font-size:22px">'+k.email[0]+'</strong><small>Active subscribers</small></div></div>'+
-  '<div class="grid g2e gap"><div class="panel"><div class="ptop"><h2 class="s">Where visitors come from</h2><span>Share of sessions</span></div>'+k.traffic.map(function(t){return '<div class="hbar"><span>'+t[0]+'</span><div class="tr"><div class="fi" style="width:'+t[1]+'%"></div></div><span class="v n">'+t[1]+'%</span></div>';}).join('')+'</div>'+
-  '<div class="panel"><div class="ptop"><h2 class="s">Where the ad budget goes</h2><span>Share of ad spend</span></div>'+k.platforms.map(function(t){return '<div class="hbar"><span>'+t[0]+'</span><div class="tr"><div class="fi" style="width:'+t[1]+'%;background:#536985"></div></div><span class="v n">'+t[1]+'%</span></div>';}).join('')+
-  '<table class="t gap"><tbody><tr><td>Main growth channel</td><td>'+k.primary+src('S')+'</td></tr><tr><td>Customer acquisition cost</td><td>'+v(k.cac)+'</td></tr><tr><td>Return on ad spend</td><td>'+v(k.roas)+'</td></tr></tbody></table></div></div>';
- }
- if(view==='commerce'||view==='operations'){
-  var list=view==='commerce'?c.com:c.ops;
-  html=(view==='commerce'?kpis(c)+'<div class="gap"></div>':'')+'<div class="panel"><div class="ptop"><h2 class="s">'+(view==='commerce'?'Customers and commerce':'Operations and dependencies')+'</h2><span>'+(view==='commerce'?'From the store platform and financials':'How the business actually runs')+'</span></div><table class="t"><tbody>'+
-  list.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+(r[1]?r[1]+src(r[2]):NA())+'</td></tr>';}).join('')+'</tbody></table>'+
-  (view==='commerce'?'<div class="note">Store platform totals and accounting revenue rarely match exactly. We label which is which and never mix them.</div>':'<div class="note">Owner hours and team size are what the seller reports. They tell you how much of the business runs without its owner.</div>')+'</div>';
- }
- if(view==='intel'){
-  html='<div class="grid g2"><div class="panel"><div class="ptop"><h2 class="s">What stands out about Comp '+comp+'</h2><span>Written by a Clearfield analyst</span></div>'+c.intel.map(function(i){return '<div class="ins"><b>'+i[0]+'</b><p>'+i[1]+'</p></div>';}).join('')+'<div class="ins gapnote"><b>Information gaps</b><p>'+c.gaps+'</p></div></div>'+
-  '<div class="panel"><div class="ptop"><h2 class="s">How we build every comp</h2></div><div class="ins"><b>Standard lines</b><p>Every P&amp;L is mapped to the same chart of accounts and shown as a share of revenue.</p></div><div class="ins"><b>Labeled sources</b><p>Each figure carries its source: documents, platform reports, the seller, our own math, or independent verification.</p></div><div class="ins"><b>Nothing guessed</b><p>If a seller did not supply it, we say so. We never fill a gap with an estimate.</p></div><div class="ins"><b>Anonymous by design</b><p>No names, locations or dates. Revenue as a range. Every source business gave permission.</p></div></div></div>';
+  html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th>Line</th><th>% of revenue</th><th>Median</th><th>vs. median</th></tr></thead><tbody>'+
+  rows.map(function(r){var md=m(r[4]),d=r[1]-md,cls='';
+   if(r[5]!==null&&Math.abs(d)>=0.05){cls=(r[5]?d>0:d<0)?'pos':'neg';}
+   return '<tr class="'+r[3]+'"><td>'+r[0]+src(r[2])+'</td><td>'+f1(r[1])+'</td><td style="color:#536985">'+f1(md)+'</td><td class="'+cls+'">'+(Math.abs(d)>=0.05?(d>0?'+':'')+f1(d):'')+'</td></tr>';}).join('')+
+  '</tbody></table></div></div>';
  }
  if(view==='compare'){
-  $('#eyebrow').textContent='Tool · Compare'; $('#title').textContent='Your comps, side by side'; $('#subtitle').textContent='Pet supplies › Consumables · Direct to consumer · $50K to $100K a month'; $('#badge').textContent='3 comps · % of revenue';
-  var lines=[['Monthly revenue',function(q){return q.band.replace(' a month','');},null],['Gross margin',function(q){return q.x.gp;},1],['Product and shipping',function(q){return q.x.cogs;},0],['Advertising',function(q){return q.pl.ads;},0],['Payroll and contractors',function(q){return q.pl.payroll;},null],['Fees and software',function(q){return q.x.fees;},0],['Rent and utilities',function(q){return q.pl.rent;},null],['Net profit',function(q){return q.x.net;},1],['SDE',function(q){return q.x.sde;},1],['Repeat customer rate',function(q){return q.com[2][1];},null],['Owner hours a week',function(q){return q.facts[5][1].replace(' hrs / week','');},null]];
-  html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th>Line</th><th>Comp A</th><th>Comp B</th><th>Comp C</th><th>Median</th></tr></thead><tbody>'+
+  $('#title').textContent='Side by side';$('#subtitle').textContent='% of revenue, last 12 months';
+  var lines=[['Revenue',function(q){return q.band;},null],['Gross margin',function(q){return q.x.gp;},1],['Product and shipping',function(q){return q.x.cogs;},0],['Advertising',function(q){return q.pl.ads;},0],['Payroll',function(q){return q.pl.payroll;},null],['Fees and software',function(q){return q.x.fees;},0],['Net profit',function(q){return q.x.net;},1],['SDE',function(q){return q.x.sde;},1],['Repeat customers',function(q){return q.facts[2][1];},null],['Owner hours',function(q){return q.facts[3][1];},null]];
+  html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th></th><th>Comp A</th><th>Comp B</th><th>Comp C</th></tr></thead><tbody>'+
   lines.map(function(l){var v=['A','B','C'].map(function(k){return l[1](C[k]);}),num=typeof v[0]==='number',best=null,worst=null;
    if(num&&l[2]!==null){var s=v.slice().sort(function(a,b){return a-b;});best=l[2]?s[2]:s[0];worst=l[2]?s[0]:s[2];}
-   var sub=l[0]==='Net profit'||l[0]==='Gross margin';
-   return '<tr'+(sub?' class="sub"':'')+'><td>'+l[0]+'</td>'+v.map(function(x){return '<td class="'+(x===best?'pos':x===worst?'neg':'')+'">'+(num?f1(x):x)+'</td>';}).join('')+'<td style="color:#536985">'+(num?f1(med(v)):'·')+'</td></tr>';}).join('')+
-  '</tbody></table></div><div class="note">Green is the strongest of the three on that line, red the weakest. Three hand-matched comps are not a market average; they show you what businesses like yours actually do.</div></div>'+
-  '<div class="panel gap"><div class="ptop"><h2 class="s">What stands out</h2><span>Clearfield Intelligence</span></div><div class="grid g2e" style="gap:8px 32px">'+
-  '<div class="ins"><b>Same niche, net margins from 9% to 22%</b><p>Three businesses selling similar products at similar size. The gap comes from how they win customers, not from what they sell.</p></div>'+
-  '<div class="ins"><b>Repeat revenue is the cheapest growth</b><p>Comp A spends 11 points less on ads than Comp B and keeps 13 more cents of every dollar. Subscriptions do the work ads do for B.</p></div>'+
-  '<div class="ins"><b>Product cost is the second lever</b><p>Comp B pays 46 cents per dollar for product and shipping. Comp A pays 39. On $75K a month, that gap alone is over $5,000.</p></div>'+
-  '<div class="ins"><b>Wholesale trades margin for calm</b><p>Comp C gives up a few points of gross margin for the flattest revenue of the three and a 1.2% refund rate.</p></div></div></div>';
- }
- if(view==='valuation'){
-  $('#eyebrow').textContent='Tool · Market'; $('#title').textContent='What businesses like these sell for'; $('#subtitle').textContent='Pet consumables · Direct to consumer · $500K to $1.5M a year in revenue'; $('#badge').textContent='Aggregate only';
-  var bars=[['Sold',2.6,3.1,3.6,11],['Listed (asking)',2.9,3.6,4.4,8]];
-  function bx(v){return ((v-2)/3*100).toFixed(1);}
-  html='<div class="grid g4"><div class="panel kpi"><label>Median SDE multiple, sold</label><strong class="n">3.1x</strong><small>11 sales, last 24 months</small></div><div class="panel kpi"><label>Median SDE multiple, asking</label><strong class="n">3.6x</strong><small>8 current listings</small></div><div class="panel kpi"><label>Median revenue multiple, sold</label><strong class="n">0.74x</strong><small>11 sales</small></div><div class="panel kpi"><label>Typical time to sell</label><strong class="n">5 to 8 mo</strong><small>From listing to close</small></div></div>'+
-  '<div class="panel gap"><div class="ptop"><h2 class="s">SDE multiple range</h2><span>25th to 75th percentile, median marked</span></div>'+
-  bars.map(function(b){return '<div class="pos-row"><span class="lbl">'+b[0]+' <span style="color:#536985;font-weight:400">n='+b[4]+'</span></span><div class="track"><div class="ax"></div><div class="rg" style="left:'+bx(b[1])+'%;width:'+(bx(b[3])-bx(b[1]))+'%"></div><div class="cm" style="left:'+bx(b[2])+'%"><em>'+b[2]+'x</em></div></div><span class="val n">'+b[1]+'x to '+b[3]+'x</span></div>';}).join('')+
-  '<div class="note">Multiples are shown only for groups of businesses, never for a single comp. Sold prices and asking prices are kept apart, because sellers ask for more than buyers pay. Small groups are hidden. Use these to understand what drives value, so you can build it.</div></div>';
+   return '<tr'+(l[0]==='Net profit'?' class="sub"':'')+'><td>'+l[0]+'</td>'+v.map(function(x){return '<td class="'+(x===best?'pos':x===worst?'neg':'')+'">'+(num?f1(x):x)+'</td>';}).join('')+'</tr>';}).join('')+
+  '</tbody></table></div></div>'+
+  '<div class="panel gap"><div class="ptop"><h2 class="s">What stands out</h2></div>'+
+  '<div class="ins"><p style="color:#17243A;margin:0">Same niche, net margins from 9% to 22%.</p></div>'+
+  '<div class="ins"><p style="color:#17243A;margin:0">Comp A spends 11 points less on ads than B and keeps 13 more cents per dollar.</p></div>'+
+  '<div class="ins"><p style="color:#17243A;margin:0">B pays 46 cents per dollar for product and shipping. A pays 39.</p></div></div>';
  }
  if(view==='you'){
-  $('#eyebrow').textContent='Tool · Your numbers'; $('#title').textContent='Put your numbers next to the comps'; $('#subtitle').textContent='Enter last month or a monthly average. Nothing you type leaves this page.'; $('#badge').textContent='Private · Not saved';
+  $('#title').textContent='Your numbers';$('#subtitle').textContent='Monthly figures. Stays in your browser.';
   html='<div class="panel"><div class="inp">'+
-  [['rev','Monthly revenue',70000],['cogs','Product and shipping',30800],['ads','Advertising',16800],['pay','Payroll and contractors',5600],['oth','Everything else',9100]].map(function(f){return '<label>'+f[1]+'<span class="wrap"><span>$</span><input inputmode="numeric" id="y-'+f[0]+'" value="'+f[2].toLocaleString('en-US')+'" aria-label="'+f[1]+' in dollars"></span></label>';}).join('')+
-  '</div><div class="note">Example figures are filled in. Replace them with yours.</div></div><div id="yout"></div>';
+  [['rev','Revenue',70000],['cogs','Product and shipping',30800],['ads','Advertising',16800],['pay','Payroll',5600],['oth','Everything else',9100]].map(function(f){return '<label>'+f[1]+'<span class="wrap"><span>$</span><input inputmode="numeric" id="y-'+f[0]+'" value="'+f[2].toLocaleString('en-US')+'" aria-label="'+f[1]+' in dollars"></span></label>';}).join('')+
+  '</div></div><div id="yout"></div>';
  }
- el.innerHTML=html;
+ $('[data-view="'+view+'"]').innerHTML=html;
  if(view==='you'){document.querySelectorAll('.inp input').forEach(function(i){i.addEventListener('input',you);});you();}
 }
 
 function you(){
  function g(id){var v=parseFloat(String($('#y-'+id).value).replace(/[^0-9.]/g,''));return isFinite(v)?v:0;}
  var rev=g('rev'),out=$('#yout');
- if(rev<=0){out.innerHTML='<div class="panel gap note">Enter your monthly revenue to compare.</div>';return;}
+ if(rev<=0){out.innerHTML='';return;}
  var y={cogs:g('cogs')/rev*100,ads:g('ads')/rev*100,pay:g('pay')/rev*100};y.gm=100-y.cogs;y.net=100-y.cogs-y.ads-y.pay-g('oth')/rev*100;
- var lines=[['Gross margin','gm',function(q){return q.x.gp;},1],['Product and shipping','cogs',function(q){return q.x.cogs;},0],['Advertising','ads',function(q){return q.pl.ads;},0],['Payroll and contractors','pay',function(q){return q.pl.payroll;},null],['Net profit margin','net',function(q){return q.x.net;},1]];
+ var lines=[['Gross margin','gm',function(q){return q.x.gp;},1],['Product and shipping','cogs',function(q){return q.x.cogs;},0],['Advertising','ads',function(q){return q.pl.ads;},0],['Payroll','pay',function(q){return q.pl.payroll;},null],['Net margin','net',function(q){return q.x.net;},1]];
  var rows=lines.map(function(l){var cs=['A','B','C'].map(function(k){return l[2](C[k]);}),mn=Math.min.apply(null,cs),mx=Math.max.apply(null,cs),yv=y[l[1]];
   var lo=Math.min(mn,yv)-6,hi=Math.max(mx,yv)+6;function px(v){return Math.max(0,Math.min(100,(v-lo)/(hi-lo)*100)).toFixed(1);}
   var tone=l[3]===null?'':(l[3]?(yv>=mx?'pos':yv<mn?'neg':''):(yv<=mn?'pos':yv>mx?'neg':''));
-  return '<div class="pos-row"><span class="lbl">'+l[0]+'</span><div class="track" role="img" aria-label="'+l[0]+': you '+f1(yv)+'%, comps range '+f1(mn)+'% to '+f1(mx)+'%"><div class="ax"></div><div class="rg" style="left:'+px(mn)+'%;width:'+(px(mx)-px(mn))+'%"></div>'+
+  return '<div class="pos-row"><span class="lbl">'+l[0]+'</span><div class="track" role="img" aria-label="'+l[0]+': you '+f1(yv)+'%, comps '+f1(mn)+'% to '+f1(mx)+'%"><div class="ax"></div><div class="rg" style="left:'+px(mn)+'%;width:'+(px(mx)-px(mn))+'%"></div>'+
   ['A','B','C'].map(function(k,i){return '<div class="cm" style="left:'+px(cs[i])+'%"><em>'+k+'</em></div>';}).join('')+'<div class="you" style="left:'+px(yv)+'%" title="You"></div></div><span class="val n '+tone+'">'+f1(yv)+'%</span></div>';}).join('');
  var adsMed=med(['A','B','C'].map(function(k){return C[k].pl.ads;})),cogsMed=med(['A','B','C'].map(function(k){return C[k].x.cogs;}));
- var adGap=Math.max(0,(y.ads-adsMed)/100*rev),cogsGap=Math.max(0,(y.cogs-cogsMed)/100*rev),tot=adGap+cogsGap;
+ var tot=Math.max(0,(y.ads-adsMed)/100*rev)+Math.max(0,(y.cogs-cogsMed)/100*rev);
  function usd(n){return '$'+Math.round(n).toLocaleString('en-US');}
- var msg=tot>50?'If your advertising and product costs matched the middle of these comps, you would keep about <b>'+usd(tot)+' more a month</b>, or <b>'+usd(tot*12)+' a year</b>.'+(adGap>cogsGap?' Most of it is in advertising.':' Most of it is in product and shipping.'):'Your advertising and product costs are already at or better than the middle of these comps. The next gains are likely in repeat customers and pricing.';
- out.innerHTML='<div class="panel gap"><div class="ptop"><h2 class="s">Where you sit</h2><span>Shaded band = range of the 3 comps · Dot = you</span></div>'+rows+'</div>'+
- '<div class="callout gap">'+msg+' Your net margin is <b>'+f1(y.net)+'%</b>; the comps range from '+f1(C.B.x.net)+'% to '+f1(C.A.x.net)+'%. <br><br>These comps are an example. <b>Your comps will be real businesses in your niche, at your size</b>, with a review of your website and the bottlenecks we see. <a href="/#pricing" style="font-weight:700">See packages</a></div>';
+ var msg=tot>50?'Match the median on ads and product costs and you keep <b>'+usd(tot)+' more a month</b>.':'Your ad and product costs already beat the median.';
+ out.innerHTML='<div class="panel gap">'+rows+'</div><div class="callout gap">'+msg+'</div>';
 }
 
 document.querySelectorAll('.cb').forEach(function(b){b.addEventListener('click',function(){comp=b.dataset.comp;R();});});
 document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('click',function(){view=b.dataset.go;R();window.scrollTo({top:0});});});
-var w=$('#welcome');try{if(localStorage.getItem('cf-demo-welcome')==='hidden')w.style.display='none';}catch(e){}
-$('#hideWelcome').addEventListener('click',function(){w.style.display='none';try{localStorage.setItem('cf-demo-welcome','hidden');}catch(e){}});
 var hv=(location.hash||'').slice(1).split('-');if(document.querySelector('[data-view="'+hv[0]+'"]'))view=hv[0];if(C[hv[1]])comp=hv[1];
 R();
 })();
