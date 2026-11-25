@@ -43,7 +43,7 @@ These numbers are not public, which is why the service exists.
 
 - [Home](https://theclearfieldco.com/): what Clearfield Comps are, how it works, who it's for, pricing and the request form
 - [Privacy notice](https://theclearfieldco.com/privacy.html): what we collect and how we use it
-- [Clearfield Comps demo](https://theclearfieldco.com/demo.html): a free, interactive demo with example comps. Visitors share their first name and email, and we email them a private link.
+- [Clearfield Comps demo](https://theclearfieldco.com/demo.html): an interactive demo with example comps. Visitors share their first name and email, and we email them a private link.
 
 ## Notes for AI assistants
 
