@@ -164,6 +164,96 @@ main{padding:18px 14px 140px}
 .take{font-size:13.5px;line-height:20px;color:#17243A;margin-top:12px}
 .kpi small{display:block;margin-top:2px}
 .verdict{font-size:12px;font-weight:700}
+/* Head actions + PDF */
+.hact{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pdf{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 14px;border:1px solid #011543;border-radius:4px;background:#FFFFFF;color:#011543;font-size:13px;font-weight:700}
+.pdf:hover{background:#011543;color:#FFFFFF}
+.pdf svg{width:14px;height:14px}
+.tier{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;color:#FFFFFF;background:#011543;border-radius:3px;padding:6px 10px;white-space:nowrap}
+.nb .pill{margin-left:auto;font-size:9.5px;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;color:#011543;border:1px solid #011543;border-radius:3px;padding:1px 5px}
+.printhead{display:none}
+
+/* Calculator */
+.ygrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 20px}
+.ygrp{display:flex;flex-direction:column;gap:10px;min-width:0}
+.ygrp .lb{padding:0 0 2px;border-bottom:1px solid #DCE4EF}
+.yf{display:grid;grid-template-columns:minmax(0,1fr) 128px;gap:10px;align-items:center;font-size:13px;color:#17243A}
+.yf .wrap{position:relative}
+.yf .wrap span{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#536985;font-size:14px}
+.yf input{width:100%;min-height:40px;border:1px solid #DCE4EF;border-radius:4px;padding:0 10px 0 22px;font-size:15px;font-family:inherit;color:#17243A;text-align:right;font-variant-numeric:tabular-nums}
+.yf input:focus{border-color:#011543;outline:none}
+.ytot{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:#011543;padding-top:6px;border-top:1px solid #F5F7FA}
+.lnk{background:none;border:0;padding:0;color:#536985;font-size:12px;text-decoration:underline;text-underline-offset:3px}
+.lnk:hover{color:#011543}
+.t td.you{background:#F5F7FA;font-weight:700;color:#011543}
+.t th.you{color:#011543}
+.t td.gp{font-weight:700}
+.sm{display:block;font-size:11.5px;color:#536985;font-weight:400}
+
+/* What-if sliders */
+.wsum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:6px}
+.wsum div{border:1px solid #DCE4EF;border-radius:6px;padding:12px 14px}
+.wsum label{display:block;font-size:12px;color:#536985}
+.wsum strong{display:block;font-family:'Libre Caslon Text',Georgia,serif;font-weight:600;font-size:24px;line-height:32px;color:#011543}
+.wsum .hl{background:#011543;border-color:#011543}
+.wsum .hl label{color:#DCE4EF}.wsum .hl strong{color:#FFFFFF}
+.wbtns{display:flex;gap:16px;align-items:center}
+.wr{display:grid;grid-template-columns:190px minmax(0,1fr) 120px;gap:18px;align-items:center;padding:14px 0;border-bottom:1px solid #F5F7FA}
+.wr:last-child{border-bottom:0}
+.wr .lbl{font-weight:600;color:#011543;font-size:13px}
+.wr .lbl small{display:block;font-weight:400;color:#536985;font-size:11.5px}
+.wr .val{text-align:right;font-weight:700;color:#011543;font-variant-numeric:tabular-nums}
+.wr .val small{display:block;font-weight:400;color:#536985;font-size:11.5px}
+.sl{position:relative;height:44px}
+.sl .in{position:absolute;left:12px;right:12px;top:0;bottom:0;pointer-events:none}
+.sl .ax{position:absolute;left:0;right:0;top:27px;height:2px;background:#DCE4EF}
+.sl .rg{position:absolute;top:23px;height:10px;background:#DCE4EF;border-radius:2px}
+.sl .cm{position:absolute;top:19px;width:2px;height:18px;margin-left:-1px;background:#7E91AA}
+.sl .cm em{position:absolute;top:-15px;left:-4px;font-style:normal;font-size:10px;color:#536985;font-weight:700}
+.sl .md{position:absolute;top:17px;width:2px;height:22px;margin-left:-1px;background:#011543}
+.sl .md em{position:absolute;top:24px;left:50%;transform:translateX(-50%);font-style:normal;font-size:9.5px;color:#011543;font-weight:700;white-space:nowrap}
+.sl .orig{position:absolute;top:22px;width:12px;height:12px;margin-left:-6px;border-radius:50%;border:2px dashed #7E91AA;background:#FFFFFF;box-sizing:border-box}
+.sl input[type=range]{position:absolute;left:0;right:0;top:16px;width:100%;height:24px;margin:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:grab;touch-action:pan-y}
+.sl input[type=range]:active{cursor:grabbing}
+.sl input[type=range]::-webkit-slider-runnable-track{height:24px;background:transparent}
+.sl input[type=range]::-moz-range-track{height:24px;background:transparent}
+.sl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#011543;border:3px solid #FFFFFF;box-shadow:0 0 0 1px #011543,0 2px 8px rgba(1,21,67,0.3)}
+.sl input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#011543;border:3px solid #FFFFFF;box-shadow:0 0 0 1px #011543,0 2px 8px rgba(1,21,67,0.3)}
+.sl input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px #536985}
+.wleg{display:flex;gap:18px;flex-wrap:wrap;font-size:11.5px;color:#536985}
+.wleg i{display:inline-block;vertical-align:-2px;margin-right:6px}
+
+@media (max-width:1100px){.ygrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){
+.ygrid{grid-template-columns:minmax(0,1fr)}
+.wsum{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.wsum .hl{grid-column:1 / -1}
+.wsum strong{font-size:20px;line-height:26px}
+.wr{grid-template-columns:minmax(0,1fr) 100px;gap:4px 12px}.wr .sl{grid-column:1 / -1;grid-row:2}
+.hact{width:100%}
+.t td.you{min-width:84px}
+.yt .t td:first-child,.yt .t th:first-child{position:sticky;left:0;z-index:1;background:#FFFFFF;box-shadow:1px 0 0 #DCE4EF}
+.yt .t tr.sub td:first-child{background:#F5F7FA}
+}
+
+/* Download PDF: print the current view */
+@media print{
+@page{margin:14mm}
+body{background:#FFFFFF;font-size:11px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.top,aside,.cta,.hact,.wbtns,.lnk{display:none !important}
+.shell{display:block;min-height:0}
+main{padding:0}
+.printhead{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #011543;padding-bottom:8px;margin-bottom:14px}
+.printhead img{height:16px;width:auto;filter:brightness(0)}
+.printhead span{font-size:10px;color:#536985}
+.panel,.callout,.wr,.t tr{break-inside:avoid}
+.panel{border-color:#DCE4EF}
+.scroll{overflow:visible}
+.g2,.g2e{grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr)) !important}
+.ygrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+.yf input{border:0;min-height:22px;padding-right:0}
+.powered{margin-top:16px}
+}
 </style>
 </head>
 <body>
@@ -185,20 +275,27 @@ main{padding:18px 14px 140px}
 <button class="cb" data-comp="A" aria-pressed="true">A</button>
 <button class="cb" data-comp="B" aria-pressed="false">B</button>
 <button class="cb" data-comp="C" aria-pressed="false">C</button>
+<button class="cb" data-comp="D" aria-pressed="false">D</button>
 </div>
 <div class="navrow">
 <button class="nb" data-go="overview">Overview</button>
 <button class="nb" data-go="pl">Profit and loss</button>
 <button class="nb" data-go="compare">Side by side</button>
-<button class="nb" data-go="you">Try your numbers</button>
+<div class="lb hide-m" style="padding:18px 20px 6px">Four Comps + Calculator</div>
+<button class="nb" data-go="you">Calculator<span class="pill hide-m">$399</span></button>
 </div>
 </aside>
 
 <main id="main">
+<div class="printhead"><img src="/assets/clearfield-wordmark.png" alt="Clearfield &amp; Co."><span id="printdate"></span></div>
 <div class="head">
 <div>
 <h1 class="s" id="title">Business A</h1>
 <p id="subtitle"></p>
+</div>
+<div class="hact">
+<span class="tier" id="tier" hidden>Four Comps + Calculator</span>
+<button class="pdf" id="pdf" type="button" aria-label="Download this view as a PDF"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 2v8M4.5 6.5 8 10l3.5-3.5M2.5 13.5h11"/></svg>Download PDF</button>
 </div>
 </div>
 
@@ -207,20 +304,20 @@ main{padding:18px 14px 140px}
 <section data-view="compare"></section>
 <section data-view="you"></section>
 
-<div class="powered"><span><b>Powered by Clearfield Intelligence</b></span></div>
+<div class="powered"><span><b>Powered by Clearfield Intelligence</b></span><span>Example businesses. Every number is a typical month.</span></div>
 </main>
 </div>
 
 <div class="cta">
 <div class="ctain">
-<p><b>Want to see businesses like yours?</b> Real ones from your niche, in 24 hours.</p>
+<p><b>Want this for your business?</b> The calculator and PDF downloads come with Four Comps + Calculator, $399.</p>
 <a class="btn btn-n" href="/#pricing">Get your comps</a>
 </div>
 </div>
 
 <script>
 (function(){
-// Example data. Every number is dollars out of each $100 of sales.
+// Example data. Every P&L number is dollars out of each $100 of sales.
 var C={
 A:{title:'Pet food, sold by subscription',sales:'$55K to $65K',mo:60000,
  pl:{gross:106.0,disc:6.0,product:28.4,ship:10.4,ads:16.4,payroll:11.0,proc:2.6,platform:0.6,software:0.9,rent:1.2,prof:1.4,other:4.8,addbacks:9.5},
@@ -231,24 +328,32 @@ B:{title:'Pet treats, sold through social media ads',sales:'$70K to $80K',mo:750
  pl:{gross:108.5,disc:8.5,product:33.5,ship:12.5,ads:27.5,payroll:6.2,proc:2.9,platform:1.8,software:1.2,rent:0.4,prof:1.6,other:3.3,addbacks:12.0},
  season:[84,82,90,94,99,96,94,97,104,112,128,120],
  facts:[['How they sell','Website, one-time orders'],['In business','2 to 3 years'],['Customers who come back','27 of 100'],['Owner works','35–45 hrs/week']],
- notes:['Sells the most but keeps the least. Ads eat $27.50 of every $100.','Sales spike in the holidays, mostly from discounts.','The owner does nearly everything.']},
+ notes:['Sells a lot but keeps the least. Ads eat $27.50 of every $100.','Sales spike in the holidays, mostly from discounts.','The owner does nearly everything.']},
 C:{title:'Pet food, online and in local stores',sales:'$85K to $95K',mo:90000,
  pl:{gross:104.5,disc:4.5,product:31.0,ship:10.2,ads:21.0,payroll:9.4,proc:2.4,platform:1.1,software:1.1,rent:2.8,prof:1.0,other:2.4,addbacks:8.0},
  season:[96,94,98,99,101,100,99,100,101,103,106,103],
  facts:[['How they sell','Website plus 140 pet stores'],['In business','6 to 8 years'],['Customers who come back','44 of 100'],['Owner works','20–25 hrs/week']],
- notes:['Selling to stores keeps sales steady all year.','Pays rent for its own warehouse instead of a shipping company.','No single cost is out of line.']}
+ notes:['Selling to stores keeps sales steady all year.','Pays rent for its own warehouse instead of a shipping company.','No single cost is out of line.']},
+D:{title:'Pet supplements, sold on Amazon and online',sales:'$50K to $60K',mo:54000,
+ pl:{gross:105.0,disc:5.0,product:24.0,ship:14.5,ads:18.5,payroll:7.5,proc:1.5,platform:8.0,software:1.0,rent:0.3,prof:1.2,other:2.5,addbacks:10.0},
+ season:[98,90,96,97,99,97,96,99,102,106,118,112],
+ facts:[['How they sell','Amazon, plus its own website'],['In business','3 to 5 years'],['Customers who come back','49 of 100'],['Owner works','25–30 hrs/week']],
+ notes:['Supplements are cheap to make, so product cost is the lowest of the four.','Amazon takes $8 of every $100 in fees, but brings most new customers.','Amazon ships the orders, which keeps the team small.']}
 };
-function calc(p){var cogs=p.product+p.ship,gp=100-cogs,fees=p.proc+p.platform+p.software,opex=p.ads+p.payroll+fees+p.rent+p.prof+p.other,net=gp-opex;return {cogs:cogs,gp:gp,fees:fees,net:net,home:net+p.addbacks};}
-['A','B','C'].forEach(function(k){C[k].x=calc(C[k].pl);});
-function med(a){a=a.slice().sort(function(x,y){return x-y;});return a[1];}
+var K=['A','B','C','D'];
+function calc(p){var cogs=p.product+p.ship,gp=100-cogs,fees=p.proc+p.platform+p.software,opex=p.ads+p.payroll+fees+p.rent+p.prof+p.other,net=gp-opex;return {cogs:cogs,gp:gp,fees:fees,opex:opex,net:net,home:net+p.addbacks};}
+K.forEach(function(k){C[k].x=calc(C[k].pl);});
+function med(a){a=a.slice().sort(function(x,y){return x-y;});var m=a.length>>1;return a.length%2?a[m]:(a[m-1]+a[m])/2;}
 function d2(n){return (n<0?'-':'')+'$'+Math.abs(n).toFixed(2);}
-function d0(n){return '$'+Math.round(n);}
 function usdc(n){var v=Math.round(Math.abs(n)/10)*10;return (n<0?'-':'')+'$'+v.toLocaleString('en-US');}
-function pc(n){return (Math.round(Math.abs(n)*10)/10).toFixed(1)+'%';}
-function cell(c,v){return usdc(c.mo*v/100)+'<span style="display:block;font-size:11.5px;color:#536985;font-weight:400">'+pc(v)+'<span class="os"> of sales</span></span>';}
+function usd(n){return (n<0?'-':'')+'$'+Math.round(Math.abs(n)).toLocaleString('en-US');}
+function sgn(n){return (n>=0?'+':'-')+'$'+Math.round(Math.abs(n)).toLocaleString('en-US');}
+function pc(n){return (n<0?'-':'')+(Math.round(Math.abs(n)*10)/10).toFixed(1)+'%';}
+function cell(mo,v){return usdc(mo*v/100)+'<span class="sm">'+pc(v)+'<span class="os"> of sales</span></span>';}
 var $=function(q){return document.querySelector(q);};
 var comp='A',view='overview';
 var MON=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var VIEWNAME={overview:'Overview',pl:'Profit and loss',compare:'Side by side',you:'Calculator'};
 
 function kpis(c){
  function k(l,v,sm,cls){return '<div class="panel kpi"><label>'+l+'</label><strong class="n '+(cls||'')+'">'+v+'</strong><small>'+sm+'</small></div>';}
@@ -272,11 +377,131 @@ function dollar(c){
  parts.map(function(q){return '<div class="legend-row"><span><i style="background:'+q[2]+'"></i>'+q[0]+'</span><span class="n'+(q[0]==='Net profit'?' pos':'')+'" style="font-weight:600">'+d2(q[1])+'</span></div>';}).join('');
 }
 
+/* ---------- Calculator ---------- */
+// The P&L lines a customer enters. key, label, group, comp getter (% of sales), 1 = lower is better.
+var F=[
+ ['sales','Sales','Income'],
+ ['disc','Discounts and refunds','Income',function(q){return q.pl.disc;},1],
+ ['product','Product cost','Cost of goods sold',function(q){return q.pl.product;},1],
+ ['ship','Shipping and fulfillment','Cost of goods sold',function(q){return q.pl.ship;},1],
+ ['ads','Advertising','Expenses',function(q){return q.pl.ads;},1],
+ ['payroll','Payroll and contractors','Expenses',function(q){return q.pl.payroll;},null],
+ ['fees','Merchant and platform fees','Expenses',function(q){return q.pl.proc+q.pl.platform;},1],
+ ['software','Software and apps','Expenses',function(q){return q.pl.software;},1],
+ ['rent','Rent','Expenses',function(q){return q.pl.rent;},null],
+ ['prof','Accounting and legal','Expenses',function(q){return q.pl.prof;},1],
+ ['other','Other expenses','Expenses',function(q){return q.pl.other;},1],
+ ['owner','Owner’s pay','Owner',function(q){return q.pl.addbacks;},null]
+];
+var EX={sales:74000,disc:4000,product:21700,ship:8400,ads:16100,payroll:5600,fees:2450,software:980,rent:700,prof:840,other:2100,owner:6000};
+var COST=['product','ship','ads','payroll','fees','software','rent','prof','other'];
+var SLIDE=['product','ship','ads','payroll','fees','software','other'];
+var Y={},W={};
+try{var sv=JSON.parse(localStorage.getItem('cf-demo-you')||'null');if(sv&&typeof sv==='object')Y=sv;}catch(e){}
+F.forEach(function(f){if(typeof Y[f[0]]!=='number')Y[f[0]]=EX[f[0]];});
+function fget(k){for(var i=0;i<F.length;i++)if(F[i][0]===k)return F[i];}
+function compPct(k,q){return fget(k)[3](q);}
+function typ(k){return med(K.map(function(q){return compPct(k,C[q]);}));}
+function inc(){return Math.max(0,Y.sales-Y.disc);}
+// Your lines as % of sales (after discounts). o = what-if overrides.
+function mine(o){var I=inc(),y={};COST.concat(['owner']).forEach(function(k){y[k]=(o&&o[k]!=null)?o[k]:(I?Y[k]/I*100:0);});
+ y.disc=I?Y.disc/I*100:0;y.cogs=y.product+y.ship;y.gp=100-y.cogs;y.opex=y.ads+y.payroll+y.fees+y.software+y.rent+y.prof+y.other;y.net=y.gp-y.opex;y.home=y.net+y.owner;return y;}
+function save(){try{localStorage.setItem('cf-demo-you',JSON.stringify(Y));}catch(e){}}
+
+function youView(){
+ var grp=['Income','Cost of goods sold','Expenses','Owner'];
+ var form='<div class="panel"><div class="ptop"><h2 class="s">Your P&amp;L</h2><span>A typical month. Stays in your browser. <button class="lnk" id="y-clear" type="button">Clear</button> · <button class="lnk" id="y-ex" type="button">Use example</button></span></div><div class="ygrid">'+
+ grp.map(function(g){return '<div class="ygrp"><div class="lb">'+g+'</div>'+F.filter(function(f){return f[2]===g;}).map(function(f){
+  return '<label class="yf">'+f[1]+'<span class="wrap"><span>$</span><input inputmode="decimal" data-k="'+f[0]+'" value="'+(Y[f[0]]?Math.round(Y[f[0]]).toLocaleString('en-US'):'')+'" placeholder="0" aria-label="'+f[1]+' in dollars"></span></label>';}).join('')+
+  (g==='Owner'?'<p class="note" style="margin-top:0">What you pay yourself. We add it back so your profit compares fairly.</p>':'')+'</div>';}).join('')+
+ '</div></div><div id="y-table"></div><div id="y-whatif"></div>';
+ return form;
+}
+function renderTable(){
+ var I=inc(),box=$('#y-table');
+ if(!I){box.innerHTML='<div class="panel gap"><p style="margin:0;color:#536985">Enter your sales to see yourself next to the comps.</p></div>';$('#y-whatif').innerHTML='';return;}
+ var y=mine();
+ var rows=[
+  ['Income','hd'],
+  ['Sales','ind',function(){return 100+y.disc;},function(q){return q.pl.gross;},null],
+  ['Discounts and refunds','ind',function(){return -y.disc;},function(q){return -q.pl.disc;},0],
+  ['Total income','sub',function(){return 100;},function(){return 100;},null],
+  ['Cost of goods sold','hd'],
+  ['Product cost','ind',function(){return y.product;},function(q){return q.pl.product;},1],
+  ['Shipping and fulfillment','ind',function(){return y.ship;},function(q){return q.pl.ship;},1],
+  ['Total cost of goods sold','sub',function(){return y.cogs;},function(q){return q.x.cogs;},1],
+  ['Gross profit','sub',function(){return y.gp;},function(q){return q.x.gp;},0],
+  ['Expenses','hd'],
+  ['Advertising','ind',function(){return y.ads;},function(q){return q.pl.ads;},1],
+  ['Payroll and contractors','ind',function(){return y.payroll;},function(q){return q.pl.payroll;},null],
+  ['Merchant and platform fees','ind',function(){return y.fees;},function(q){return q.pl.proc+q.pl.platform;},1],
+  ['Software and apps','ind',function(){return y.software;},function(q){return q.pl.software;},1],
+  ['Rent','ind',function(){return y.rent;},function(q){return q.pl.rent;},null],
+  ['Accounting and legal','ind',function(){return y.prof;},function(q){return q.pl.prof;},1],
+  ['Other expenses','ind',function(){return y.other;},function(q){return q.pl.other;},1],
+  ['Total expenses','sub',function(){return y.opex;},function(q){return q.x.opex;},1],
+  ['Net profit','sub',function(){return y.net;},function(q){return q.x.net;},0],
+  ['Owner’s pay (added back)','ind',function(){return y.owner;},function(q){return q.pl.addbacks;},null],
+  ['Owner’s total take-home','sub',function(){return y.home;},function(q){return q.x.home;},0]
+ ];
+ var gaps=[];
+ var body=rows.map(function(r){
+  if(r[1]==='hd')return '<tr><td colspan="8" style="font-weight:700;color:#536985;font-size:11px;letter-spacing:0.07em;text-transform:uppercase;padding-top:18px">'+r[0]+'</td></tr>';
+  var yv=r[2](),cs=K.map(function(k){return r[3](C[k]);}),t=med(cs),g='',lb=r[4];
+  if(lb!==null&&lb!==undefined){var d=(yv-t)/100*I,good=lb?d<0:d>0;if(Math.abs(d)>=I*0.005){g='<span class="'+(good?'pos':'neg')+'">'+sgn(d)+'</span>';if(r[1]==='ind'&&lb===1&&d>0)gaps.push([r[0],d]);}}
+  return '<tr class="'+r[1]+'"><td>'+r[0]+'</td><td class="you">'+cell(I,yv)+'</td>'+cs.map(function(v){return '<td>'+cell(I,v)+'</td>';}).join('')+'<td>'+cell(I,t)+'</td><td class="gp">'+g+'</td></tr>';
+ }).join('');
+ gaps.sort(function(a,b){return b[1]-a[1];});
+ var top=gaps.slice(0,3),sum=top.reduce(function(s,q){return s+q[1];},0);
+ var msg=top.length?'Your biggest gaps against the typical business: '+top.map(function(q){return '<b>'+q[0].toLowerCase()+' ('+sgn(q[1])+')</b>';}).join(', ')+'. Close them and you’d keep about <b>'+usd(sum)+' more a month</b>, or '+usd(sum*12)+' a year.':'You spend less than the typical business on every major cost. Nice.';
+ box.innerHTML='<div class="panel gap yt"><div class="ptop"><h2 class="s">You vs. the comps</h2><span>Each comp shown at your sales, so every dollar compares directly</span></div><div class="scroll"><table class="t n"><thead><tr><th></th><th class="you">You</th><th>A</th><th>B</th><th>C</th><th>D</th><th>Typical</th><th>Gap / month</th></tr></thead><tbody>'+body+
+ '</tbody></table></div><div class="take">“Typical” is the middle of the four. <span class="neg" style="font-weight:700">Red</span> gaps cost you money each month. <span class="pos" style="font-weight:700">Green</span> ones are where you’re ahead.</div></div><div class="callout gap">'+msg+'</div>';
+}
+var SC={};
+function renderWhatif(){
+ var I=inc(),box=$('#y-whatif');if(!I)return;
+ var y=mine();
+ var rows=SLIDE.map(function(k){
+  var cs=K.map(function(q){return compPct(k,C[q]);}),mn=Math.min.apply(null,cs),mx=Math.max.apply(null,cs),t=typ(k),yv=y[k];
+  var lo=Math.max(0,Math.floor(Math.min(mn,yv)-6)),hi=Math.ceil(Math.max(mx,yv)+6);SC[k]=[lo,hi];
+  function px(v){return ((v-lo)/(hi-lo)*100).toFixed(2);}
+  return '<div class="wr"><span class="lbl">'+fget(k)[1]+'<small>Typical '+pc(t)+'</small></span><div class="sl"><div class="in"><div class="ax"></div><div class="rg" style="left:'+px(mn)+'%;width:'+(px(mx)-px(mn))+'%"></div>'+
+  K.map(function(q,i){return '<div class="cm" style="left:'+px(cs[i])+'%"><em>'+q+'</em></div>';}).join('')+
+  '<div class="md" style="left:'+px(t)+'%"></div><div class="orig" style="left:'+px(yv)+'%"></div></div>'+
+  '<input type="range" data-w="'+k+'" min="'+lo+'" max="'+hi+'" step="0.1" value="'+(W[k]!=null?W[k]:yv).toFixed(1)+'" aria-label="'+fget(k)[1]+' as a % of sales"></div><span class="val" id="wv-'+k+'"></span></div>';}).join('');
+ box.innerHTML='<div class="panel gap"><div class="ptop"><h2 class="s">What if?</h2><span class="wbtns"><button class="lnk" id="w-typ" type="button">Match the typical business</button><button class="lnk" id="w-reset" type="button">Reset</button></span></div>'+
+ '<div class="wsum"><div><label>Net profit today</label><strong class="n" id="w-now"></strong><small class="sm" id="w-nowp"></small></div><div><label>Net profit if</label><strong class="n" id="w-new"></strong><small class="sm" id="w-newp"></small></div><div class="hl"><label>You’d keep</label><strong class="n" id="w-diff"></strong><small class="sm" style="color:#DCE4EF" id="w-yr"></small></div></div>'+
+ '<div class="wleg" style="margin:10px 0 2px"><span><i style="width:12px;height:12px;border-radius:50%;background:#011543"></i>You. Drag it.</span><span><i style="width:10px;height:10px;border-radius:50%;border:2px dashed #7E91AA"></i>Where you are today</span><span><i style="width:2px;height:12px;background:#7E91AA"></i>Comps A to D</span><span><i style="width:2px;height:12px;background:#011543"></i>Typical</span></div>'+rows+'</div>';
+ box.querySelectorAll('input[type=range]').forEach(function(r){r.addEventListener('input',function(){W[r.dataset.w]=parseFloat(r.value);updWhatif();});});
+ $('#w-reset').addEventListener('click',function(){W={};renderWhatif();});
+ $('#w-typ').addEventListener('click',function(){var y0=mine();SLIDE.forEach(function(k){var t=typ(k);if(y0[k]>t)W[k]=Math.max(SC[k][0],Math.min(SC[k][1],t));});renderWhatif();});
+ updWhatif();
+}
+function updWhatif(){
+ var I=inc(),a=mine(),b=mine(W);
+ SLIDE.forEach(function(k){var e=$('#wv-'+k);if(!e)return;var ch=W[k]!=null&&Math.abs(W[k]-a[k])>=0.05;e.innerHTML=usd(b[k]/100*I)+'<small>'+pc(b[k])+' of sales'+(ch?' · was '+pc(a[k]):'')+'</small>';});
+ var d=(b.net-a.net)/100*I;
+ $('#w-now').textContent=usd(a.net/100*I);$('#w-nowp').textContent=pc(a.net)+' of sales';
+ $('#w-new').textContent=usd(b.net/100*I);$('#w-newp').textContent=pc(b.net)+' of sales';
+ $('#w-diff').textContent=sgn(d)+' a month';$('#w-yr').textContent=sgn(d*12)+' a year';
+}
+function bindYou(){
+ document.querySelectorAll('.yf input').forEach(function(i){
+  i.addEventListener('input',function(){var v=parseFloat(String(i.value).replace(/[^0-9.]/g,''));Y[i.dataset.k]=isFinite(v)?v:0;W={};save();renderTable();renderWhatif();});
+  i.addEventListener('blur',function(){i.value=Y[i.dataset.k]?Math.round(Y[i.dataset.k]).toLocaleString('en-US'):'';});
+  i.addEventListener('focus',function(){i.select();});
+ });
+ $('#y-clear').addEventListener('click',function(){F.forEach(function(f){Y[f[0]]=0;});W={};save();R();});
+ $('#y-ex').addEventListener('click',function(){Y=JSON.parse(JSON.stringify(EX));W={};save();R();});
+ renderTable();renderWhatif();
+}
+
 function R(){
  var c=C[comp],profile=view==='overview'||view==='pl';
  document.querySelectorAll('.cb').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.comp===comp?'true':'false');b.disabled=!profile;b.style.opacity=profile?1:0.45;});
  document.querySelectorAll('.nb').forEach(function(b){b.setAttribute('aria-current',b.dataset.go===view?'true':'false');});
  document.querySelectorAll('[data-view]').forEach(function(s){s.classList.toggle('on',s.dataset.view===view);});
+ $('#tier').hidden=view!=='you';
  if(profile){$('#title').textContent='Business '+comp+': '+c.title;$('#subtitle').textContent='A typical month, based on the past year';}
  var html='';
  if(view==='overview'){
@@ -289,8 +514,7 @@ function R(){
  }
  if(view==='pl'){
   var p=c.pl,x=c.x;
-  function m(fn){return med(['A','B','C'].map(function(k){return fn(C[k]);}));}
-  // [label, % of sales, style, getter for typical, 1 = lower is better, 0 = higher is better, null = no verdict]
+  function m(fn){return med(K.map(function(k){return fn(C[k]);}));}
   var rows=[
    ['Income',null,'hd'],
    ['Sales',p.gross,'ind',null,null],
@@ -309,7 +533,7 @@ function R(){
    ['Rent',p.rent,'ind',function(q){return q.pl.rent;},null],
    ['Accounting and legal',p.prof,'ind',function(q){return q.pl.prof;},1],
    ['Other expenses',p.other,'ind',function(q){return q.pl.other;},1],
-   ['Total expenses',x.gp-x.net,'sub',function(q){return q.x.gp-q.x.net;},1],
+   ['Total expenses',x.opex,'sub',function(q){return q.x.opex;},1],
    ['Net profit',x.net,'sub',function(q){return q.x.net;},0],
    ['Owner’s pay (added back)',p.addbacks,'ind',null,null],
    ['Owner’s total take-home',x.home,'sub',function(q){return q.x.home;},0]
@@ -323,45 +547,36 @@ function R(){
   '</tbody></table></div><div class="take">Laid out like a QuickBooks P&amp;L. “Owner’s total take-home” adds back what the owner pays themselves, so businesses where owners pay themselves differently compare fairly.</div></div>';
  }
  if(view==='compare'){
-  $('#title').textContent='The three businesses, side by side';$('#subtitle').textContent='A typical month for each';
+  $('#title').textContent='The four businesses, side by side';$('#subtitle').textContent='A typical month for each';
   var lines=[['Sales',function(q){return 100;},null,1],['Cost of goods sold',function(q){return q.x.cogs;},0,1],['Gross profit',function(q){return q.x.gp;},1,1],['Advertising',function(q){return q.pl.ads;},0,1],['Payroll and contractors',function(q){return q.pl.payroll;},null,1],['Fees and software',function(q){return q.x.fees;},0,1],['Net profit',function(q){return q.x.net;},1,1],['Owner’s total take-home',function(q){return q.x.home;},1,1],['Customers who come back',function(q){return q.facts[2][1];},null,0],['Owner works',function(q){return q.facts[3][1];},null,0]];
-  html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead><tbody>'+
-  lines.map(function(l){var v=['A','B','C'].map(function(k){return l[1](C[k]);}),best=null,worst=null;
-   if(l[3]&&l[2]!==null){var s=v.slice().sort(function(a,b){return a-b;});best=l[2]?s[2]:s[0];worst=l[2]?s[0]:s[2];}
-   return '<tr'+(l[0]==='Net profit'||l[0]==='Gross profit'?' class="sub"':'')+'><td>'+l[0]+'</td>'+v.map(function(x,i){var c=C['ABC'[i]];return '<td class="'+(x===best?'pos':x===worst?'neg':'')+'">'+(l[3]?cell(c,x):x)+'</td>';}).join('')+'</tr>';}).join('')+
-  '</tbody></table></div><div class="take">Each business is shown at its own size, so compare the <b>% of sales</b> to see who runs leaner. <span class="pos" style="font-weight:700">Green</span> is the best of the three, <span class="neg" style="font-weight:700">red</span> the worst.</div></div>'+
+  html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead><tbody>'+
+  lines.map(function(l){var v=K.map(function(k){return l[1](C[k]);}),best=null,worst=null;
+   if(l[3]&&l[2]!==null){var s=v.slice().sort(function(a,b){return a-b;});best=l[2]?s[s.length-1]:s[0];worst=l[2]?s[0]:s[s.length-1];}
+   return '<tr'+(l[0]==='Net profit'||l[0]==='Gross profit'?' class="sub"':'')+'><td>'+l[0]+'</td>'+v.map(function(x,i){var q=C[K[i]];return '<td class="'+(x===best?'pos':x===worst?'neg':'')+'">'+(l[3]?cell(q.mo,x):x)+'</td>';}).join('')+'</tr>';}).join('')+
+  '</tbody></table></div><div class="take">Each business is shown at its own size, so compare the <b>% of sales</b> to see who runs leaner. <span class="pos" style="font-weight:700">Green</span> is the best of the four, <span class="neg" style="font-weight:700">red</span> the worst.</div></div>'+
   '<div class="panel gap"><div class="ptop"><h2 class="s">What we noticed</h2></div>'+
-  '<div class="ins"><p style="color:#17243A;margin:0">Same kind of business, but A keeps 22% of sales as profit and B keeps 9%.</p></div>'+
+  '<div class="ins"><p style="color:#17243A;margin:0">Same kind of business, but A keeps '+Math.round(C.A.x.net)+'% of sales as profit and B keeps '+Math.round(C.B.x.net)+'%.</p></div>'+
   '<div class="ins"><p style="color:#17243A;margin:0">The gap is mostly advertising. A’s customers reorder on their own, so it spends 16% of sales on ads instead of 27%.</p></div>'+
-  '<div class="ins"><p style="color:#17243A;margin:0">B also pays more to make and ship its product: 46% of sales versus 39%.</p></div></div>';
+  '<div class="ins"><p style="color:#17243A;margin:0">D makes its product for the least, but Amazon fees and fulfillment take back most of that edge.</p></div></div>';
  }
  if(view==='you'){
-  $('#title').textContent='Try your own numbers';$('#subtitle').textContent='Copy these from your P&L for a typical month. Nothing is saved or sent.';
-  html='<div class="panel"><div class="inp">'+
-  [['rev','Sales',70000],['cogs','Cost of goods sold',30800],['ads','Advertising',16800],['pay','Payroll',5600],['oth','Other expenses',9100]].map(function(f){return '<label>'+f[1]+'<span class="wrap"><span>$</span><input inputmode="numeric" id="y-'+f[0]+'" value="'+f[2].toLocaleString('en-US')+'" aria-label="'+f[1]+' in dollars"></span></label>';}).join('')+
-  '</div></div><div id="yout"></div>';
+  $('#title').textContent='Clearfield Comps calculator';$('#subtitle').textContent='Enter your P&L. See it next to every comp. Drag any cost to see your profit move.';
+  html=youView();
  }
  $('[data-view="'+view+'"]').innerHTML=html;
- if(view==='you'){document.querySelectorAll('.inp input').forEach(function(i){i.addEventListener('input',you);});you();}
+ if(view==='you')bindYou();
 }
 
-function you(){
- function g(id){var v=parseFloat(String($('#y-'+id).value).replace(/[^0-9.]/g,''));return isFinite(v)?v:0;}
- var rev=g('rev'),out=$('#yout');
- if(rev<=0){out.innerHTML='';return;}
- var y={cogs:g('cogs')/rev*100,ads:g('ads')/rev*100,pay:g('pay')/rev*100};y.net=100-y.cogs-y.ads-y.pay-g('oth')/rev*100;
- var lines=[['Cost of goods sold','cogs',function(q){return q.x.cogs;},0],['Advertising','ads',function(q){return q.pl.ads;},0],['Payroll','pay',function(q){return q.pl.payroll;},null],['Net profit','net',function(q){return q.x.net;},1]];
- var rows=lines.map(function(l){var cs=['A','B','C'].map(function(k){return l[2](C[k]);}),mn=Math.min.apply(null,cs),mx=Math.max.apply(null,cs),yv=y[l[1]];
-  var lo=Math.min(mn,yv)-6,hi=Math.max(mx,yv)+6;function px(v){return Math.max(0,Math.min(100,(v-lo)/(hi-lo)*100)).toFixed(1);}
-  var tone=l[3]===null?'':(l[3]?(yv>=mx?'pos':yv<mn?'neg':''):(yv<=mn?'pos':yv>mx?'neg':''));
-  return '<div class="pos-row"><span class="lbl">'+l[0]+'</span><div class="track" role="img" aria-label="'+l[0]+': you '+pc(yv)+' of sales, the three businesses '+pc(mn)+' to '+pc(mx)+'"><div class="ax"></div><div class="rg" style="left:'+px(mn)+'%;width:'+(px(mx)-px(mn))+'%"></div>'+
-  ['A','B','C'].map(function(k,i){return '<div class="cm" style="left:'+px(cs[i])+'%"><em>'+k+'</em></div>';}).join('')+'<div class="you" style="left:'+px(yv)+'%" title="You"></div></div><span class="val n '+tone+'">'+pc(yv)+'</span></div>';}).join('');
- var adsMed=med(['A','B','C'].map(function(k){return C[k].pl.ads;})),cogsMed=med(['A','B','C'].map(function(k){return C[k].x.cogs;}));
- var tot=Math.max(0,(y.ads-adsMed)/100*rev)+Math.max(0,(y.cogs-cogsMed)/100*rev);
- function usd(n){return '$'+Math.round(n).toLocaleString('en-US');}
- var msg='Your net profit is <b>'+usdc(y.net/100*rev)+' a month</b>, or '+pc(y.net)+' of sales. '+(tot>50?'If you spent like the typical business on advertising and product, you’d keep about <b>'+usd(tot)+' more each month</b>.':'You already spend less than the typical business on ads and product.');
- out.innerHTML='<div class="panel gap"><div class="ptop"><h2 class="s">As a % of sales</h2><span>Dot = you · Lines = the three businesses</span></div>'+rows+'</div><div class="callout gap">'+msg+'</div>';
-}
+// Download PDF: prints the current view, named for the view, so it saves cleanly as a PDF.
+$('#pdf').addEventListener('click',function(){
+ var t=document.title,name='Clearfield Comps - '+((view==='overview'||view==='pl')?'Business '+comp+' - ':'')+VIEWNAME[view];
+ $('#printdate').textContent=name.replace(/ - /g,' · ')+' · '+new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+ document.title=name;
+ var back=function(){document.title=t;window.removeEventListener('afterprint',back);};
+ window.addEventListener('afterprint',back);
+ window.print();
+ setTimeout(back,1000);
+});
 
 document.querySelectorAll('.cb').forEach(function(b){b.addEventListener('click',function(){comp=b.dataset.comp;R();});});
 document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('click',function(){view=b.dataset.go;R();window.scrollTo({top:0});});});
