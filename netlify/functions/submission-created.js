@@ -6,7 +6,7 @@
 //
 // Netlify environment variables (Project configuration > Environment variables):
 //   KIT_API_KEY  Kit v4 API key (Kit > Settings > Developer > API keys)
-//   KIT_TAG_ID   numeric ID of the "Terminal demo" tag in Kit
+//   KIT_TAG_ID   numeric ID of the "Comps demo" tag in Kit
 
 const KIT = 'https://api.kit.com/v4';
 
