@@ -154,7 +154,17 @@ a{color:#011543}a:hover{color:#18345C}
 .lk-n{color:#011543;text-decoration:none;font-weight:700;font-size:15px;border-bottom:1px solid #DCE4EF;padding-bottom:3px}.lk-n:hover{color:#011543;border-color:#011543}
 .nav a{color:#DCE4EF;text-decoration:none;font-size:14px}.nav a:hover{color:#FFFFFF}
 .nav a.btn,.nav a.btn:hover{color:#011543}
-.jb a{color:#536985;text-decoration:none;font-size:14px;font-weight:700;padding:18px 0;border-bottom:2px solid transparent}.jb a:hover{color:#011543;border-bottom-color:#011543}
+.press{background:#FFFFFF;border-bottom:1px solid #DCE4EF}
+.pin{display:flex;align-items:center;gap:40px;padding-top:26px !important;padding-bottom:26px !important}
+.plabel{margin:0;flex:0 0 auto;color:#536985;font-size:11px}
+.pview{flex:1 1 auto;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ptrack,.pset ul{list-style:none;margin:0;padding:0;display:flex;align-items:center}
+.ptrack{width:max-content;animation:pscroll 32s linear infinite}
+.pview:hover .ptrack{animation-play-state:paused}
+.pset ul{gap:72px;padding-right:72px}
+.pset img{display:block;height:auto;max-width:none}
+@keyframes pscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.pview{-webkit-mask-image:none;mask-image:none}.ptrack{animation:none;width:auto;justify-content:center}.ptrack>.pset{flex:1 1 auto}.pset[aria-hidden]{display:none}.pset ul{flex-wrap:wrap;justify-content:center;gap:28px 56px;padding-right:0}}
 .ft a{color:#DCE4EF;text-decoration:none;font-size:14px}.ft a:hover{color:#FFFFFF}
 .t{width:100%;border-collapse:collapse}
 .t th{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:#536985;font-weight:700;text-align:right;padding:7px 10px;border-bottom:1px solid #DCE4EF;white-space:nowrap}
@@ -189,10 +199,10 @@ a{color:#011543}a:hover{color:#18345C}
 .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .t th,.t td{padding:7px 6px !important}
 .t td:first-child{white-space:normal !important;min-width:96px}
-.jb{position:sticky;top:0;z-index:20}
-.jbin{flex-wrap:nowrap !important;gap:22px !important;overflow-x:auto;scrollbar-width:none}
-.jbin::-webkit-scrollbar{display:none}
-.jb a{white-space:nowrap;padding:14px 0 !important;font-size:13px !important}
+.pin{flex-direction:column;align-items:stretch;gap:16px;padding-top:22px !important;padding-bottom:22px !important}
+.plabel{text-align:center}
+.pset ul{gap:48px;padding-right:48px}
+.ptrack{animation-duration:24s}
 section > .px{padding-top:64px !important;padding-bottom:64px !important;gap:40px !important}
 #top > .px{padding-top:48px !important;padding-bottom:0 !important}
 #how > .px > div{gap:28px !important}
@@ -214,7 +224,7 @@ footer img{width:240px !important}
 }
 </style>
 
-<style>section[id]{scroll-margin-top:56px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #536985;outline-offset:2px}</style>
+<style>section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #536985;outline-offset:2px}</style>
 </head>
 <body>
 
@@ -387,11 +397,12 @@ footer img{width:240px !important}
 </div>
 </section>
 
-<nav class="jb" aria-label="Page sections" style="background: #FFFFFF; border-bottom: 1px solid #DCE4EF">
-<div class="px jbin" style="max-width: 1240px; margin: 0 auto; padding: 0 40px; display: flex; gap: 40px; flex-wrap: wrap">
-<a href="#why">Why comps</a><a href="#how">How it works</a><a href="#fit">Who it's for</a><a href="#pricing">Pricing</a><a href="#method">Where comps come from</a><a href="#faq">Questions</a>
+<section class="press" aria-label="As featured in">
+<div class="px pin" style="max-width: 1240px; margin: 0 auto; padding: 0 40px">
+<p class="lb plabel">As featured in</p>
+<div class="pview"><ul class="ptrack"><li class="pset"><ul><li><picture><source srcset="/assets/press/business-insider.webp" type="image/webp"><img src="/assets/press/business-insider.png" alt="Business Insider" width="109" height="34" decoding="async"></picture></li><li><picture><source srcset="/assets/press/wall-street-journal.webp" type="image/webp"><img src="/assets/press/wall-street-journal.png" alt="The Wall Street Journal" width="219" height="19" decoding="async"></picture></li><li><picture><source srcset="/assets/press/inc.webp" type="image/webp"><img src="/assets/press/inc.png" alt="Inc." width="87" height="30" decoding="async"></picture></li><li><picture><source srcset="/assets/press/fast-company.webp" type="image/webp"><img src="/assets/press/fast-company.png" alt="Fast Company" width="179" height="26" decoding="async"></picture></li></ul></li><li class="pset" aria-hidden="true"><ul><li><picture><source srcset="/assets/press/business-insider.webp" type="image/webp"><img src="/assets/press/business-insider.png" alt="" width="109" height="34" decoding="async"></picture></li><li><picture><source srcset="/assets/press/wall-street-journal.webp" type="image/webp"><img src="/assets/press/wall-street-journal.png" alt="" width="219" height="19" decoding="async"></picture></li><li><picture><source srcset="/assets/press/inc.webp" type="image/webp"><img src="/assets/press/inc.png" alt="" width="87" height="30" decoding="async"></picture></li><li><picture><source srcset="/assets/press/fast-company.webp" type="image/webp"><img src="/assets/press/fast-company.png" alt="" width="179" height="26" decoding="async"></picture></li></ul></li></ul></div>
 </div>
-</nav>
+</section>
 
 <section id="why" style="background: #FFFFFF">
 <div class="px" style="max-width: 1240px; margin: 0 auto; padding: 128px 40px 120px; display: flex; flex-direction: column; gap: 80px">
