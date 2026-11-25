@@ -1,6 +1,27 @@
 [build]
   publish = "."
 
+[functions]
+  directory = "netlify/functions"
+
+# The sample comp sheet is no longer public. Send old links to the gated demo.
+[[redirects]]
+  from = "/sample.html"
+  to = "/demo.html"
+  status = 301
+
+[[redirects]]
+  from = "/sample"
+  to = "/demo.html"
+  status = 301
+
+# Function source is not a page.
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -11,6 +32,18 @@
   for = "/thanks.html"
   [headers.values]
     X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/demo-sent.html"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+# Private demo: reached only from the link we email. Kept out of search and the sitemap.
+[[headers]]
+  for = "/demo/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+    Referrer-Policy = "no-referrer"
 
 [[headers]]
   for = "/llms.txt"

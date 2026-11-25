@@ -224,7 +224,25 @@ footer img{width:240px !important}
 }
 </style>
 
-<style>section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #536985;outline-offset:2px}</style>
+<style>
+.lockp{position:relative}
+.lockp > div[aria-hidden]{filter:blur(4px);user-select:none;pointer-events:none;opacity:0.85}
+.lockov{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:16px}
+.lockcard{background:#FFFFFF;border:1px solid #DCE4EF;border-radius:6px;box-shadow:0 18px 48px rgba(1,21,67,0.18);padding:22px 24px;max-width:380px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+#demo-dialog{width:min(640px,calc(100vw - 24px));max-height:calc(100vh - 24px);padding:0;border:0;border-radius:8px;box-shadow:0 40px 120px rgba(0,0,0,0.45);color:#17243A}
+#demo-dialog::backdrop{background:rgba(1,21,67,0.72)}
+.dlg-head{background:#011543;padding:24px 28px;display:flex;gap:16px;align-items:flex-start;justify-content:space-between}
+.dlg-x{background:none;border:0;color:#DCE4EF;font-size:28px;line-height:28px;cursor:pointer;padding:0 4px;min-width:44px;min-height:44px}
+.dlg-body{padding:24px 28px 28px}
+.dform{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+.dform .fld{flex:none}
+.dform .fld select{appearance:auto}
+.dfoot{grid-column:1 / -1;display:flex;flex-direction:column;gap:14px;padding-top:6px}
+.dfoot p{margin:0;font-size:12.5px;line-height:19px;color:#536985}
+.dfoot .btn{width:100%;border:0;cursor:pointer;font-family:'Libre Franklin',Arial,sans-serif}
+@media (max-width:560px){.dform{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){.lockcard{padding:16px 18px}.dlg-head,.dlg-body{padding-left:18px;padding-right:18px}#demo h2{font-size:32px !important;line-height:38px !important}#demo .btn{width:100%}}
+section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #536985;outline-offset:2px}</style>
 </head>
 <body>
 
@@ -237,6 +255,7 @@ footer img{width:240px !important}
 <a class="hs" href="#why">Why comps</a>
 <a class="hs" href="#how">How it works</a>
 <a class="hs" href="#pricing">Pricing</a>
+<a class="hs" href="/demo.html" data-demo="header">Demo</a>
 <a class="hs" href="#method">Where comps come from</a>
 <a class="btn btn-w hbtn" href="#request" style="min-height: 42px; padding: 0 20px; font-size: 14px">Get your comps</a>
 </nav>
@@ -251,145 +270,32 @@ footer img{width:240px !important}
 <p style="margin: 0; font-size: 16px; line-height: 24px; color: #FFFFFF; font-weight: 700">All we need is your website. Built for businesses doing $10K to $100K a month.</p>
 <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap; padding-top: 4px">
 <a class="btn btn-w" href="#request">Get your comps</a>
-<a class="lk-w" href="sample.html">See a sample comp sheet</a>
+<a class="lk-w" href="/demo.html" data-demo="hero">See a Clearfield Comps demo</a>
 </div>
 <p style="margin: 0; font-size: 14px; color: #DCE4EF">Delivered within 24 hours · 100% money-back guarantee</p>
 </div>
-<div class="term" aria-label="Clearfield Terminal interface" style="width: 1160px; max-width: none; background: #FFFFFF; border-radius: 8px 8px 0 0; border: 1px solid #18345C; border-bottom: 0; box-shadow: 0 40px 120px rgba(0, 0, 0, 0.45); color: #17243A; overflow: hidden">
+<div class="term" aria-label="Clearfield Comps demo preview, illustrative data" style="width: 1160px; max-width: none; background: #FFFFFF; border-radius: 8px 8px 0 0; border: 1px solid #18345C; border-bottom: 0; box-shadow: 0 40px 120px rgba(0, 0, 0, 0.45); color: #17243A; overflow: hidden">
 <div class="tbar" style="background: #011543; padding: 0 16px; height: 44px; display: flex; align-items: center; gap: 24px; border-bottom: 1px solid #18345C">
-<div class="lb tname" style="color: #FFFFFF; font-size: 11px">Clearfield Terminal</div>
-<div class="ttabs" role="tablist" aria-label="Terminal views" style="display: flex; gap: 4px">
-<button role="tab" type="button" data-tab="niche" class="cf-tab" aria-selected="false">Niche</button>
-<button role="tab" type="button" data-tab="comps" class="cf-tab" aria-selected="false">Comps</button>
-<button role="tab" type="button" data-tab="stand" class="cf-tab" aria-selected="false">What stands out</button>
+<div class="lb tname" style="color: #FFFFFF; font-size: 11px">Clearfield Comps</div>
+<div class="ttabs" style="display: flex; gap: 4px"><span class="cf-tab" style="font-family: 'Libre Franklin', Arial, sans-serif; font-size: 12px; padding: 0 14px; height: 30px; display: inline-flex; align-items: center; border-radius: 3px; color: #DCE4EF">Overview</span><span class="cf-tab" style="font-family: 'Libre Franklin', Arial, sans-serif; font-size: 12px; padding: 0 14px; height: 30px; display: inline-flex; align-items: center; border-radius: 3px; color: #DCE4EF">Profit and loss</span><span class="cf-tab" style="font-family: 'Libre Franklin', Arial, sans-serif; font-size: 12px; padding: 0 14px; height: 30px; display: inline-flex; align-items: center; border-radius: 3px; background: #FFFFFF; color: #011543; font-weight: 700">Side by side</span><span class="cf-tab" style="font-family: 'Libre Franklin', Arial, sans-serif; font-size: 12px; padding: 0 14px; height: 30px; display: inline-flex; align-items: center; border-radius: 3px; color: #DCE4EF">Try your numbers</span></div>
 </div>
-<div class="tsearch" style="margin-left: auto; background: #18345C; color: #DCE4EF; font-size: 12px; padding: 6px 12px; border-radius: 3px; width: 240px">Search niches, models, metrics</div>
+<div class="tbody" style="display: flex; min-height: 460px">
+<div class="tside" style="width: 200px; flex: 0 0 200px; background: #FFFFFF; border-right: 1px solid #DCE4EF; padding: 16px 0; display: flex; flex-direction: column; gap: 2px; font-size: 12.5px">
+<div style="margin: 0 16px 12px; padding: 10px; border: 1px solid #DCE4EF; border-radius: 4px; background: #F5F7FA; font-size: 11.5px; line-height: 16px; color: #536985"><b style="display: block; color: #011543; font-size: 12.5px">Pet supplies</b>Online shops selling $50K to $100K a month</div>
+<div class="lb" style="color: #536985; font-size: 10px; padding: 0 16px 6px">Business</div>
+<div style="display: flex; gap: 6px; padding: 0 16px 10px"><span style="flex: 1; text-align: center; border: 1px solid #DCE4EF; border-radius: 3px; padding: 6px 0; color: #536985">A</span><span style="flex: 1; text-align: center; border: 1px solid #DCE4EF; border-radius: 3px; padding: 6px 0; color: #536985">B</span><span style="flex: 1; text-align: center; border: 1px solid #DCE4EF; border-radius: 3px; padding: 6px 0; color: #536985">C</span></div>
+<div style="padding: 7px 16px; color: #536985">Overview</div><div style="padding: 7px 16px; color: #536985">Profit and loss</div><div style="padding: 7px 16px; color: #011543; font-weight: 700; background: #F5F7FA; border-left: 2px solid #011543">Side by side</div><div style="padding: 7px 16px; color: #536985">Try your numbers</div>
 </div>
-<div class="tbody" style="display: flex; min-height: 480px">
-<div class="tside" style="width: 210px; flex: 0 0 210px; background: #F5F7FA; border-right: 1px solid #DCE4EF; padding: 16px 0; display: flex; flex-direction: column; gap: 2px; font-size: 12.5px">
-<div class="lb" style="color: #536985; font-size: 10px; padding: 0 16px 8px">Your niche</div>
-<div style="padding: 6px 16px; color: #536985">E-commerce</div>
-<div style="padding: 6px 16px 6px 28px; color: #536985">Apparel</div>
-<div style="padding: 6px 16px 6px 28px; color: #536985">Beauty &amp; personal care</div>
-<div style="padding: 6px 16px 6px 28px; color: #536985">Home goods</div>
-<div style="padding: 6px 16px 6px 28px; color: #011543; font-weight: 700; background: #FFFFFF; border-left: 2px solid #011543">Pet supplies</div>
-<div style="padding: 6px 16px 6px 40px; color: #011543">Consumables</div>
-<div style="padding: 6px 16px 6px 40px; color: #536985">Accessories</div>
-<div style="padding: 6px 16px; color: #536985">Home services</div>
-<div style="padding: 6px 16px; color: #536985">Food &amp; beverage</div>
-<div style="padding: 6px 16px; color: #536985">Agencies</div>
-<div class="lb" style="color: #536985; font-size: 10px; padding: 18px 16px 8px">Matched on</div>
-<div style="padding: 4px 16px; color: #17243A">Model: Direct to consumer</div>
-<div style="padding: 4px 16px; color: #17243A">Revenue: $50K to $100K/mo</div>
-<div style="padding: 4px 16px; color: #17243A">Comps: last 12 months</div>
-</div>
-
-<div class="tmain" style="flex: 1 1 auto; min-width: 0; padding: 18px 20px; display: flex; flex-direction: column; gap: 16px">
-
-<div data-panel="niche" role="tabpanel">
-<div style="display: flex; flex-direction: column; gap: 16px">
-<div style="display: flex; flex-direction: column; gap: 2px">
-<div style="font-size: 11px; color: #536985">Step 1 of 3</div>
-<div class="s" style="font-size: 22px; color: #011543">Select your niche</div>
-</div>
-<div class="tgrid" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; font-size: 13px">
-<div style="border: 1px solid #DCE4EF; border-radius: 4px; padding: 12px"><div style="font-weight: 700; color: #011543">Apparel</div><div style="color: #536985; font-size: 12px; padding-top: 4px">DTC, wholesale, marketplace</div></div>
-<div style="border: 1px solid #DCE4EF; border-radius: 4px; padding: 12px"><div style="font-weight: 700; color: #011543">Beauty &amp; personal care</div><div style="color: #536985; font-size: 12px; padding-top: 4px">DTC, subscription</div></div>
-<div style="border: 1px solid #DCE4EF; border-radius: 4px; padding: 12px"><div style="font-weight: 700; color: #011543">Home goods</div><div style="color: #536985; font-size: 12px; padding-top: 4px">DTC, marketplace</div></div>
-<div style="border: 2px solid #011543; border-radius: 4px; padding: 11px; background: #F5F7FA"><div style="font-weight: 700; color: #011543">Pet supplies › Consumables</div><div style="color: #536985; font-size: 12px; padding-top: 4px">Selected</div></div>
-<div style="border: 1px solid #DCE4EF; border-radius: 4px; padding: 12px"><div style="font-weight: 700; color: #011543">Supplements</div><div style="color: #536985; font-size: 12px; padding-top: 4px">DTC, subscription</div></div>
-<div style="border: 1px solid #DCE4EF; border-radius: 4px; padding: 12px"><div style="font-weight: 700; color: #011543">Home services</div><div style="color: #536985; font-size: 12px; padding-top: 4px">Local, recurring</div></div>
-</div>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<div style="font-size: 12px; font-weight: 700; color: #011543">Monthly revenue</div>
-<div style="display: flex; gap: 8px; flex-wrap: wrap; font-size: 12px">
-<span style="border: 1px solid #DCE4EF; border-radius: 3px; padding: 6px 10px; color: #536985">$10K to $25K</span>
-<span style="border: 1px solid #DCE4EF; border-radius: 3px; padding: 6px 10px; color: #536985">$25K to $50K</span>
-<span style="border: 1px solid #011543; background: #011543; border-radius: 3px; padding: 6px 10px; color: #FFFFFF">$50K to $100K</span>
-<span style="border: 1px solid #DCE4EF; border-radius: 3px; padding: 6px 10px; color: #536985">Over $100K</span>
-</div>
-</div>
-<div style="display: flex; flex-direction: column; gap: 8px">
-<div style="font-size: 12px; font-weight: 700; color: #011543">Business model</div>
-<div style="display: flex; gap: 8px; flex-wrap: wrap; font-size: 12px">
-<span style="border: 1px solid #011543; background: #011543; border-radius: 3px; padding: 6px 10px; color: #FFFFFF">Direct to consumer</span>
-<span style="border: 1px solid #DCE4EF; border-radius: 3px; padding: 6px 10px; color: #536985">Subscription</span>
-<span style="border: 1px solid #DCE4EF; border-radius: 3px; padding: 6px 10px; color: #536985">DTC plus wholesale</span>
-<span style="border: 1px solid #DCE4EF; border-radius: 3px; padding: 6px 10px; color: #536985">Marketplace-led</span>
-</div>
-</div>
-<div><button type="button" data-tab="comps" style="background: #011543; color: #FFFFFF; border: 0; border-radius: 4px; padding: 10px 16px; font-size: 13px; font-weight: 700; font-family: 'Libre Franklin', Arial, sans-serif; cursor: pointer; min-height: 44px">Find my comps</button></div>
-</div>
-</div>
-
-<div data-panel="comps" role="tabpanel">
-<div style="display: flex; flex-direction: column; gap: 16px">
-<div class="thead" style="display: flex; justify-content: space-between; align-items: baseline">
-<div style="display: flex; flex-direction: column; gap: 2px">
-<div style="font-size: 11px; color: #536985">E-commerce › Pet supplies › Consumables · DTC · $50K to $100K a month</div>
-<div class="s" style="font-size: 22px; color: #011543">Your comps, side by side</div>
-</div>
-<div class="n" style="font-size: 11px; color: #536985">3 comps · last 12 months · % of revenue</div>
-</div>
-<div class="tsplit" style="display: flex; gap: 16px">
-<div class="tscroll" style="flex: 1.5; min-width: 0; border: 1px solid #DCE4EF; border-radius: 4px">
-<table class="t n">
-<thead><tr><th>Line</th><th>Comp A</th><th>Comp B</th><th>Comp C</th></tr></thead>
-<tbody>
-<tr><td>Monthly revenue</td><td>$55K to $65K</td><td>$70K to $80K</td><td>$85K to $95K</td></tr>
-<tr><td>Product and shipping</td><td>38.8</td><td style="color: #9B3B32; font-weight: 700">46.0</td><td>41.2</td></tr>
-<tr><td>Gross margin</td><td style="color: #011543; font-weight: 700">61.2</td><td>54.0</td><td>58.8</td></tr>
-<tr><td>Advertising</td><td style="color: #011543; font-weight: 700">16.4</td><td style="color: #9B3B32; font-weight: 700">27.5</td><td>21.0</td></tr>
-<tr><td>Payroll, excluding owner</td><td>11.0</td><td>6.2</td><td>9.4</td></tr>
-<tr><td>Software and fees</td><td>4.1</td><td>5.9</td><td>4.6</td></tr>
-<tr><td style="font-weight: 700">Net profit</td><td style="color: #276749; font-weight: 700">22.3</td><td style="color: #9B3B32; font-weight: 700">9.1</td><td style="font-weight: 700">17.6</td></tr>
-<tr><td>Main revenue source</td><td>Subscription</td><td>Paid social</td><td>Wholesale</td></tr>
-</tbody>
-</table>
-</div>
-<div style="flex: 1; min-width: 0; border: 1px solid #DCE4EF; border-radius: 4px; padding: 10px 12px; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; justify-content: space-between; font-size: 12px"><span style="font-weight: 700; color: #011543">Market multiples, SDE</span><span class="n" style="color: #536985">5-year view</span></div>
-<svg viewBox="0 0 300 120" style="width: 100%; height: 120px; display: block" role="img" aria-label="Chart of market multiples rising over five years">
-<line x1="0" y1="22" x2="300" y2="22" stroke="#DCE4EF" stroke-width="1"></line>
-<line x1="0" y1="62" x2="300" y2="62" stroke="#DCE4EF" stroke-width="1"></line>
-<line x1="0" y1="102" x2="300" y2="102" stroke="#DCE4EF" stroke-width="1"></line>
-<polyline points="0,84 25,80 50,82 75,75 100,77 125,70 150,72 175,64 200,67 225,60 250,56 275,58 300,50" fill="none" stroke="#536985" stroke-width="1.5" stroke-dasharray="3 3"></polyline>
-<polyline points="0,90 25,86 50,87 75,80 100,78 125,72 150,66 175,62 200,55 225,49 250,44 275,38 300,32" fill="none" stroke="#011543" stroke-width="2"></polyline>
-</svg>
-<div style="display: flex; gap: 16px; font-size: 11px; color: #536985"><span>━ Pet consumables</span><span>┅ All DTC</span></div>
-<div style="font-size: 11px; line-height: 16px; color: #536985; padding-top: 6px">What businesses like these sell for, combined across past sales.</div>
+<div class="tmain lockp" style="flex: 1 1 auto; min-width: 0; padding: 18px 20px; position: relative">
+<div class="lockov"><div class="lockcard"><div class="lb" style="color: #536985; font-size: 10.5px">Free demo</div><div class="s" style="font-size: 21px; line-height: 27px; color: #011543">See every line of every comp.</div><p style="margin: 0; font-size: 13px; line-height: 20px; color: #536985">Three businesses like yours, side by side in plain dollars, with your own numbers next to them.</p><a class="btn btn-n" href="/demo.html" data-demo="hero" style="min-height: 44px; font-size: 14px">Get the free demo</a></div></div>
+<div aria-hidden="true" style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 2px"><div class="s" style="font-size: 22px; color: #011543">The three businesses, side by side</div><div style="font-size: 11px; color: #536985">A typical month for each</div></div>
+<div class="tscroll" style="border: 1px solid #DCE4EF; border-radius: 4px">
+<table class="t n"><thead><tr><th></th><th>Business A</th><th>Business B</th><th>Business C</th></tr></thead><tbody><tr><td>Sales</td><td style="color: #17243A">$60,000<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">100.0%</span></td><td style="color: #17243A">$75,000<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">100.0%</span></td><td style="color: #17243A">$90,000<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">100.0%</span></td></tr><tr><td>Cost of goods sold</td><td style="color: #276749">$23,280<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">38.8%</span></td><td style="color: #9B3B32">$34,500<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">46.0%</span></td><td style="color: #17243A">$37,080<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">41.2%</span></td></tr><tr style="background: #F5F7FA"><td style="font-weight: 700; color: #011543">Gross profit</td><td style="color: #276749; font-weight: 700">$36,720<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">61.2%</span></td><td style="color: #9B3B32; font-weight: 700">$40,500<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">54.0%</span></td><td style="color: #17243A; font-weight: 700">$52,920<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">58.8%</span></td></tr><tr><td>Advertising</td><td style="color: #276749">$9,840<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">16.4%</span></td><td style="color: #9B3B32">$20,630<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">27.5%</span></td><td style="color: #17243A">$18,900<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">21.0%</span></td></tr><tr><td>Payroll and contractors</td><td style="color: #17243A">$6,600<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">11.0%</span></td><td style="color: #17243A">$4,650<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">6.2%</span></td><td style="color: #17243A">$8,460<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">9.4%</span></td></tr><tr><td>Fees and software</td><td style="color: #276749">$2,460<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">4.1%</span></td><td style="color: #9B3B32">$4,430<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">5.9%</span></td><td style="color: #17243A">$4,140<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">4.6%</span></td></tr><tr style="background: #F5F7FA"><td style="font-weight: 700; color: #011543">Net profit</td><td style="color: #276749; font-weight: 700">$13,380<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">22.3%</span></td><td style="color: #9B3B32; font-weight: 700">$6,830<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">9.1%</span></td><td style="color: #17243A; font-weight: 700">$15,840<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">17.6%</span></td></tr><tr><td>Owner&#8217;s total take-home</td><td style="color: #276749">$19,080<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">31.8%</span></td><td style="color: #9B3B32">$15,830<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">21.1%</span></td><td style="color: #17243A">$23,040<span style="display: block; font-size: 10.5px; color: #536985; font-weight: 400">25.6%</span></td></tr></tbody></table>
 </div>
 </div>
 </div>
 </div>
-
-<div data-panel="stand" role="tabpanel">
-<div style="display: flex; flex-direction: column; gap: 16px">
-<div class="thead" style="display: flex; justify-content: space-between; align-items: baseline">
-<div style="display: flex; flex-direction: column; gap: 2px">
-<div style="font-size: 11px; color: #536985">Analyst notes</div>
-<div class="s" style="font-size: 22px; color: #011543">What stands out</div>
-</div>
-</div>
-<div class="tsplit" style="display: flex; gap: 16px">
-<div style="flex: 1.5; min-width: 0; border: 1px solid #DCE4EF; border-radius: 4px; padding: 6px 14px">
-<div style="display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid #F5F7FA"><span class="n" style="color: #536985; font-size: 13px">01</span><div style="display: flex; flex-direction: column; gap: 3px"><div style="font-size: 13px; font-weight: 700; color: #011543">The most profitable comp spends the least on ads</div><div style="font-size: 12px; line-height: 17px; color: #536985">Comp A gets nearly half its revenue from subscriptions. Repeat customers cost far less to reach.</div></div></div>
-<div style="display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid #F5F7FA"><span class="n" style="color: #536985; font-size: 13px">02</span><div style="display: flex; flex-direction: column; gap: 3px"><div style="font-size: 13px; font-weight: 700; color: #011543">Growth on paid social left 9 cents on the dollar</div><div style="font-size: 12px; line-height: 17px; color: #536985">Comp B has the highest ad spend and the highest product cost. Both squeeze profit.</div></div></div>
-<div style="display: flex; gap: 14px; padding: 12px 0"><span class="n" style="color: #536985; font-size: 13px">03</span><div style="display: flex; flex-direction: column; gap: 3px"><div style="font-size: 13px; font-weight: 700; color: #011543">Wholesale steadied cash flow</div><div style="font-size: 12px; line-height: 17px; color: #536985">Comp C sells a third of its volume wholesale. Lower margin per order, more predictable months.</div></div></div>
-</div>
-<div style="flex: 1; min-width: 0; border: 1px solid #DCE4EF; border-radius: 4px; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px">
-<div style="font-size: 12px; font-weight: 700; color: #011543">From your website</div>
-<div style="font-size: 12px; line-height: 18px">No subscription option on product pages. Comp A earns nearly half its revenue that way.</div>
-<div style="font-size: 12px; line-height: 18px">Shipping cost appears only at checkout.</div>
-<div style="font-size: 12px; line-height: 18px">No wholesale or bulk inquiry page.</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 </div>
 </section>
@@ -598,6 +504,17 @@ footer img{width:240px !important}
 </div>
 </section>
 
+<section id="demo" style="background: #011543; color: #FFFFFF">
+<div class="px" style="max-width: 1240px; margin: 0 auto; padding: 88px 40px; display: flex; flex-wrap: wrap; gap: 32px 72px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div class="lb" style="color: #DCE4EF">Not ready to order?</div>
+<h2 class="s h2" style="margin: 0; font-size: 40px; line-height: 46px; color: #FFFFFF">Try Clearfield Comps first.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 28px; color: #DCE4EF; max-width: 640px">Open three example comps, line them up side by side, and put your own numbers next to them to see where your margin goes. Tell us a little about your business and we'll email you a private link.</p>
+</div>
+<a class="btn btn-w" href="/demo.html" data-demo="band">Get the free demo</a>
+</div>
+</section>
+
 <section id="request" style="background: #FFFFFF; border-top: 1px solid #DCE4EF">
 <div class="px" style="max-width: 1240px; margin: 0 auto; padding: 120px 40px; display: flex; flex-wrap: wrap; gap: 56px 96px">
 <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
@@ -624,7 +541,7 @@ footer img{width:240px !important}
 <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between; align-items: flex-start">
 <picture><source srcset="/assets/clearfield-logo-tight.webp" type="image/webp"><img width="629" height="132" loading="lazy" decoding="async" src="/assets/clearfield-logo-tight.png" alt="Clearfield &amp; Co. We help small business owners see the field clearly." style="width: 340px; max-width: 100%; height: auto; display: block"></picture>
 <nav class="ft" aria-label="Footer" style="display: flex; gap: 32px 72px; flex-wrap: wrap">
-<div style="display: flex; flex-direction: column; gap: 12px"><a href="#why">Why comps</a><a href="#how">How it works</a><a href="#pricing">Pricing</a></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><a href="#why">Why comps</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="/demo.html" data-demo="footer">Free demo</a></div>
 <div style="display: flex; flex-direction: column; gap: 12px"><a href="#method">Where comps come from</a><a href="#faq">Questions</a><a href="#request">Contact</a></div>
 <div style="display: flex; flex-direction: column; gap: 12px"><a href="/privacy.html">Privacy</a><a href="#terms">Terms</a></div>
 </nav>
@@ -637,18 +554,6 @@ footer img{width:240px !important}
 </footer>
 
 </div>
-<script>
-(function(){
-  var base="font-family:'Libre Franklin',Arial,sans-serif;font-size:12px;padding:0 14px;height:30px;border:0;border-radius:3px;cursor:pointer;";
-  var on=base+"background:#FFFFFF;color:#011543;font-weight:700;", off=base+"background:transparent;color:#DCE4EF;font-weight:400;";
-  function show(n){
-    document.querySelectorAll('[data-panel]').forEach(function(p){p.hidden=p.getAttribute('data-panel')!==n;});
-    document.querySelectorAll('.cf-tab').forEach(function(t){var a=t.getAttribute('data-tab')===n;t.setAttribute('style',a?on:off);t.setAttribute('aria-selected',a?'true':'false');});
-  }
-  document.querySelectorAll('[data-tab]').forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-tab'));});});
-  show('comps');
-})();
-</script>
 <script>
 (function(){
   // Always open at the top. Browsers (iOS Safari especially) restore an old scroll
@@ -678,6 +583,61 @@ footer img{width:240px !important}
     e.preventDefault();
     el.scrollIntoView({behavior:'smooth',block:'start'});
   });
+})();
+</script>
+<dialog id="demo-dialog" aria-labelledby="demo-dialog-title">
+<div class="dlg-head"><div><div class="lb" style="color: #DCE4EF; font-size: 11px">Clearfield Comps · Free demo</div><h2 id="demo-dialog-title" class="s" style="margin: 6px 0 0; font-size: 26px; line-height: 32px; color: #FFFFFF">See Clearfield Comps in action.</h2><p style="margin: 8px 0 0; font-size: 14px; line-height: 21px; color: #DCE4EF">Tell us about your business and we'll email you a private link to the full demo.</p></div><button type="button" class="dlg-x" aria-label="Close">×</button></div>
+<div class="dlg-body">
+<form name="demo-request" method="POST" action="/demo-sent.html" data-netlify="true" netlify-honeypot="company-url" class="dform">
+<input type="hidden" name="form-name" value="demo-request"><input type="hidden" name="source" value="">
+<p hidden><label>Leave blank <input name="company-url"></label></p>
+<div class="fld"><label for="d-name">First name</label><input id="d-name" name="first_name" required type="text" autocomplete="given-name"></div>
+<div class="fld"><label for="d-email">Email</label><input id="d-email" name="email" required type="email" autocomplete="email"></div>
+<div class="fld"><label for="d-co">Business name</label><input id="d-co" name="company" required type="text" autocomplete="organization"></div>
+<div class="fld"><label for="d-site">Website</label><input id="d-site" name="website" required type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com"></div>
+<div class="fld"><label for="d-niche">What you sell</label><select id="d-niche" name="niche" required><option value="">Choose one</option><option>E-commerce brand (DTC)</option><option>Subscription product</option><option>Amazon or marketplace seller</option><option>Home or local services</option><option>Agency or B2B services</option><option>Software or SaaS</option><option>Food and beverage</option><option>Other</option></select></div>
+<div class="fld"><label for="d-rev">Monthly revenue</label><select id="d-rev" name="monthly_revenue" required><option value="">Choose one</option><option>Under $10K</option><option>$10K to $25K</option><option>$25K to $50K</option><option>$50K to $100K</option><option>Over $100K</option><option>Prefer not to say</option></select></div>
+<div class="fld"><label for="d-role">Your role</label><select id="d-role" name="role" required><option value="">Choose one</option><option>Owner or founder</option><option>Operator or GM</option><option>Planning to buy a business</option><option>Other</option></select></div>
+<div class="fld"><label for="d-goal">What do you most want to compare? (optional)</label><select id="d-goal" name="goal"><option>Just exploring</option><option>Margins and profit</option><option>Ad spend and marketing</option><option>Product and shipping costs</option><option>Team and payroll</option><option>What my business could be worth</option></select></div>
+<div class="dfoot">
+<p>We'll email you a private link to the demo. You'll also get occasional Clearfield notes on what profitable businesses do differently. Unsubscribe anytime. <a href="/privacy.html">Privacy notice</a></p>
+<button type="submit" class="btn btn-n">Email me the demo</button>
+</div>
+</form>
+</div>
+</dialog>
+<script>
+(function(){
+  var d=document.getElementById('demo-dialog');
+  if(!d||typeof d.showModal!=='function')return;
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('[data-demo]');
+    if(!a)return;
+    e.preventDefault();
+    var src=d.querySelector('input[name="source"]');if(src)src.value='home-'+a.getAttribute('data-demo');
+    d.showModal();
+    var f=d.querySelector('#d-name');if(f&&window.matchMedia('(min-width: 761px)').matches)f.focus();
+  });
+  d.querySelector('.dlg-x').addEventListener('click',function(){d.close();});
+  // Submit in place: the lead is saved to Netlify Forms (and passed to Kit by the
+  // submission-created function once Kit is connected), then the popup shows the demo link.
+  var form=d.querySelector('form[name="demo-request"]');
+  form.addEventListener('submit',function(e){
+    if(!window.fetch||!window.URLSearchParams)return;
+    e.preventDefault();
+    var btn=form.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending\u2026';
+    var fd=new FormData(form),first=(fd.get('first_name')||'').toString().trim(),email=(fd.get('email')||'').toString().trim();
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);
+      var b=d.querySelector('.dlg-body');b.innerHTML='';
+      var h=document.createElement('h3');h.className='s';h.style.cssText='margin:0 0 8px;font-size:24px;line-height:30px;color:#011543';h.textContent='You\u2019re in'+(first?', '+first:'')+'.';
+      var t=document.createElement('p');t.style.cssText='margin:0 0 20px;font-size:15px;line-height:23px;color:#17243A';t.textContent='We\u2019re emailing your private demo link to '+email+'. You can also open it now.';
+      var a=document.createElement('a');a.className='btn btn-n';a.href='/demo/9f3k2q/';a.textContent='Open the Clearfield Comps demo';a.style.width='100%';
+      b.appendChild(h);b.appendChild(t);b.appendChild(a);
+    })
+    .catch(function(){form.submit();});
+  });
+  d.addEventListener('click',function(e){if(e.target===d)d.close();});
 })();
 </script>
 </body>

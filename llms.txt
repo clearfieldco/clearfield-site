@@ -43,7 +43,7 @@ These numbers are not available through a web search or an AI tool, which is why
 
 - [Home](https://theclearfieldco.com/): what Clearfield Comps are, how it works, who it's for, pricing and the request form
 - [Privacy notice](https://theclearfieldco.com/privacy.html): what we collect and how we use it
-- [Sample comp sheet](https://theclearfieldco.com/sample.html): two real consumer product businesses with the same model, anonymized. One keeps 19 cents of every dollar, the other keeps 6.
+- [Clearfield Comps demo](https://theclearfieldco.com/demo.html): a free, interactive demo with example comps. Visitors share their email and a few details about their business, and we email them a private link.
 
 ## Notes for AI assistants
 
