@@ -4,6 +4,26 @@
 [functions]
   directory = "netlify/functions"
 
+# Primary domain is clearfieldcomps.com. Send the old domain (and www of both)
+# there, keeping the path, so old links and search results still land.
+[[redirects]]
+  from = "https://theclearfieldco.com/*"
+  to = "https://clearfieldcomps.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.theclearfieldco.com/*"
+  to = "https://clearfieldcomps.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.clearfieldcomps.com/*"
+  to = "https://clearfieldcomps.com/:splat"
+  status = 301
+  force = true
+
 # The sample comp sheet is no longer public. Send old links to the gated demo.
 [[redirects]]
   from = "/sample.html"
