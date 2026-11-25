@@ -204,7 +204,8 @@ main{padding:18px 14px 140px}
 .wr .lbl small{display:block;font-weight:400;color:#536985;font-size:11.5px}
 .wr .val{text-align:right;font-weight:700;color:#011543;font-variant-numeric:tabular-nums}
 .wr .val small{display:block;font-weight:400;color:#536985;font-size:11.5px}
-.sl{position:relative;height:44px}
+.sl{position:relative;height:52px}
+.sl .in,.sl input[type=range]{margin-top:8px !important}
 .sl .in{position:absolute;left:12px;right:12px;top:0;bottom:0;pointer-events:none}
 .sl .ax{position:absolute;left:0;right:0;top:27px;height:2px;background:#DCE4EF}
 .sl .rg{position:absolute;top:23px;height:10px;background:#DCE4EF;border-radius:2px}
@@ -463,10 +464,11 @@ function renderWhatif(){
  var y=mine();
  var rows=SLIDE.map(function(k){
   var cs=K.map(function(q){return compPct(k,C[q]);}),mn=Math.min.apply(null,cs),mx=Math.max.apply(null,cs),t=typ(k),yv=y[k];
-  var lo=Math.max(0,Math.floor(Math.min(mn,yv)-6)),hi=Math.ceil(Math.max(mx,yv)+6);SC[k]=[lo,hi];
+  var pad=Math.max(1.5,(mx-mn)*0.6),lo=Math.max(0,Math.floor(Math.min(mn,yv)-pad)),hi=Math.ceil(Math.max(mx,yv)+pad);SC[k]=[lo,hi];
   function px(v){return ((v-lo)/(hi-lo)*100).toFixed(2);}
   return '<div class="wr"><span class="lbl">'+fget(k)[1]+'<small>Typical '+pc(t)+'</small></span><div class="sl"><div class="in"><div class="ax"></div><div class="rg" style="left:'+px(mn)+'%;width:'+(px(mx)-px(mn))+'%"></div>'+
-  K.map(function(q,i){return '<div class="cm" style="left:'+px(cs[i])+'%"><em>'+q+'</em></div>';}).join('')+
+  (function(){var o=K.map(function(q,i){return [q,+px(cs[i])];}).sort(function(m,n){return m[1]-n[1];}),last=-99,lv=0;
+   return o.map(function(m){lv=(m[1]-last<3.5)?1-lv:0;last=m[1];return '<div class="cm" style="left:'+m[1]+'%"><em style="top:'+(-13-lv*11)+'px">'+m[0]+'</em></div>';}).join('');})()+
   '<div class="md" style="left:'+px(t)+'%"></div><div class="orig" style="left:'+px(yv)+'%"></div></div>'+
   '<input type="range" data-w="'+k+'" min="'+lo+'" max="'+hi+'" step="0.1" value="'+(W[k]!=null?W[k]:yv).toFixed(1)+'" aria-label="'+fget(k)[1]+' as a % of sales"></div><span class="val" id="wv-'+k+'"></span></div>';}).join('');
  box.innerHTML='<div class="panel gap"><div class="ptop"><h2 class="s">What if?</h2><span class="wbtns"><button class="lnk" id="w-typ" type="button">Match the typical business</button><button class="lnk" id="w-reset" type="button">Reset</button></span></div>'+
@@ -479,7 +481,7 @@ function renderWhatif(){
 }
 function updWhatif(){
  var I=inc(),a=mine(),b=mine(W);
- SLIDE.forEach(function(k){var e=$('#wv-'+k);if(!e)return;var ch=W[k]!=null&&Math.abs(W[k]-a[k])>=0.05;e.innerHTML=usd(b[k]/100*I)+'<small>'+pc(b[k])+' of sales'+(ch?' · was '+pc(a[k]):'')+'</small>';});
+ SLIDE.forEach(function(k){var e=$('#wv-'+k);if(!e)return;var ch=W[k]!=null&&Math.abs(W[k]-a[k])>=0.05;e.innerHTML=usd(b[k]/100*I)+'<small>'+pc(b[k])+' of sales</small>'+(ch?'<small>was '+pc(a[k])+'</small>':'');});
  var d=(b.net-a.net)/100*I;
  $('#w-now').textContent=usd(a.net/100*I);$('#w-nowp').textContent=pc(a.net)+' of sales';
  $('#w-new').textContent=usd(b.net/100*I);$('#w-newp').textContent=pc(b.net)+' of sales';
