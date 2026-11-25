@@ -214,7 +214,25 @@ footer img{width:240px !important}
 }
 </style>
 
-<style>section[id]{scroll-margin-top:56px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #536985;outline-offset:2px}</style>
+<style>
+.lockp{position:relative}
+.lockp > div[aria-hidden]{filter:blur(4px);user-select:none;pointer-events:none;opacity:0.85}
+.lockov{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:16px}
+.lockcard{background:#FFFFFF;border:1px solid #DCE4EF;border-radius:6px;box-shadow:0 18px 48px rgba(1,21,67,0.18);padding:22px 24px;max-width:380px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+#demo-dialog{width:min(640px,calc(100vw - 24px));max-height:calc(100vh - 24px);padding:0;border:0;border-radius:8px;box-shadow:0 40px 120px rgba(0,0,0,0.45);color:#17243A}
+#demo-dialog::backdrop{background:rgba(1,21,67,0.72)}
+.dlg-head{background:#011543;padding:24px 28px;display:flex;gap:16px;align-items:flex-start;justify-content:space-between}
+.dlg-x{background:none;border:0;color:#DCE4EF;font-size:28px;line-height:28px;cursor:pointer;padding:0 4px;min-width:44px;min-height:44px}
+.dlg-body{padding:24px 28px 28px}
+.dform{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 18px}
+.dform .fld{flex:none}
+.dform .fld select{appearance:auto}
+.dfoot{grid-column:1 / -1;display:flex;flex-direction:column;gap:14px;padding-top:6px}
+.dfoot p{margin:0;font-size:12.5px;line-height:19px;color:#536985}
+.dfoot .btn{width:100%;border:0;cursor:pointer;font-family:'Libre Franklin',Arial,sans-serif}
+@media (max-width:560px){.dform{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){.lockcard{padding:16px 18px}.dlg-head,.dlg-body{padding-left:18px;padding-right:18px}#demo h2{font-size:32px !important;line-height:38px !important}#demo .btn{width:100%}}
+section[id]{scroll-margin-top:56px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #536985;outline-offset:2px}</style>
 </head>
 <body>
 
@@ -227,6 +245,7 @@ footer img{width:240px !important}
 <a class="hs" href="#why">Why comps</a>
 <a class="hs" href="#how">How it works</a>
 <a class="hs" href="#pricing">Pricing</a>
+<a class="hs" href="/demo.html" data-demo="header">Demo</a>
 <a class="hs" href="#method">Where comps come from</a>
 <a class="btn btn-w hbtn" href="#request" style="min-height: 42px; padding: 0 20px; font-size: 14px">Get your comps</a>
 </nav>
@@ -241,7 +260,7 @@ footer img{width:240px !important}
 <p style="margin: 0; font-size: 16px; line-height: 24px; color: #FFFFFF; font-weight: 700">All we need is your website. Built for businesses doing $10K to $100K a month.</p>
 <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap; padding-top: 4px">
 <a class="btn btn-w" href="#request">Get your comps</a>
-<a class="lk-w" href="sample.html">See a sample comp sheet</a>
+<a class="lk-w" href="/demo.html" data-demo="hero">See the free Terminal demo</a>
 </div>
 <p style="margin: 0; font-size: 14px; color: #DCE4EF">Delivered within 24 hours · 100% money-back guarantee</p>
 </div>
@@ -312,8 +331,9 @@ footer img{width:240px !important}
 </div>
 </div>
 
-<div data-panel="comps" role="tabpanel">
-<div style="display: flex; flex-direction: column; gap: 16px">
+<div data-panel="comps" role="tabpanel" class="lockp">
+<div class="lockov"><div class="lockcard"><div class="lb" style="color: #536985; font-size: 10.5px">Free demo</div><div class="s" style="font-size: 21px; line-height: 27px; color: #011543">See every line of every comp.</div><p style="margin: 0; font-size: 13px; line-height: 20px; color: #536985">Explore the full Clearfield Terminal: three comps side by side, analyst notes, and your own numbers placed next to them.</p><a class="btn btn-n" href="/demo.html" data-demo="hero-comps" style="min-height: 44px; font-size: 14px">Get the free demo</a></div></div>
+<div aria-hidden="true" style="display: flex; flex-direction: column; gap: 16px">
 <div class="thead" style="display: flex; justify-content: space-between; align-items: baseline">
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; color: #536985">E-commerce › Pet supplies › Consumables · DTC · $50K to $100K a month</div>
@@ -353,8 +373,9 @@ footer img{width:240px !important}
 </div>
 </div>
 
-<div data-panel="stand" role="tabpanel">
-<div style="display: flex; flex-direction: column; gap: 16px">
+<div data-panel="stand" role="tabpanel" class="lockp">
+<div class="lockov"><div class="lockcard"><div class="lb" style="color: #536985; font-size: 10.5px">Free demo</div><div class="s" style="font-size: 21px; line-height: 27px; color: #011543">See every line of every comp.</div><p style="margin: 0; font-size: 13px; line-height: 20px; color: #536985">Explore the full Clearfield Terminal: three comps side by side, analyst notes, and your own numbers placed next to them.</p><a class="btn btn-n" href="/demo.html" data-demo="hero-stand" style="min-height: 44px; font-size: 14px">Get the free demo</a></div></div>
+<div aria-hidden="true" style="display: flex; flex-direction: column; gap: 16px">
 <div class="thead" style="display: flex; justify-content: space-between; align-items: baseline">
 <div style="display: flex; flex-direction: column; gap: 2px">
 <div style="font-size: 11px; color: #536985">Analyst notes</div>
@@ -593,6 +614,17 @@ footer img{width:240px !important}
 </div>
 </section>
 
+<section id="demo" style="background: #011543; color: #FFFFFF">
+<div class="px" style="max-width: 1240px; margin: 0 auto; padding: 88px 40px; display: flex; flex-wrap: wrap; gap: 32px 72px; align-items: center; justify-content: space-between">
+<div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<div class="lb" style="color: #DCE4EF">Not ready to order?</div>
+<h2 class="s h2" style="margin: 0; font-size: 40px; line-height: 46px; color: #FFFFFF">Try the Clearfield Terminal first.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 28px; color: #DCE4EF; max-width: 640px">Open three example comps, line them up side by side, and put your own numbers next to them to see where your margin goes. Tell us a little about your business and we'll email you a private link.</p>
+</div>
+<a class="btn btn-w" href="/demo.html" data-demo="band">Get the free demo</a>
+</div>
+</section>
+
 <section id="request" style="background: #FFFFFF; border-top: 1px solid #DCE4EF">
 <div class="px" style="max-width: 1240px; margin: 0 auto; padding: 120px 40px; display: flex; flex-wrap: wrap; gap: 56px 96px">
 <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
@@ -619,7 +651,7 @@ footer img{width:240px !important}
 <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: space-between; align-items: flex-start">
 <img src="assets/clearfield-logo-tight.png" alt="Clearfield &amp; Co. We help small business owners see the field clearly." style="width: 340px; max-width: 100%; height: auto; display: block">
 <nav class="ft" aria-label="Footer" style="display: flex; gap: 32px 72px; flex-wrap: wrap">
-<div style="display: flex; flex-direction: column; gap: 12px"><a href="#why">Why comps</a><a href="#how">How it works</a><a href="#pricing">Pricing</a></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><a href="#why">Why comps</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="/demo.html" data-demo="footer">Terminal demo</a></div>
 <div style="display: flex; flex-direction: column; gap: 12px"><a href="#method">Where comps come from</a><a href="#faq">Questions</a><a href="#request">Contact</a></div>
 <div style="display: flex; flex-direction: column; gap: 12px"><a href="/privacy.html">Privacy</a><a href="#terms">Terms</a></div>
 </nav>
@@ -673,6 +705,43 @@ footer img{width:240px !important}
     e.preventDefault();
     el.scrollIntoView({behavior:'smooth',block:'start'});
   });
+})();
+</script>
+<dialog id="demo-dialog" aria-labelledby="demo-dialog-title">
+<div class="dlg-head"><div><div class="lb" style="color: #DCE4EF; font-size: 11px">Clearfield Terminal · Free demo</div><h2 id="demo-dialog-title" class="s" style="margin: 6px 0 0; font-size: 26px; line-height: 32px; color: #FFFFFF">See the Terminal in action.</h2><p style="margin: 8px 0 0; font-size: 14px; line-height: 21px; color: #DCE4EF">Tell us about your business and we'll email you a private link to the full demo.</p></div><button type="button" class="dlg-x" aria-label="Close">×</button></div>
+<div class="dlg-body">
+<form name="demo-request" method="POST" action="/demo-sent.html" data-netlify="true" netlify-honeypot="company-url" class="dform">
+<input type="hidden" name="form-name" value="demo-request"><input type="hidden" name="source" value="">
+<p hidden><label>Leave blank <input name="company-url"></label></p>
+<div class="fld"><label for="d-name">First name</label><input id="d-name" name="first_name" required type="text" autocomplete="given-name"></div>
+<div class="fld"><label for="d-email">Email</label><input id="d-email" name="email" required type="email" autocomplete="email"></div>
+<div class="fld"><label for="d-co">Business name</label><input id="d-co" name="company" required type="text" autocomplete="organization"></div>
+<div class="fld"><label for="d-site">Website</label><input id="d-site" name="website" required type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com"></div>
+<div class="fld"><label for="d-niche">What you sell</label><select id="d-niche" name="niche" required><option value="">Choose one</option><option>E-commerce brand (DTC)</option><option>Subscription product</option><option>Amazon or marketplace seller</option><option>Home or local services</option><option>Agency or B2B services</option><option>Software or SaaS</option><option>Food and beverage</option><option>Other</option></select></div>
+<div class="fld"><label for="d-rev">Monthly revenue</label><select id="d-rev" name="monthly_revenue" required><option value="">Choose one</option><option>Under $10K</option><option>$10K to $25K</option><option>$25K to $50K</option><option>$50K to $100K</option><option>Over $100K</option><option>Prefer not to say</option></select></div>
+<div class="fld"><label for="d-role">Your role</label><select id="d-role" name="role" required><option value="">Choose one</option><option>Owner or founder</option><option>Operator or GM</option><option>Planning to buy a business</option><option>Other</option></select></div>
+<div class="fld"><label for="d-goal">What do you most want to compare? (optional)</label><select id="d-goal" name="goal"><option>Just exploring</option><option>Margins and profit</option><option>Ad spend and marketing</option><option>Product and shipping costs</option><option>Team and payroll</option><option>What my business could be worth</option></select></div>
+<div class="dfoot">
+<p>We'll email you a private link to the demo. You'll also get occasional Clearfield notes on what profitable businesses do differently. Unsubscribe anytime. <a href="/privacy.html">Privacy notice</a></p>
+<button type="submit" class="btn btn-n">Email me the demo</button>
+</div>
+</form>
+</div>
+</dialog>
+<script>
+(function(){
+  var d=document.getElementById('demo-dialog');
+  if(!d||typeof d.showModal!=='function')return;
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('[data-demo]');
+    if(!a)return;
+    e.preventDefault();
+    var src=d.querySelector('input[name="source"]');if(src)src.value='home-'+a.getAttribute('data-demo');
+    d.showModal();
+    var f=d.querySelector('#d-name');if(f&&window.matchMedia('(min-width: 761px)').matches)f.focus();
+  });
+  d.querySelector('.dlg-x').addEventListener('click',function(){d.close();});
+  d.addEventListener('click',function(e){if(e.target===d)d.close();});
 })();
 </script>
 </body>
