@@ -276,7 +276,7 @@ section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus
 .pfeat li.off{color:#A7B6CA}
 .pfoot{margin:auto 0 0;padding-top:8px;font-size:13px;line-height:20px;color:#536985}
 .pop .pfoot{color:#A7B6CA}
-@media (max-width:1000px){.pgrid{grid-template-columns:minmax(0,1fr);max-width:560px;margin:0 auto;width:100%;gap:36px}.pc.pop{transform:none;order:-1}.plead{min-height:0}}
+@media (max-width:1000px){.pgrid{grid-template-columns:minmax(0,1fr);max-width:560px;margin:0 auto;width:100%;gap:36px}.pc.pop{transform:none}.plead{min-height:0}}
 @media (max-width:760px){.pc{padding:30px 22px 24px}.pprice span{font-size:42px;line-height:46px}}
 </style>
 </head>
@@ -577,7 +577,7 @@ section[id]{scroll-margin-top:0}button:focus-visible,a:focus-visible,input:focus
 <div class="fld"><label for="f-email">Email</label><input id="f-email" name="email" required type="email" autocomplete="email"></div>
 <div class="fld"><label for="f-site">Website</label><input id="f-site" name="website" required type="url" placeholder="https://"></div>
 <div class="fld"><label for="f-rev">Monthly revenue (optional)</label><select id="f-rev" name="monthly_revenue"><option>Prefer not to say</option><option>Under $10K</option><option>$10K to $25K</option><option>$25K to $50K</option><option>$50K to $100K</option><option>Over $100K</option></select></div>
-<div class="fld"><label for="f-eng">Package</label><select id="f-eng" name="package"><option>Not sure yet</option><option>Two Comps</option><option>Four Comps + Calculator</option><option>Comps + Analyst</option></select></div>
+<div class="fld"><label for="f-eng">Package</label><select id="f-eng" name="package"><option>Not sure yet</option><option value="Two Comps">Two Comps ($199)</option><option value="Four Comps + Calculator">Four Comps + Calculator ($399)</option><option value="Comps + Analyst">Comps + Analyst ($1,400)</option></select></div>
 <div style="flex: 1 1 100%; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; padding-top: 8px">
 <p style="margin: 0; font-size: 13px; line-height: 20px; color: #536985; max-width: 420px">We use this only to find your comps and review your site. <a href="/privacy.html">Privacy notice</a></p>
 <button type="submit" class="btn btn-n sub" style="border: 0; cursor: pointer">Get my comps</button>
