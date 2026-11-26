@@ -323,21 +323,25 @@ h1,h2,h3,h4,summary,.s{text-wrap:balance}p,li,dd{text-wrap:pretty}.cnote{display
 var C={
 A:{title:'Pet food, sold by subscription',sales:'$55K to $65K',mo:60000,
  pl:{gross:106.0,disc:6.0,product:28.4,ship:10.4,ads:16.4,payroll:11.0,proc:2.6,platform:0.6,software:0.9,rent:1.2,prof:1.4,other:4.8,addbacks:9.5},
+ ch:[['Website subscriptions',80,45.0],['Website one-time orders',20,28.0]],
  season:[93,89,95,97,100,98,95,98,103,107,115,110],
  facts:[['How they sell','Website, mostly subscriptions'],['In business','4 to 6 years'],['Customers who come back','58 of 100'],['Owner works','15–20 hrs/week']],
  notes:['Spends the least on ads and keeps the most. Customers reorder on their own.','Pays more for staff, and it shows: most customers come back.','One supplier makes most of the product. A price hike there would hurt.']},
 B:{title:'Pet treats, sold through social media ads',sales:'$70K to $80K',mo:75000,
  pl:{gross:108.5,disc:8.5,product:33.5,ship:12.5,ads:27.5,payroll:6.2,proc:2.9,platform:1.8,software:1.2,rent:0.4,prof:1.6,other:3.3,addbacks:12.0},
+ ch:[['Website',85,24.0],['TikTok Shop',15,9.3]],
  season:[84,82,90,94,99,96,94,97,104,112,128,120],
- facts:[['How they sell','Website, one-time orders'],['In business','2 to 3 years'],['Customers who come back','27 of 100'],['Owner works','35–45 hrs/week']],
+ facts:[['How they sell','Website, plus TikTok Shop'],['In business','2 to 3 years'],['Customers who come back','27 of 100'],['Owner works','35–45 hrs/week']],
  notes:['Sells a lot but keeps the least. Ads eat $27.50 of every $100.','Sales spike in the holidays, mostly from discounts.','The owner does nearly everything.']},
 C:{title:'Pet food, online and in local stores',sales:'$85K to $95K',mo:90000,
  pl:{gross:104.5,disc:4.5,product:31.0,ship:10.2,ads:21.0,payroll:9.4,proc:2.4,platform:1.1,software:1.1,rent:2.8,prof:1.0,other:2.4,addbacks:8.0},
+ ch:[['Website',55,40.0],['Pet stores (wholesale)',45,27.3]],
  season:[96,94,98,99,101,100,99,100,101,103,106,103],
  facts:[['How they sell','Website plus 140 pet stores'],['In business','6 to 8 years'],['Customers who come back','44 of 100'],['Owner works','20–25 hrs/week']],
  notes:['Selling to stores keeps sales steady all year.','Pays rent for its own warehouse instead of a shipping company.','No single cost is out of line.']},
 D:{title:'Pet supplements, sold on Amazon and online',sales:'$50K to $60K',mo:54000,
  pl:{gross:105.0,disc:5.0,product:24.0,ship:14.5,ads:18.5,payroll:7.5,proc:1.5,platform:8.0,software:1.0,rent:0.3,prof:1.2,other:2.5,addbacks:10.0},
+ ch:[['Amazon',70,30.7],['Website',30,40.0]],
  season:[98,90,96,97,99,97,96,99,102,106,118,112],
  facts:[['How they sell','Amazon, plus its own website'],['In business','3 to 5 years'],['Customers who come back','49 of 100'],['Owner works','25–30 hrs/week']],
  notes:['Supplements are cheap to make, so product cost is the lowest of the four.','Amazon takes $8 of every $100 in fees, but brings most new customers.','Amazon ships the orders, which keeps the team small.']}
@@ -561,6 +565,11 @@ function R(){
   '<p style="margin:0 0 10px;color:#17243A">It’s what a business keeps from each sale after paying for that sale: the product, shipping it, the ads that brought the customer in, and the card or Amazon fee.</p>'+
   '<p style="margin:0 0 10px;color:#17243A">Take a $50 order. Product $15, shipping $6, ads $10, fees $1.50. That leaves <b>$17.50</b>, or 35%. That $17.50 is what pays rent, staff, software and you.</p>'+
   '<p style="margin:0;color:#17243A">Why it matters: it shows how each competitor really makes money on every order. Below about 30%, more sales barely cover the bills. Here, A keeps '+usd(C.A.x.cm/2)+' of every $50 order and B keeps '+usd(C.B.x.cm/2)+'. Same kind of business, very different engine.</p></div>'+
+  '<div class="panel gap"><div class="ptop"><h2 class="s">Contribution margin by channel</h2><span>Where each competitor actually makes its money</span></div><div class="scroll"><table class="t n"><thead><tr><th></th><th style="text-align:left">Channel</th><th>Share of sales</th><th>Contribution margin</th></tr></thead><tbody>'+
+  K.map(function(k){var ch=C[k].ch,hi=Math.max.apply(null,ch.map(function(r){return r[2];})),lo=Math.min.apply(null,ch.map(function(r){return r[2];}));return ch.map(function(r,i){return '<tr><td>'+(i?'':'<b>'+k+'</b>')+'</td><td style="text-align:left">'+r[0]+'</td><td>'+r[1]+'%</td><td class="'+(r[2]===hi?'pos':r[2]===lo&&r[2]<30?'neg':'')+'" style="font-weight:600">'+pc(r[2])+'</td></tr>';}).join('');}).join('')+
+  '</tbody></table></div>'+
+  K.map(function(k){var ch=C[k].ch.slice().sort(function(a,b){return b[2]-a[2];}),t=ch[0],b=ch[ch.length-1];function nm(x){x=x.replace(/ \(.*\)/,'').replace(/^Website (.)/,function(m,c){return c.toUpperCase();}).replace(/^Website$/,'its website');return /^(Amazon|TikTok)/.test(x)?x:x.charAt(0).toLowerCase()+x.slice(1);}return '<div class="ins"><p style="color:#17243A;margin:0">Competitor '+k+' makes '+Math.round(t[2])+'% on '+nm(t[0])+' but '+Math.round(b[2])+'% on '+nm(b[0])+'. That’s '+usd(t[2]/2)+' vs. '+usd(b[2]/2)+' from every $50 order.</p></div>';}).join('')+
+  '<div class="take">Same sale, different channel, different money left over. Know your number on every channel before you push more sales into the weakest one.</div></div>'+
   '<div class="panel gap"><div class="ptop"><h2 class="s">What we noticed</h2></div>'+
   '<div class="ins"><p style="color:#17243A;margin:0">Same kind of business, but A keeps '+Math.round(C.A.x.net)+'% of sales as profit and B keeps '+Math.round(C.B.x.net)+'%.</p></div>'+
   '<div class="ins"><p style="color:#17243A;margin:0">The gap is mostly advertising. A’s customers reorder on their own, so it spends 16% of sales on ads instead of 27%.</p></div>'+
