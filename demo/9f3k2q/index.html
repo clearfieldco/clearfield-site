@@ -343,7 +343,7 @@ D:{title:'Pet supplements, sold on Amazon and online',sales:'$50K to $60K',mo:54
  notes:['Supplements are cheap to make, so product cost is the lowest of the four.','Amazon takes $8 of every $100 in fees, but brings most new customers.','Amazon ships the orders, which keeps the team small.']}
 };
 var K=['A','B','C','D'];
-function calc(p){var cogs=p.product+p.ship,gp=100-cogs,fees=p.proc+p.platform+p.software,opex=p.ads+p.payroll+fees+p.rent+p.prof+p.other,net=gp-opex;return {cogs:cogs,gp:gp,fees:fees,opex:opex,net:net,home:net+p.addbacks};}
+function calc(p){var cogs=p.product+p.ship,gp=100-cogs,fees=p.proc+p.platform+p.software,opex=p.ads+p.payroll+fees+p.rent+p.prof+p.other,net=gp-opex,cm=gp-p.ads-p.proc-p.platform;return {cogs:cogs,gp:gp,cm:cm,fees:fees,opex:opex,net:net,home:net+p.addbacks};}
 K.forEach(function(k){C[k].x=calc(C[k].pl);});
 function med(a){a=a.slice().sort(function(x,y){return x-y;});var m=a.length>>1;return a.length%2?a[m]:(a[m-1]+a[m])/2;}
 function d2(n){return (n<0?'-':'')+'$'+Math.abs(n).toFixed(2);}
@@ -551,12 +551,16 @@ function R(){
  }
  if(view==='compare'){
   $('#title').textContent='The four businesses, side by side';$('#subtitle').textContent='A typical month for each';
-  var lines=[['Sales',function(q){return 100;},null,1],['Cost of goods sold',function(q){return q.x.cogs;},0,1],['Gross profit',function(q){return q.x.gp;},1,1],['Advertising',function(q){return q.pl.ads;},0,1],['Payroll and contractors',function(q){return q.pl.payroll;},null,1],['Fees and software',function(q){return q.x.fees;},0,1],['Net profit',function(q){return q.x.net;},1,1],['Owner’s total take-home',function(q){return q.x.home;},1,1],['Customers who come back',function(q){return q.facts[2][1];},null,0],['Owner works',function(q){return q.facts[3][1];},null,0]];
+  var lines=[['Sales',function(q){return 100;},null,1],['Cost of goods sold',function(q){return q.x.cogs;},0,1],['Gross profit',function(q){return q.x.gp;},1,1],['Advertising',function(q){return q.pl.ads;},0,1],['Contribution margin',function(q){return q.x.cm;},1,1],['Payroll and contractors',function(q){return q.pl.payroll;},null,1],['Fees and software',function(q){return q.x.fees;},0,1],['Net profit',function(q){return q.x.net;},1,1],['Owner’s total take-home',function(q){return q.x.home;},1,1],['Customers who come back',function(q){return q.facts[2][1];},null,0],['Owner works',function(q){return q.facts[3][1];},null,0]];
   html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead><tbody>'+
   lines.map(function(l){var v=K.map(function(k){return l[1](C[k]);}),best=null,worst=null;
    if(l[3]&&l[2]!==null){var s=v.slice().sort(function(a,b){return a-b;});best=l[2]?s[s.length-1]:s[0];worst=l[2]?s[0]:s[s.length-1];}
-   return '<tr'+(l[0]==='Net profit'||l[0]==='Gross profit'?' class="sub"':'')+'><td>'+l[0]+'</td>'+v.map(function(x,i){var q=C[K[i]];return '<td class="'+(l[2]===1&&x===best?'pos':l[2]===0&&x===worst?'neg':'')+'">'+(l[3]?cell(q.mo,x):x)+'</td>';}).join('')+'</tr>';}).join('')+
+   return '<tr'+(l[0]==='Net profit'||l[0]==='Gross profit'||l[0]==='Contribution margin'?' class="sub"':'')+'><td>'+l[0]+'</td>'+v.map(function(x,i){var q=C[K[i]];return '<td class="'+(l[2]===1&&x===best?'pos':l[2]===0&&x===worst?'neg':'')+'">'+(l[3]?cell(q.mo,x):x)+'</td>';}).join('')+'</tr>';}).join('')+
   '</tbody></table></div><div class="take">Each business is shown at its own size, so compare the <b>% of sales</b> to see who runs leaner. <span class="neg" style="font-weight:700">Red</span> marks the biggest cost as a share of sales, <span class="pos" style="font-weight:700">green</span> the highest profit.</div></div>'+
+  '<div class="panel gap"><div class="ptop"><h2 class="s">Contribution margin, in plain English</h2></div>'+
+  '<p style="margin:0 0 10px;color:#17243A">It’s what a business keeps from each sale after paying for that sale: the product, shipping it, the ads that brought the customer in, and the card or Amazon fee.</p>'+
+  '<p style="margin:0 0 10px;color:#17243A">Take a $50 order. Product $15, shipping $6, ads $10, fees $1.50. That leaves <b>$17.50</b>, or 35%. That $17.50 is what pays rent, staff, software and you.</p>'+
+  '<p style="margin:0;color:#17243A">Why it matters: it shows how each competitor really makes money on every order. Below about 30%, more sales barely cover the bills. Here, A keeps '+usd(C.A.x.cm/2)+' of every $50 order and B keeps '+usd(C.B.x.cm/2)+'. Same kind of business, very different engine.</p></div>'+
   '<div class="panel gap"><div class="ptop"><h2 class="s">What we noticed</h2></div>'+
   '<div class="ins"><p style="color:#17243A;margin:0">Same kind of business, but A keeps '+Math.round(C.A.x.net)+'% of sales as profit and B keeps '+Math.round(C.B.x.net)+'%.</p></div>'+
   '<div class="ins"><p style="color:#17243A;margin:0">The gap is mostly advertising. A’s customers reorder on their own, so it spends 16% of sales on ads instead of 27%.</p></div>'+
