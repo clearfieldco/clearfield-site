@@ -1,8 +1,8 @@
 // Runs automatically after every verified (non-spam) Netlify Forms submission.
-// For the "demo-request" form it adds the person to Kit and tags them. The Kit
-// automation on that tag sends the private demo link and starts the follow-up
-// emails. Nothing secret lives in this file: the key is a Netlify environment
-// variable.
+// For the "demo-request" form it emails the private demo link (email 1) from
+// Gmail, then adds the person to Kit and tags them. The Kit automation starts the
+// follow-up emails (2 to 5). Nothing secret lives in this file: keys are Netlify environment
+// variables.
 //
 // How it reaches Kit:
 //   1. Always: subscribes the person through the public "Comps demo signup" Kit
@@ -14,7 +14,15 @@
 //   2. Optional: if KIT_API_KEY and KIT_TAG_ID are set in Netlify, it also saves
 //      the business details as custom fields and applies the tag.
 //
+// Email 1 (the private demo link) is sent from Google Workspace, not Kit, so it
+// arrives as a normal one-to-one email from info@clearfieldcomps.com and is
+// more likely to land in the Gmail Primary tab. A Google Apps Script web app
+// ("Clearfield demo email 1 sender", owned by info@clearfieldcomps.com) does the
+// sending. Kit still sends emails 2 to 5; email 1 is unpublished in Kit.
+//
 // Netlify environment variables (Project configuration > Environment variables):
+//   DEMO_EMAIL1_URL     Apps Script web app URL (ends in /exec)
+//   DEMO_EMAIL1_SECRET  shared secret that matches SHARED_SECRET in the script
 //   KIT_FORM_ID  optional, Kit form ID (defaults to the Comps demo signup form)
 //   KIT_API_KEY  optional, Kit v4 API key (Kit > Settings > Developer > API keys)
 //   KIT_TAG_ID   optional, numeric ID of the "Comps demo" tag in Kit
@@ -32,6 +40,29 @@ async function joinForm(formId, email, firstName) {
   });
   const text = await res.text();
   return { ok: res.ok, status: res.status, text };
+}
+
+async function sendEmail1(email, firstName) {
+  const url = process.env.DEMO_EMAIL1_URL;
+  const secret = process.env.DEMO_EMAIL1_SECRET;
+  if (!url || !secret) {
+    console.error('DEMO_EMAIL1_URL or DEMO_EMAIL1_SECRET is not set; demo email 1 was not sent.');
+    return;
+  }
+  try {
+    // Apps Script answers with a redirect to the result; fetch follows it.
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ secret, email, first_name: firstName }),
+    });
+    const text = await res.text();
+    if (!res.ok || text.indexOf('"ok":true') === -1) {
+      console.error('Demo email 1 send failed', res.status, text.slice(0, 300));
+    }
+  } catch (e) {
+    console.error('Demo email 1 send error', e && e.message);
+  }
 }
 
 async function kit(path, body, key) {
@@ -57,6 +88,9 @@ exports.handler = async (event) => {
   const email = String(d.email || '').trim().toLowerCase();
   if (!email) return { statusCode: 200, body: 'No email' };
   const firstName = String(d.first_name || '').trim();
+
+  // Send the private demo link from Gmail first, so a Kit problem can't block it.
+  await sendEmail1(email, firstName);
 
   // Joining the Kit form starts the automation that emails the demo link.
   const f = await joinForm(process.env.KIT_FORM_ID || DEFAULT_FORM_ID, email, firstName);
