@@ -276,27 +276,25 @@ h1,h2,h3,h4,summary,.s{text-wrap:balance}p,li,dd{text-wrap:pretty}.cnote{display
 <button class="cb" data-comp="A" aria-pressed="true">A</button>
 <button class="cb" data-comp="B" aria-pressed="false">B</button>
 <button class="cb" data-comp="C" aria-pressed="false">C</button>
-<button class="cb" data-comp="D" aria-pressed="false">D</button>
 </div>
 <div class="navrow">
 <button class="nb" data-go="overview">Overview</button>
 <button class="nb" data-go="pl">Profit and loss</button>
 <button class="nb" data-go="compare">Side by side</button>
-<div class="lb hide-m" style="padding:18px 20px 6px">Four Comps + Calculator</div>
-<button class="nb" data-go="you">Calculator<span class="pill hide-m">$399</span></button>
+<button class="nb" data-go="you">Calculator</button>
 </div>
 </aside>
 
 <main id="main">
 <div class="printhead"><img src="/assets/clearfield-wordmark.png" alt="Clearfield &amp; Co."><span id="printdate"></span></div>
-<div class="cnote" role="note" aria-label="Confidentiality and the Clearfield Guarantee"><div class="cconf"><h2 class="s">Comp identities are confidential.</h2><p>The names, websites and other identifying details of every comp stay private. That&#8217;s the industry standard, and our agreements with the businesses and data partners behind each comp require it. You get the full books, never the name on the door.</p></div><div class="cseal"><svg class="sealsvg" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#011543" stroke-width="1.5"/><circle cx="24" cy="24" r="18.5" fill="none" stroke="#011543" stroke-width="0.75" stroke-dasharray="1.5 2"/><path d="M16.5 24.5l5 5 10-11" fill="none" stroke="#011543" stroke-width="2" stroke-linecap="square"/></svg><div><div class="s sealt">Clearfield Guarantee</div><p>Every comp is accurate and drawn from the real books of a business that has sold or been listed for sale.</p><p class="sealx">In this demo the businesses are examples. Your delivered comps carry this seal.</p></div></div></div>
+<div class="cnote" role="note" aria-label="Confidentiality and the Clearfield Guarantee"><div class="cconf"><h2 class="s">Comp identities are confidential.</h2><p>You get the full books, never the name on the door.</p></div><div class="cseal"><svg class="sealsvg" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22.5" fill="none" stroke="#011543" stroke-width="1.5"/><circle cx="24" cy="24" r="18.5" fill="none" stroke="#011543" stroke-width="0.75" stroke-dasharray="1.5 2"/><path d="M16.5 24.5l5 5 10-11" fill="none" stroke="#011543" stroke-width="2" stroke-linecap="square"/></svg><div><div class="s sealt">Clearfield Guarantee</div><p>Every comp is accurate and drawn from the real books of a business that has sold or been listed for sale.</p></div></div></div>
 <div class="head">
 <div>
 <h1 class="s" id="title">Business A</h1>
 <p id="subtitle"></p>
 </div>
 <div class="hact">
-<span class="tier" id="tier" hidden>Four Comps + Calculator</span>
+<span class="tier" id="tier"></span>
 <button class="pdf" id="pdf" type="button" aria-label="Download this view as a PDF"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 2v8M4.5 6.5 8 10l3.5-3.5M2.5 13.5h11"/></svg>Download PDF</button>
 </div>
 </div>
@@ -306,13 +304,13 @@ h1,h2,h3,h4,summary,.s{text-wrap:balance}p,li,dd{text-wrap:pretty}.cnote{display
 <section data-view="compare"></section>
 <section data-view="you"></section>
 
-<div class="powered"><span><b>Powered by Clearfield Intelligence</b></span><span>Example businesses. Every number is a typical month.</span></div>
+<div class="powered"><span>Example businesses. Every number is a typical month.</span></div>
 </main>
 </div>
 
 <div class="cta">
 <div class="ctain">
-<p><b>Want this for your business?</b> The calculator and PDF downloads come with Four Comps + Calculator, $399.</p>
+<p><b>Want this for your business?</b> One comp for $199, or three comps and the calculator for $399.</p>
 <a class="btn btn-n" href="/#pricing">Get your comps</a>
 </div>
 </div>
@@ -325,28 +323,19 @@ A:{title:'Pet food, sold by subscription',sales:'$55K to $65K',mo:60000,
  pl:{gross:106.0,disc:6.0,product:28.4,ship:10.4,ads:16.4,payroll:11.0,proc:2.6,platform:0.6,software:0.9,rent:1.2,prof:1.4,other:4.8,addbacks:9.5},
  ch:[['Website subscriptions',80,45.0],['Website one-time orders',20,28.0]],
  season:[93,89,95,97,100,98,95,98,103,107,115,110],
- facts:[['How they sell','Website, mostly subscriptions'],['In business','4 to 6 years'],['Customers who come back','58 of 100'],['Owner works','15–20 hrs/week']],
- notes:['Spends the least on ads and keeps the most. Customers reorder on their own.','Pays more for staff, and it shows: most customers come back.','One supplier makes most of the product. A price hike there would hurt.']},
+ notes:['Spends the least on ads and keeps the most. Customers reorder on their own.','One supplier makes most of the product. A price hike there would hurt.']},
 B:{title:'Pet treats, sold through social media ads',sales:'$70K to $80K',mo:75000,
  pl:{gross:108.5,disc:8.5,product:33.5,ship:12.5,ads:27.5,payroll:6.2,proc:2.9,platform:1.8,software:1.2,rent:0.4,prof:1.6,other:3.3,addbacks:12.0},
  ch:[['Website',85,24.0],['TikTok Shop',15,9.3]],
  season:[84,82,90,94,99,96,94,97,104,112,128,120],
- facts:[['How they sell','Website, plus TikTok Shop'],['In business','2 to 3 years'],['Customers who come back','27 of 100'],['Owner works','35–45 hrs/week']],
- notes:['Sells a lot but keeps the least. Ads eat $27.50 of every $100.','Sales spike in the holidays, mostly from discounts.','The owner does nearly everything.']},
+ notes:['Sells a lot but keeps the least. Ads eat $27.50 of every $100.','Sales spike in the holidays, mostly from discounts.']},
 C:{title:'Pet food, online and in local stores',sales:'$85K to $95K',mo:90000,
  pl:{gross:104.5,disc:4.5,product:31.0,ship:10.2,ads:21.0,payroll:9.4,proc:2.4,platform:1.1,software:1.1,rent:2.8,prof:1.0,other:2.4,addbacks:8.0},
  ch:[['Website',55,40.0],['Pet stores (wholesale)',45,27.3]],
  season:[96,94,98,99,101,100,99,100,101,103,106,103],
- facts:[['How they sell','Website plus 140 pet stores'],['In business','6 to 8 years'],['Customers who come back','44 of 100'],['Owner works','20–25 hrs/week']],
- notes:['Selling to stores keeps sales steady all year.','Pays rent for its own warehouse instead of a shipping company.','No single cost is out of line.']},
-D:{title:'Pet supplements, sold on Amazon and online',sales:'$50K to $60K',mo:54000,
- pl:{gross:105.0,disc:5.0,product:24.0,ship:14.5,ads:18.5,payroll:7.5,proc:1.5,platform:8.0,software:1.0,rent:0.3,prof:1.2,other:2.5,addbacks:10.0},
- ch:[['Amazon',70,30.7],['Website',30,40.0]],
- season:[98,90,96,97,99,97,96,99,102,106,118,112],
- facts:[['How they sell','Amazon, plus its own website'],['In business','3 to 5 years'],['Customers who come back','49 of 100'],['Owner works','25–30 hrs/week']],
- notes:['Supplements are cheap to make, so product cost is the lowest of the four.','Amazon takes $8 of every $100 in fees, but brings most new customers.','Amazon ships the orders, which keeps the team small.']}
+ notes:['Selling to stores keeps sales steady all year.','Pays rent for its own warehouse instead of a shipping company.']}
 };
-var K=['A','B','C','D'];
+var K=['A','B','C'];
 function calc(p){var cogs=p.product+p.ship,gp=100-cogs,fees=p.proc+p.platform+p.software,opex=p.ads+p.payroll+fees+p.rent+p.prof+p.other,net=gp-opex,cm=gp-p.ads-p.proc-p.platform;return {cogs:cogs,gp:gp,cm:cm,fees:fees,opex:opex,net:net,home:net+p.addbacks};}
 K.forEach(function(k){C[k].x=calc(C[k].pl);});
 function med(a){a=a.slice().sort(function(x,y){return x-y;});var m=a.length>>1;return a.length%2?a[m]:(a[m-1]+a[m])/2;}
@@ -419,7 +408,7 @@ function youView(){
  var form='<div class="panel"><div class="ptop"><h2 class="s">Your P&amp;L</h2><span>A typical month. Stays in your browser. <button class="lnk" id="y-clear" type="button">Clear</button> · <button class="lnk" id="y-ex" type="button">Use example</button></span></div><div class="ygrid">'+
  grp.map(function(g){return '<div class="ygrp"><div class="lb">'+g+'</div>'+F.filter(function(f){return f[2]===g;}).map(function(f){
   return '<label class="yf">'+f[1]+'<span class="wrap"><span>$</span><input inputmode="decimal" data-k="'+f[0]+'" value="'+(Y[f[0]]?Math.round(Y[f[0]]).toLocaleString('en-US'):'')+'" placeholder="0" aria-label="'+f[1]+' in dollars"></span></label>';}).join('')+
-  (g==='Owner'?'<p class="note" style="margin-top:0">What you pay yourself. We add it back so your profit compares fairly.</p>':'')+'</div>';}).join('')+
+  '</div>';}).join('')+
  '</div></div><div id="y-table"></div><div id="y-whatif"></div>';
  return form;
 }
@@ -459,9 +448,9 @@ function renderTable(){
  }).join('');
  gaps.sort(function(a,b){return b[1]-a[1];});
  var top=gaps.slice(0,3),sum=top.reduce(function(s,q){return s+q[1];},0);
- var msg=top.length?'Your biggest gaps against the typical business: '+top.map(function(q){return '<b>'+q[0].toLowerCase()+' ('+sgn(q[1])+')</b>';}).join(', ')+'. Close them and you’d keep about <b>'+usd(sum)+' more a month</b>, or '+usd(sum*12)+' a year.':'You spend less than the typical business on every major cost. Nice.';
- box.innerHTML='<div class="panel gap yt"><div class="ptop"><h2 class="s">You vs. the comps</h2><span>Each comp shown at your sales, so every dollar compares directly</span></div><div class="scroll"><table class="t n"><thead><tr><th></th><th class="you">You</th><th>A</th><th>B</th><th>C</th><th>D</th><th>Typical</th><th>Gap / month</th></tr></thead><tbody>'+body+
- '</tbody></table></div><div class="take">“Typical” is the middle of the four. <span class="neg" style="font-weight:700">Red</span> gaps cost you money each month. <span class="pos" style="font-weight:700">Green</span> ones are where you’re ahead.</div></div><div class="callout gap">'+msg+'</div>';
+ var msg=top.length?'Your biggest gaps against the typical business: '+top.map(function(q){return '<b>'+q[0].toLowerCase()+' ('+sgn(q[1])+')</b>';}).join(', ')+'. Close them and you’d keep about <b>'+usd(sum)+' more a month</b>, or '+usd(sum*12)+' a year.':'You spend less than the typical business on every major cost.';
+ box.innerHTML='<div class="callout gap">'+msg+'</div><div class="panel gap yt"><div class="ptop"><h2 class="s">You vs. the comps</h2></div><div class="scroll"><table class="t n"><thead><tr><th></th><th class="you">You</th>'+K.map(function(k){return '<th>'+k+'</th>';}).join('')+'<th>Typical</th><th>Gap / month</th></tr></thead><tbody>'+body+
+ '</tbody></table></div></div>';
 }
 var SC={};
 function renderWhatif(){
@@ -478,7 +467,7 @@ function renderWhatif(){
   '<input type="range" data-w="'+k+'" min="'+lo+'" max="'+hi+'" step="0.1" value="'+(W[k]!=null?W[k]:yv).toFixed(1)+'" aria-label="'+fget(k)[1]+' as a % of sales"></div><span class="val" id="wv-'+k+'"></span></div>';}).join('');
  box.innerHTML='<div class="panel gap"><div class="ptop"><h2 class="s">What if?</h2><span class="wbtns"><button class="lnk" id="w-typ" type="button">Match the typical business</button><button class="lnk" id="w-reset" type="button">Reset</button></span></div>'+
  '<div class="wsum"><div><label>Net profit today</label><strong class="n" id="w-now"></strong><small class="sm" id="w-nowp"></small></div><div><label>Net profit if</label><strong class="n" id="w-new"></strong><small class="sm" id="w-newp"></small></div><div class="hl"><label>You’d keep</label><strong class="n" id="w-diff"></strong><small class="sm" style="color:#DCE4EF" id="w-yr"></small></div></div>'+
- '<div class="wleg" style="margin:10px 0 2px"><span><i style="width:12px;height:12px;border-radius:50%;background:#011543"></i>You. Drag it.</span><span><i style="width:10px;height:10px;border-radius:50%;border:2px dashed #7E91AA"></i>Where you are today</span><span><i style="width:2px;height:12px;background:#7E91AA"></i>Comps A to D</span><span><i style="width:2px;height:12px;background:#011543"></i>Typical</span></div>'+rows+'</div>';
+ '<div class="wleg" style="margin:10px 0 2px"><span><i style="width:12px;height:12px;border-radius:50%;background:#011543"></i>You</span><span><i style="width:10px;height:10px;border-radius:50%;border:2px dashed #7E91AA"></i>Where you are today</span><span><i style="width:2px;height:12px;background:#7E91AA"></i>Comps A to C</span><span><i style="width:2px;height:12px;background:#011543"></i>Typical</span></div>'+rows+'</div>';
  box.querySelectorAll('input[type=range]').forEach(function(r){r.addEventListener('input',function(){W[r.dataset.w]=parseFloat(r.value);updWhatif();});});
  $('#w-reset').addEventListener('click',function(){W={};renderWhatif();});
  $('#w-typ').addEventListener('click',function(){var y0=mine();SLIDE.forEach(function(k){var t=typ(k);if(y0[k]>t)W[k]=Math.max(SC[k][0],Math.min(SC[k][1],t));});renderWhatif();});
@@ -508,16 +497,14 @@ function R(){
  document.querySelectorAll('.cb').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.comp===comp?'true':'false');b.disabled=!profile;b.style.opacity=profile?1:0.45;});
  document.querySelectorAll('.nb').forEach(function(b){b.setAttribute('aria-current',b.dataset.go===view?'true':'false');});
  document.querySelectorAll('[data-view]').forEach(function(s){s.classList.toggle('on',s.dataset.view===view);});
- $('#tier').hidden=view!=='you';
+ $('#tier').textContent=view==='pl'?'One Comp · $199':'Three Comps + Calculator · $399';
  if(profile){$('#title').textContent='Business '+comp+': '+c.title;$('#subtitle').textContent='A typical month, based on the past year';}
  var html='';
  if(view==='overview'){
-  var pk=c.season.indexOf(Math.max.apply(null,c.season)),lo=c.season.indexOf(Math.min.apply(null,c.season));
-  html=kpis(c)+'<div class="grid g2 gap"><div class="panel"><div class="ptop"><h2 class="s">Busy and slow months</h2></div>'+seasonChart(c.season)+
-  '<div class="take">Busiest in '+MON[pk]+'. Slowest in '+MON[lo]+'.</div></div>'+
+    html=kpis(c)+'<div class="grid g2 gap"><div class="panel"><div class="ptop"><h2 class="s">Busy and slow months</h2></div>'+seasonChart(c.season)+
+  '</div>'+
   '<div class="panel"><div class="ptop"><h2 class="s">Where every $100 of sales goes</h2></div>'+dollar(c)+'</div></div>'+
-  '<div class="grid g2e gap"><div class="panel"><div class="facts">'+c.facts.map(function(f){return '<div><label>'+f[0]+'</label><b>'+f[1]+'</b></div>';}).join('')+'</div></div>'+
-  '<div class="panel"><div class="ptop"><h2 class="s">What we noticed</h2></div>'+c.notes.map(function(i){return '<div class="ins"><p style="color:#17243A;margin:0">'+i+'</p></div>';}).join('')+'</div></div>';
+  '<div class="panel gap"><div class="ptop"><h2 class="s">What we noticed</h2></div>'+c.notes.map(function(i){return '<div class="ins"><p style="color:#17243A;margin:0">'+i+'</p></div>';}).join('')+'</div>';
  }
  if(view==='pl'){
   var p=c.pl,x=c.x;
@@ -545,38 +532,31 @@ function R(){
    ['Owner’s pay (added back)',p.addbacks,'ind',null,null],
    ['Owner’s total take-home',x.home,'sub',function(q){return q.x.home;},0]
   ];
-  html='<div class="panel"><div class="ptop"><h2 class="s">Profit and loss</h2><span>A typical month</span></div><div class="scroll"><table class="t n"><thead><tr><th></th><th>Per month</th><th>% of sales</th><th>vs. others</th></tr></thead><tbody>'+
+  html='<div class="panel"><div class="ptop"><h2 class="s">Profit and loss</h2><span>A typical month</span></div><div class="scroll"><table class="t n"><thead><tr><th></th><th>Per month</th><th>vs. others</th></tr></thead><tbody>'+
   rows.map(function(r){
-   if(r[2]==='hd')return '<tr><td colspan="4" style="font-weight:700;color:#536985;font-size:11px;letter-spacing:0.07em;text-transform:uppercase;padding-top:18px">'+r[0]+'</td></tr>';
+   if(r[2]==='hd')return '<tr><td colspan="3" style="font-weight:700;color:#536985;font-size:11px;letter-spacing:0.07em;text-transform:uppercase;padding-top:18px">'+r[0]+'</td></tr>';
    var v='';
    if(r[3]&&r[4]!==null){var d=r[1]-m(r[3]);if(Math.abs(d)>=0.5){var good=r[4]?d<0:d>0;v=good?'<span class="verdict pos">Better</span>':'<span class="verdict neg">Worse</span>';}}
-   return '<tr class="'+r[2]+'"><td>'+r[0]+'</td><td>'+usdc(c.mo*r[1]/100)+'</td><td style="color:#536985">'+pc(r[1])+'</td><td>'+v+'</td></tr>';}).join('')+
-  '</tbody></table></div><div class="take">Laid out like a QuickBooks P&amp;L. “Owner’s total take-home” adds back what the owner pays themselves, so businesses where owners pay themselves differently compare fairly.</div></div>';
+   return '<tr class="'+r[2]+'"><td>'+r[0]+'</td><td>'+cell(c.mo,r[1])+'</td><td>'+v+'</td></tr>';}).join('')+
+  '</tbody></table></div></div>';
  }
  if(view==='compare'){
-  $('#title').textContent='The four businesses, side by side';$('#subtitle').textContent='A typical month for each';
-  var lines=[['Sales',function(q){return 100;},null,1],['Cost of goods sold',function(q){return q.x.cogs;},0,1],['Gross profit',function(q){return q.x.gp;},1,1],['Advertising',function(q){return q.pl.ads;},0,1],['Contribution margin',function(q){return q.x.cm;},1,1],['Payroll and contractors',function(q){return q.pl.payroll;},null,1],['Fees and software',function(q){return q.x.fees;},0,1],['Net profit',function(q){return q.x.net;},1,1],['Owner’s total take-home',function(q){return q.x.home;},1,1],['Customers who come back',function(q){return q.facts[2][1];},null,0],['Owner works',function(q){return q.facts[3][1];},null,0]];
-  html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead><tbody>'+
+  $('#title').textContent='The three businesses, side by side';$('#subtitle').textContent='A typical month for each';
+  var lines=[['Sales',function(q){return 100;},null,1],['Cost of goods sold',function(q){return q.x.cogs;},0,1],['Gross profit',function(q){return q.x.gp;},1,1],['Advertising',function(q){return q.pl.ads;},0,1],['Contribution margin',function(q){return q.x.cm;},1,1],['Payroll and contractors',function(q){return q.pl.payroll;},null,1],['Fees and software',function(q){return q.x.fees;},0,1],['Net profit',function(q){return q.x.net;},1,1],['Owner’s total take-home',function(q){return q.x.home;},1,1]];
+  html='<div class="panel"><div class="scroll"><table class="t n"><thead><tr><th></th>'+K.map(function(k){return '<th>'+k+'</th>';}).join('')+'</tr></thead><tbody>'+
   lines.map(function(l){var v=K.map(function(k){return l[1](C[k]);}),best=null,worst=null;
    if(l[3]&&l[2]!==null){var s=v.slice().sort(function(a,b){return a-b;});best=l[2]?s[s.length-1]:s[0];worst=l[2]?s[0]:s[s.length-1];}
    return '<tr'+(l[0]==='Net profit'||l[0]==='Gross profit'||l[0]==='Contribution margin'?' class="sub"':'')+'><td>'+l[0]+'</td>'+v.map(function(x,i){var q=C[K[i]];return '<td class="'+(l[2]===1&&x===best?'pos':l[2]===0&&x===worst?'neg':'')+'">'+(l[3]?cell(q.mo,x):x)+'</td>';}).join('')+'</tr>';}).join('')+
-  '</tbody></table></div><div class="take">Each business is shown at its own size, so compare the <b>% of sales</b> to see who runs leaner. <span class="neg" style="font-weight:700">Red</span> marks the biggest cost as a share of sales, <span class="pos" style="font-weight:700">green</span> the highest profit.</div></div>'+
-  '<div class="panel gap"><div class="ptop"><h2 class="s">Contribution margin, in plain English</h2></div>'+
-  '<p style="margin:0 0 10px;color:#17243A">It’s what a business keeps from each sale after paying for that sale: the product, shipping it, the ads that brought the customer in, and the card or Amazon fee.</p>'+
-  '<p style="margin:0 0 10px;color:#17243A">Take a $50 order. Product $15, shipping $6, ads $10, fees $1.50. That leaves <b>$17.50</b>, or 35%. That $17.50 is what pays rent, staff, software and you.</p>'+
-  '<p style="margin:0;color:#17243A">Why it matters: it shows how each competitor really makes money on every order. Below about 30%, more sales barely cover the bills. Here, A keeps '+usd(C.A.x.cm/2)+' of every $50 order and B keeps '+usd(C.B.x.cm/2)+'. Same kind of business, very different engine.</p></div>'+
-  '<div class="panel gap"><div class="ptop"><h2 class="s">Contribution margin by channel</h2><span>Where each competitor actually makes its money</span></div><div class="scroll"><table class="t n"><thead><tr><th></th><th style="text-align:left">Channel</th><th>Share of sales</th><th>Contribution margin</th></tr></thead><tbody>'+
+  '</tbody></table></div></div>'+
+  '<div class="panel gap"><div class="ptop"><h2 class="s">Contribution margin by channel</h2></div><div class="scroll"><table class="t n"><thead><tr><th></th><th style="text-align:left">Channel</th><th>Share</th><th>Margin</th></tr></thead><tbody>'+
   K.map(function(k){var ch=C[k].ch,hi=Math.max.apply(null,ch.map(function(r){return r[2];})),lo=Math.min.apply(null,ch.map(function(r){return r[2];}));return ch.map(function(r,i){return '<tr><td>'+(i?'':'<b>'+k+'</b>')+'</td><td style="text-align:left">'+r[0]+'</td><td>'+r[1]+'%</td><td class="'+(r[2]===hi?'pos':r[2]===lo&&r[2]<30?'neg':'')+'" style="font-weight:600">'+pc(r[2])+'</td></tr>';}).join('');}).join('')+
-  '</tbody></table></div>'+
-  K.map(function(k){var ch=C[k].ch.slice().sort(function(a,b){return b[2]-a[2];}),t=ch[0],b=ch[ch.length-1];function nm(x){x=x.replace(/ \(.*\)/,'').replace(/^Website (.)/,function(m,c){return c.toUpperCase();}).replace(/^Website$/,'its website');return /^(Amazon|TikTok)/.test(x)?x:x.charAt(0).toLowerCase()+x.slice(1);}return '<div class="ins"><p style="color:#17243A;margin:0">Competitor '+k+' makes '+Math.round(t[2])+'% on '+nm(t[0])+' but '+Math.round(b[2])+'% on '+nm(b[0])+'. That’s '+usd(t[2]/2)+' vs. '+usd(b[2]/2)+' from every $50 order.</p></div>';}).join('')+
-  '<div class="take">Same sale, different channel, different money left over. Know your number on every channel before you push more sales into the weakest one.</div></div>'+
+  '</tbody></table></div></div>'+
   '<div class="panel gap"><div class="ptop"><h2 class="s">What we noticed</h2></div>'+
   '<div class="ins"><p style="color:#17243A;margin:0">Same kind of business, but A keeps '+Math.round(C.A.x.net)+'% of sales as profit and B keeps '+Math.round(C.B.x.net)+'%.</p></div>'+
-  '<div class="ins"><p style="color:#17243A;margin:0">The gap is mostly advertising. A’s customers reorder on their own, so it spends 16% of sales on ads instead of 27%.</p></div>'+
-  '<div class="ins"><p style="color:#17243A;margin:0">D makes its product for the least, but Amazon fees and fulfillment take back most of that edge.</p></div></div>';
+  '<div class="ins"><p style="color:#17243A;margin:0">The gap is mostly advertising. A’s customers reorder on their own, so it spends 16% of sales on ads instead of 27%.</p></div></div>';
  }
  if(view==='you'){
-  $('#title').textContent='Clearfield Comps calculator';$('#subtitle').textContent='Enter your P&L. See it next to every comp. Drag any cost to see your profit move.';
+  $('#title').textContent='Clearfield Comps calculator';$('#subtitle').textContent='Your P&L next to every comp, in dollars a month';
   html=youView();
  }
  $('[data-view="'+view+'"]').innerHTML=html;
