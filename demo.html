@@ -90,6 +90,24 @@ h1,h2,h3,h4,summary,.s{text-wrap:balance}p,li,dd{text-wrap:pretty}</style>
 </div>
 </div>
 </main>
+<script>
+// Join the Kit form "Comps demo signup" from the visitor's browser. Kit drops
+// sign-ups sent from servers, so this must run client-side. keepalive lets it
+// finish even if the page navigates away right after.
+window.kitJoin=function(email,first){
+  if(!email||!window.fetch||!window.URLSearchParams)return;
+  var b=new URLSearchParams({email_address:email});if(first)b.set('fields[first_name]',first);
+  try{fetch('https://app.kit.com/forms/10251951/subscriptions',{method:'POST',mode:'cors',keepalive:true,headers:{'Accept':'application/json','Content-Type':'application/x-www-form-urlencoded'},body:b.toString()}).catch(function(){});}catch(e){}
+};
+(function(){
+  var form=document.querySelector('form[name="demo-request"]');if(!form)return;
+  form.addEventListener('submit',function(){
+    var fd=new FormData(form);
+    if((fd.get('company-url')||'').toString())return;
+    window.kitJoin((fd.get('email')||'').toString().trim(),(fd.get('first_name')||'').toString().trim());
+  });
+})();
+</script>
 <footer><div class="w"><span>© 2026 Clearfield &amp; Co.</span><span><a href="/">Home</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></span></div></footer>
 </body>
 </html>

@@ -7,6 +7,10 @@
 // How it reaches Kit:
 //   1. Always: subscribes the person through the public "Comps demo signup" Kit
 //      form (no API key needed). The Kit automation starts on "joins form".
+//      Note: Kit answers "success" but silently drops form sign-ups sent from
+//      servers, so the demo forms also join the Kit form from the visitor's
+//      browser (window.kitJoin in index.html and demo.html). That browser call
+//      is what actually starts the emails; this step is a backup.
 //   2. Optional: if KIT_API_KEY and KIT_TAG_ID are set in Netlify, it also saves
 //      the business details as custom fields and applies the tag.
 //
