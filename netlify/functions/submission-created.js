@@ -7,6 +7,10 @@
 // How it reaches Kit:
 //   1. Always: subscribes the person through the public "Comps demo signup" Kit
 //      form (no API key needed). The Kit automation starts on "joins form".
+//      Note: Kit quarantines form sign-ups sent from servers (it answers 200
+//      with status "quarantined"), so the demo forms join the Kit form from the
+//      visitor's browser (window.kitJoin in index.html and demo.html). That
+//      browser call is what starts the emails; this step is only a backup.
 //   2. Optional: if KIT_API_KEY and KIT_TAG_ID are set in Netlify, it also saves
 //      the business details as custom fields and applies the tag.
 //
@@ -56,6 +60,9 @@ exports.handler = async (event) => {
 
   // Joining the Kit form starts the automation that emails the demo link.
   const f = await joinForm(process.env.KIT_FORM_ID || DEFAULT_FORM_ID, email, firstName);
+  if (f.ok && f.text.indexOf('"quarantined"') !== -1) {
+    console.warn('Kit quarantined the server-side form sign-up; the browser sign-up is the one that counts.');
+  }
   if (!f.ok) {
     console.error('Kit form subscribe failed', f.status, f.text.slice(0, 300));
     return { statusCode: 502, body: 'Kit form error' };
