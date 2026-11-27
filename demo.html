@@ -91,20 +91,33 @@ h1,h2,h3,h4,summary,.s{text-wrap:balance}p,li,dd{text-wrap:pretty}</style>
 </div>
 </main>
 <script>
-// Join the Kit form "Comps demo signup" from the visitor's browser. Kit drops
-// sign-ups sent from servers, so this must run client-side. keepalive lets it
-// finish even if the page navigates away right after.
+// Join the Kit form "Comps demo signup" from the visitor's browser; joining it
+// starts the demo emails. Kit quarantines sign-ups it finds suspicious (always
+// the ones sent from our server) and answers with a "guard" link where the
+// person passes a quick check. kitJoin resolves to that link, or '' when the
+// person was subscribed (or Kit couldn't be reached, which we don't block on).
 window.kitJoin=function(email,first){
-  if(!email||!window.fetch||!window.URLSearchParams)return;
+  if(!email||!window.fetch||!window.URLSearchParams||!window.Promise)return Promise.resolve('');
   var b=new URLSearchParams({email_address:email});if(first)b.set('fields[first_name]',first);
-  try{fetch('https://app.kit.com/forms/10251951/subscriptions',{method:'POST',mode:'cors',keepalive:true,headers:{'Accept':'application/json','Content-Type':'application/x-www-form-urlencoded'},body:b.toString()}).catch(function(){});}catch(e){}
+  var call=fetch('https://app.kit.com/forms/10251951/subscriptions',{method:'POST',mode:'cors',headers:{'Accept':'application/json','Content-Type':'application/x-www-form-urlencoded'},body:b.toString()})
+    .then(function(r){return r.json();})
+    .then(function(j){return (j&&j.status==='quarantined'&&j.url)?j.url:'';})
+    .catch(function(){return '';});
+  var wait=new Promise(function(res){setTimeout(function(){res('');},6000);});
+  return Promise.race([call,wait]);
 };
 (function(){
   var form=document.querySelector('form[name="demo-request"]');if(!form)return;
-  form.addEventListener('submit',function(){
+  form.addEventListener('submit',function(e){
+    if(!window.fetch||!window.URLSearchParams||!window.Promise)return;
+    e.preventDefault();
+    var btn=form.querySelector('button[type="submit"]');if(btn){btn.disabled=true;btn.textContent='Sending\u2026';}
     var fd=new FormData(form);
-    if((fd.get('company-url')||'').toString())return;
-    window.kitJoin((fd.get('email')||'').toString().trim(),(fd.get('first_name')||'').toString().trim());
+    var kit=(fd.get('company-url')||'').toString()?Promise.resolve(''):window.kitJoin((fd.get('email')||'').toString().trim(),(fd.get('first_name')||'').toString().trim());
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(fd).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);return kit;})
+    .then(function(guard){window.location.href=guard||'/demo-sent';})
+    .catch(function(){form.submit();});
   });
 })();
 </script>
