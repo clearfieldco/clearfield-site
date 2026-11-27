@@ -4,11 +4,31 @@
 // emails. Nothing secret lives in this file: the key is a Netlify environment
 // variable.
 //
+// How it reaches Kit:
+//   1. Always: subscribes the person through the public "Comps demo signup" Kit
+//      form (no API key needed). The Kit automation starts on "joins form".
+//   2. Optional: if KIT_API_KEY and KIT_TAG_ID are set in Netlify, it also saves
+//      the business details as custom fields and applies the tag.
+//
 // Netlify environment variables (Project configuration > Environment variables):
-//   KIT_API_KEY  Kit v4 API key (Kit > Settings > Developer > API keys)
-//   KIT_TAG_ID   numeric ID of the "Comps demo" tag in Kit
+//   KIT_FORM_ID  optional, Kit form ID (defaults to the Comps demo signup form)
+//   KIT_API_KEY  optional, Kit v4 API key (Kit > Settings > Developer > API keys)
+//   KIT_TAG_ID   optional, numeric ID of the "Comps demo" tag in Kit
 
 const KIT = 'https://api.kit.com/v4';
+const DEFAULT_FORM_ID = '10251951'; // Kit form "Comps demo signup"
+
+async function joinForm(formId, email, firstName) {
+  const body = new URLSearchParams({ email_address: email });
+  if (firstName) body.set('fields[first_name]', firstName);
+  const res = await fetch('https://app.kit.com/forms/' + encodeURIComponent(formId) + '/subscriptions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json' },
+    body: body.toString(),
+  });
+  const text = await res.text();
+  return { ok: res.ok, status: res.status, text };
+}
 
 async function kit(path, body, key) {
   const res = await fetch(KIT + path, {
@@ -29,16 +49,21 @@ exports.handler = async (event) => {
   }
   if (payload.form_name !== 'demo-request') return { statusCode: 200, body: 'Not a demo request' };
 
-  const key = process.env.KIT_API_KEY;
-  const tagId = process.env.KIT_TAG_ID;
-  if (!key || !tagId) {
-    console.warn('KIT_API_KEY or KIT_TAG_ID is not set. Lead saved in Netlify Forms only.');
-    return { statusCode: 200, body: 'Kit not configured' };
-  }
-
   const d = payload.data || {};
   const email = String(d.email || '').trim().toLowerCase();
   if (!email) return { statusCode: 200, body: 'No email' };
+  const firstName = String(d.first_name || '').trim();
+
+  // Joining the Kit form starts the automation that emails the demo link.
+  const f = await joinForm(process.env.KIT_FORM_ID || DEFAULT_FORM_ID, email, firstName);
+  if (!f.ok) {
+    console.error('Kit form subscribe failed', f.status, f.text.slice(0, 300));
+    return { statusCode: 502, body: 'Kit form error' };
+  }
+
+  const key = process.env.KIT_API_KEY;
+  const tagId = process.env.KIT_TAG_ID;
+  if (!key || !tagId) return { statusCode: 200, body: 'ok (form only)' };
 
   const fields = {
     company: d.company || '',
@@ -62,7 +87,7 @@ exports.handler = async (event) => {
     return { statusCode: 502, body: 'Kit error' };
   }
 
-  // Tagging starts the Kit automation that emails the demo link.
+  // Tag as well, for segmenting.
   const t = await kit('/tags/' + encodeURIComponent(tagId) + '/subscribers', { email_address: email }, key);
   if (!t.ok) {
     console.error('Kit tag failed', t.status, t.text.slice(0, 300));
