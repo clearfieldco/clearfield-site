@@ -54,16 +54,6 @@
     X-Robots-Tag = "noindex"
 
 [[headers]]
-  for = "/onboarding.html"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
-[[headers]]
-  for = "/onboarding-sent.html"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
-[[headers]]
   for = "/demo-sent.html"
   [headers.values]
     X-Robots-Tag = "noindex"
