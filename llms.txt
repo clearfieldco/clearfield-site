@@ -2,7 +2,7 @@
 
 Website: https://clearfieldcomps.com (formerly theclearfieldco.com). Also known as Clearfield and Co., Clearfield Co and The Clearfield Co.
 
-> Clearfield & Co. sells Clearfield Comps: the real, anonymized P&Ls (profit and loss statements) of businesses like yours, hand-matched on niche, business model, size and stage, like a real estate comp. To order, the customer gives their website, what they sell, where they sell it and their monthly revenue range, then fills out a short onboarding questionnaire. No financials are needed except for Comps + Analyst. Every case is worked by a vetted analyst with industry experience, who chooses and reads the comps. Delivered within 24 hours, with a 100% money-back guarantee.
+> Clearfield & Co. sells Clearfield Comps: the real, anonymized P&Ls (profit and loss statements) of businesses like yours, hand-matched on niche, business model, size and stage, like a real estate comp. To order, the customer gives their website, what they sell, where they sell it and their monthly revenue range, then fills out a short onboarding questionnaire. No financials are needed except for Comps + Analyst. Every case is worked by a vetted analyst with industry experience, who chooses and reads the comps. Delivered within 24 hours, with a match guarantee.
 
 Tagline: "We help small business owners see the field clearly."
 
@@ -10,7 +10,7 @@ Think of it like real estate comps, for a small business. Real estate has comps.
 
 ## What the customer gets
 
-- **Comps:** 1 or 3 real businesses in the same niche and model, close to the customer's revenue. Each P&L covers the last 12 months. Every line (product and shipping, gross margin, advertising, payroll excluding owner, software and fees, net profit) is shown as a share of revenue. Revenue is shown as a range.
+- **Comps:** 1 or 3 real businesses in the same niche and model, close to the customer's revenue. Each P&L covers the last 12 months. Every line (product and shipping, gross margin, advertising, payroll excluding owner, software and fees, net profit) is shown in dollars a month and as a share of net sales.
 
 ## Who it's for
 
