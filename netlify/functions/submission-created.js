@@ -20,9 +20,18 @@
 // ("Clearfield demo email 1 sender", owned by info@clearfieldcomps.com) does the
 // sending. Kit still sends emails 2 to 5; email 1 is unpublished in Kit.
 //
+// For the "comps-request" and "comps-request-detail" forms it forwards the
+// request to a second Apps Script web app ("Clearfield comps request handler",
+// also owned by info@clearfieldcomps.com). That script sends the buyer an
+// instant auto-reply, puts a ready-to-send match confirmation in the Drafts
+// folder, and logs one row per request in the "Comps requests" sheet. Nothing
+// is sent until COMPS_REQUEST_URL is set, so this is off by default.
+//
 // Netlify environment variables (Project configuration > Environment variables):
 //   DEMO_EMAIL1_URL     Apps Script web app URL (ends in /exec)
 //   DEMO_EMAIL1_SECRET  shared secret that matches SHARED_SECRET in the script
+//   COMPS_REQUEST_URL     optional, comps request handler web app URL (ends in /exec)
+//   COMPS_REQUEST_SECRET  optional, its shared secret (defaults to DEMO_EMAIL1_SECRET)
 //   KIT_FORM_ID  optional, Kit form ID (defaults to the Comps demo signup form)
 //   KIT_API_KEY  optional, Kit v4 API key (Kit > Settings > Developer > API keys)
 //   KIT_TAG_ID   optional, numeric ID of the "Comps demo" tag in Kit
@@ -65,6 +74,39 @@ async function sendEmail1(email, firstName) {
   }
 }
 
+// Fields the comps request handler uses. Anything else in the submission is ignored.
+const REQUEST_FIELDS = ['name', 'email', 'website', 'monthly_revenue', 'niche', 'sales_channel', 'package', 'want_to_know'];
+
+async function forwardCompsRequest(formName, data, createdAt) {
+  const url = process.env.COMPS_REQUEST_URL;
+  const secret = process.env.COMPS_REQUEST_SECRET || process.env.DEMO_EMAIL1_SECRET;
+  if (!url || !secret) {
+    console.warn('COMPS_REQUEST_URL is not set; no auto-reply or draft for this comps request.');
+    return { statusCode: 200, body: 'Comps request handler not configured' };
+  }
+  const fields = {};
+  for (const k of REQUEST_FIELDS) fields[k] = String(data[k] || '').trim().slice(0, 600);
+  fields.email = fields.email.toLowerCase();
+  if (!fields.email) return { statusCode: 200, body: 'No email' };
+  const type = formName === 'comps-request' ? 'request' : 'detail';
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ secret, type, received_at: createdAt || new Date().toISOString(), ...fields }),
+    });
+    const text = await res.text();
+    if (!res.ok || text.indexOf('"ok":true') === -1) {
+      console.error('Comps request handler failed', res.status, text.slice(0, 300));
+      return { statusCode: 502, body: 'Comps request handler error' };
+    }
+  } catch (e) {
+    console.error('Comps request handler error', e && e.message);
+    return { statusCode: 502, body: 'Comps request handler error' };
+  }
+  return { statusCode: 200, body: 'ok' };
+}
+
 async function kit(path, body, key) {
   const res = await fetch(KIT + path, {
     method: 'POST',
@@ -82,7 +124,10 @@ exports.handler = async (event) => {
   } catch (e) {
     return { statusCode: 400, body: 'Bad payload' };
   }
-  if (payload.form_name !== 'demo-request') return { statusCode: 200, body: 'Not a demo request' };
+  if (payload.form_name === 'comps-request' || payload.form_name === 'comps-request-detail') {
+    return forwardCompsRequest(payload.form_name, payload.data || {}, payload.created_at);
+  }
+  if (payload.form_name !== 'demo-request') return { statusCode: 200, body: 'Not a handled form' };
 
   const d = payload.data || {};
   const email = String(d.email || '').trim().toLowerCase();

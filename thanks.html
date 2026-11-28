@@ -4,5 +4,34 @@
 <link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@600&family=Libre+Franklin:wght@400;700&display=swap">
-<style>body{margin:0;background:#011543;color:#FFFFFF;font-family:'Libre Franklin',Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center}main{max-width:640px;padding:40px 24px;display:flex;flex-direction:column;gap:24px}h1{font-family:'Libre Caslon Text',Georgia,serif;font-weight:600;letter-spacing:-0.012em;font-size:48px;line-height:54px;margin:0}p{color:#DCE4EF;font-size:18px;line-height:29px;margin:0}a{color:#FFFFFF}</style></head>
-<body><main><picture style="display:block;align-self:flex-start"><source srcset="/assets/clearfield-wordmark.webp" type="image/webp"><img width="777" height="104" decoding="async" src="/assets/clearfield-wordmark.png" alt="Clearfield &amp; Co." style="height:24px;width:auto;align-self:flex-start"></picture><h1>Request received.</h1><p>We'll check that we have comps for your business, then email you to confirm before you pay. Every package is backed by our match guarantee.</p><p><a href="/">Back to Clearfield Comps</a></p></main></body></html>
+<style>body{margin:0;background:#011543;color:#FFFFFF;font-family:'Libre Franklin',Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center}main{max-width:640px;padding:40px 24px;display:flex;flex-direction:column;gap:24px}h1{font-family:'Libre Caslon Text',Georgia,serif;font-weight:600;letter-spacing:-0.012em;font-size:48px;line-height:54px;margin:0}p{color:#DCE4EF;font-size:18px;line-height:29px;margin:0}a{color:#FFFFFF}.more{display:flex;flex-direction:column;gap:10px;border-top:1px solid #18345C;padding-top:24px}.more label{font-size:16px;line-height:24px;font-weight:700}.more textarea{font:inherit;font-size:16px;line-height:24px;padding:12px;border:1px solid #536985;border-radius:6px;background:#FFFFFF;color:#17243A;resize:vertical}.more button{align-self:flex-start;font:inherit;font-weight:700;font-size:15px;min-height:44px;padding:0 20px;border:0;border-radius:6px;background:#FFFFFF;color:#011543;cursor:pointer}.more button:hover{background:#DCE4EF}.sent{color:#FFFFFF}</style></head>
+<body><main><picture style="display:block;align-self:flex-start"><source srcset="/assets/clearfield-wordmark.webp" type="image/webp"><img width="777" height="104" decoding="async" src="/assets/clearfield-wordmark.png" alt="Clearfield &amp; Co." style="height:24px;width:auto;align-self:flex-start"></picture><h1>Request received.</h1><p>An analyst is checking our comps for your business now. You'll hear from us within 4 hours (8 am to 9 pm Eastern, 7 days a week), usually sooner. We'll tell you exactly which businesses we'd match you with before you pay anything.</p><p>A confirmation is on its way from info@clearfieldcomps.com. If you don't see it, check your promotions or spam folder.</p>
+<form name="comps-request-detail" method="POST" action="/thanks.html?more=1" data-netlify="true" netlify-honeypot="company-website" class="more">
+<input type="hidden" name="form-name" value="comps-request-detail"><p hidden><label>Leave blank <input name="company-website"></label></p>
+<input type="hidden" name="email" id="m-email"><input type="hidden" name="name" id="m-name">
+<label for="m-q">Optional: what do you most want to know about your numbers?</label>
+<textarea id="m-q" name="want_to_know" rows="3" maxlength="600" placeholder="e.g. Am I spending too much on ads? What should I pay myself?"></textarea>
+<button type="submit">Send to my analyst</button>
+</form>
+<p class="sent" hidden>Thanks. Your analyst will use that to pick your comps.</p>
+<p>While you wait: <a href="/demo.html">see the comps demo</a> · <a href="/">Back to Clearfield Comps</a></p></main>
+<script>
+(function(){
+  var f=document.querySelector('form[name="comps-request-detail"]'),done=document.querySelector('.sent');
+  function finish(){f.hidden=true;done.hidden=false;}
+  if(/[?&]more=1/.test(location.search)){finish();return;}
+  var who={};try{who=JSON.parse(sessionStorage.getItem('cf-request')||'{}');}catch(e){}
+  // Without the email from the request we can't tie the answer to it, so hide the question.
+  if(!who.email){f.hidden=true;return;}
+  document.getElementById('m-email').value=who.email;document.getElementById('m-name').value=who.name||'';
+  f.addEventListener('submit',function(e){
+    if(!window.fetch||!window.URLSearchParams)return;
+    e.preventDefault();
+    if(!document.getElementById('m-q').value.trim()){finish();return;}
+    var b=f.querySelector('button');b.disabled=true;b.textContent='Sending\u2026';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);finish();})
+    .catch(function(){f.submit();});
+  });
+})();
+</script></body></html>
