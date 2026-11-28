@@ -386,7 +386,7 @@ function save(){try{localStorage.setItem('cf-demo-you',JSON.stringify(Y));}catch
 
 function youView(){
  var grp=['Income','Cost of goods sold','Expenses','Owner'];
- var form='<div class="panel"><div class="ptop"><h2 class="s">Your P&amp;L</h2><span>A typical month. Stays in your browser. <button class="lnk" id="y-clear" type="button">Clear</button> · <button class="lnk" id="y-ex" type="button">Use example</button></span></div><div class="ygrid">'+
+ var form='<div class="panel"><div class="ptop"><h2 class="s">Your P&amp;L</h2><span>A typical month. Stays in your browser; we never see it. <button class="lnk" id="y-clear" type="button">Clear</button> · <button class="lnk" id="y-ex" type="button">Use example</button></span></div><div class="ygrid">'+
  grp.map(function(g){return '<div class="ygrp"><div class="lb">'+g+'</div>'+F.filter(function(f){return f[2]===g;}).map(function(f){
   return '<label class="yf">'+f[1]+'<span class="wrap"><span>$</span><input inputmode="decimal" data-k="'+f[0]+'" value="'+(Y[f[0]]?Math.round(Y[f[0]]).toLocaleString('en-US'):'')+'" placeholder="0" aria-label="'+f[1]+' in dollars"></span></label>';}).join('')+
   '</div>';}).join('')+
