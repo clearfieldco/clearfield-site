@@ -717,6 +717,18 @@ window.kitJoin=function(email,first){
 };
 </script>
 <script>
+// Comps request form: fill in name, email and package from the link
+// (?name=, ?email=, ?package=one|three|analyst) so emails can send people
+// straight to it, and remember who asked so the thanks page can tie a
+// follow-up answer to the request.
+(function(){
+  var f=document.querySelector('form[name="comps-request"]');if(!f||!window.URLSearchParams)return;
+  var q=new URLSearchParams(location.search),pk={one:'One Comp',three:'Three Comps + Calculator',analyst:'Comps + Analyst'};
+  var set=function(id,v){var el=document.getElementById(id);if(el&&v&&!el.value)el.value=v.slice(0,200);};
+  set('f-name',q.get('name'));set('f-email',q.get('email'));set('f-site',q.get('website'));
+  var p=pk[(q.get('package')||'').toLowerCase()];if(p)document.getElementById('f-eng').value=p;
+  f.addEventListener('submit',function(){try{sessionStorage.setItem('cf-request',JSON.stringify({name:document.getElementById('f-name').value.trim(),email:document.getElementById('f-email').value.trim()}));}catch(e){}});
+})();
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-pkg]');if(!a)return;var s=document.getElementById('f-eng');if(s)s.value=a.getAttribute('data-pkg');});
 </script>
 </body>
