@@ -6,7 +6,7 @@ Website: https://clearfieldcomps.com (formerly theclearfieldco.com). Also known 
 
 Tagline: "We help small business owners see the field clearly."
 
-Think of it like real estate comps, for a small business. Real estate has comps. Now businesses do too. A competitor's revenue is a guess; their P&L isn't. Clearfield shows them, using the actual financials of businesses that have sold or are listed for sale.
+Think of it like real estate comps, for a small business. Real estate has comps. Now businesses do too. A competitor's revenue is a guess; their P&L isn't. Clearfield shows them, using the actual financials of businesses that sold in the last 12 to 18 months.
 
 ## What the customer gets
 
@@ -31,7 +31,7 @@ Every package has a match guarantee: if a comp does not match the niche, model, 
 ## Where comps come from
 
 - **Real:** every comp is an actual business with actual books. Nothing is modeled or averaged.
-- **Current:** P&Ls cover the last 12 months.
+- **Current:** Every comp sold in the last 12 to 18 months, and its P&L covers its last 12 months.
 - **Matched:** same niche, same business model, close to the customer's revenue.
 - **Anonymous:** no names, locations or dates. Sourced from licensed data and partners who share with permission.
 
