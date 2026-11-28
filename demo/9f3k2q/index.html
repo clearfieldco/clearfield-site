@@ -270,7 +270,7 @@ h1,h2,h3,h4,summary,.s{text-wrap:balance}p,li,dd{text-wrap:pretty}.cnote{display
 <a href="/" aria-label="Clearfield &amp; Co. home"><img src="/assets/clearfield-wordmark.png" alt="Clearfield &amp; Co."></a>
 <span class="tname">Comps</span>
 <span class="tmeta">Demo · Example businesses</span>
-<a class="btn btn-w" href="/#pricing">Get your comps</a>
+<a class="btn btn-w" href="/?package=three#request" data-req>Get your comps</a>
 </div>
 </header>
 
@@ -315,7 +315,7 @@ h1,h2,h3,h4,summary,.s{text-wrap:balance}p,li,dd{text-wrap:pretty}.cnote{display
 <div class="cta">
 <div class="ctain">
 <p><b>Want this for your business?</b> One comp for $199, or three comps and the calculator for $399.</p>
-<a class="btn btn-n" href="/#pricing">Get your comps</a>
+<a class="btn btn-n" href="/?package=three#request" data-req>Get your comps</a>
 </div>
 </div>
 
@@ -552,6 +552,14 @@ document.querySelectorAll('.nb').forEach(function(b){b.addEventListener('click',
 var hv=(location.hash||'').slice(1).split('-');if(document.querySelector('[data-view="'+hv[0]+'"]'))view=hv[0];if(C[hv[1]])comp=hv[1];
 R();
 })();
+</script>
+<script>
+// "Get your comps" goes straight to the request form with Three Comps picked.
+// If the demo link carries ?name= and ?email= (demo email 1 can add them),
+// pass them along so the visitor doesn't type them again.
+(function(){if(!window.URLSearchParams)return;var q=new URLSearchParams(location.search),o=new URLSearchParams({package:'three'});
+['name','email'].forEach(function(k){var v=q.get(k);if(v)o.set(k,v.slice(0,200));});
+document.querySelectorAll('a[data-req]').forEach(function(a){a.href='/?'+o.toString()+'#request';});})();
 </script>
 </body>
 </html>
