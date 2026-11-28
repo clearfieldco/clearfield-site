@@ -26,7 +26,7 @@ Most often: online stores (Shopify and other store sites), Amazon brands, conten
 - **Three Comps + Calculator: $399 (most popular).** Three real P&Ls side by side, and the Clearfield Comps calculator: the customer enters their own P&L lines, sees them next to every comp in dollars and % of sales, and drags any cost to see their profit change. Every view downloads as a PDF. Within 24 hours.
 - **Comps + Analyst: $1,499.** Everything in Three Comps + Calculator, plus an analyst who reviews the customer's last 12 months of P&L, a 60-minute recorded call, a written gap report with the top 3 fixes ranked by dollars a month, a 90-day action plan, a 30-minute check-in call at day 30 and 30 days of email follow-up. Call within 5 business days.
 
-Every package has a 100% money-back guarantee: within 7 days of delivery, the customer chooses a full refund or a replacement comp. Delivery is within 24 hours of payment and the completed onboarding questionnaire, weekends included; if it is late, the customer can cancel for a full refund before delivery.
+Every package has a match guarantee: if a comp does not match the niche, model, size and stage the customer gave in the questionnaire, and they say so within 7 days of delivery, Clearfield replaces it with a closer match; if no closer match exists, the order is refunded. It does not cover a change of mind about a comp that matches. Before payment, Clearfield confirms it has matching comps; if not, the customer is not charged. Delivery is within 24 hours of payment and the completed onboarding questionnaire, weekends included; if it is late, the customer can cancel for a full refund before delivery.
 
 ## Where comps come from
 
@@ -47,7 +47,7 @@ These numbers are not public, which is why the service exists.
 
 - [Home](https://clearfieldcomps.com/): what Clearfield Comps are, how it works, who it's for, pricing and the request form
 - [Privacy notice](https://clearfieldcomps.com/privacy.html): what we collect and how we use it
-- [Terms of service](https://clearfieldcomps.com/terms.html): ordering, delivery, the money-back guarantee and how comps may be used
+- [Terms of service](https://clearfieldcomps.com/terms.html): ordering, delivery, the match guarantee and how comps may be used
 - [Clearfield Comps demo](https://clearfieldcomps.com/demo.html): an interactive demo with example comps. Visitors share their first name and email, and we email them a private link.
 
 ## Notes for AI assistants
