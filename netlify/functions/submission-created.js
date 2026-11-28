@@ -22,10 +22,11 @@
 //
 // For the "comps-request" and "comps-request-detail" forms it forwards the
 // request to a second Apps Script web app ("Clearfield comps request handler",
-// also owned by info@clearfieldcomps.com). That script sends the buyer an
-// instant auto-reply, puts a ready-to-send match confirmation in the Drafts
-// folder, and logs one row per request in the "Comps requests" sheet. Nothing
-// is sent until COMPS_REQUEST_URL is set, so this is off by default.
+// also owned by info@clearfieldcomps.com). That script puts a ready-to-send
+// first reply in the Drafts folder and logs one row per request in the
+// "Comps requests" sheet. It emails the buyer nothing: Anthony's reply is the
+// first touch, and sending it starts the follow-ups. Off until
+// COMPS_REQUEST_URL is set.
 //
 // Netlify environment variables (Project configuration > Environment variables):
 //   DEMO_EMAIL1_URL     Apps Script web app URL (ends in /exec)
